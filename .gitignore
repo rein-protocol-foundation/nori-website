@@ -1,0 +1,20 @@
+# Local credentials and configuration
+.env
+.env.*
+!.env.example
+SECRETs.md
+*.pem
+*.key
+
+# Dependencies and generated output
+node_modules/
+.next/
+out/
+dist/
+coverage/
+.vercel/
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
