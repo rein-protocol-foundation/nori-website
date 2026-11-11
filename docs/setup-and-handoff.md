@@ -13,7 +13,7 @@ Initialize a standalone GitHub repository and local checkout, then stop before w
 ## Decisions recorded
 
 - Repository: `rein-protocol-foundation/nori-website`.
-- Initial visibility: private, pending an explicit decision to publish the source.
+- Visibility: public, as explicitly requested by the user.
 - Default branch: `main`.
 - Local checkout: `~/Documents/Github Projects/nori-website`, alongside the existing agent checkout.
 - Intended hosting: Vercel.
