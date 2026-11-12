@@ -1,0 +1,18 @@
+[
+  {
+    "i": 4,
+    "prompt": "Edit only this existing website section. Preserve all headline text, case content, Nori head identity, Discord and GitHub panel sizes, normal readable proportions, layered shadows and exact current composition. Remove the entire top navigation bar above the main headline (Nori logo, sentence, links, Get involved, divider), replacing it with clean white margin; this is an interior section. In BOTH GitHub cards replace invented repository label 'nori-org / nori' with the neutral exact label 'Community repository'. Do not add another repository owner, address, username, number or navigation. Keep only the provided three work artifacts. Improve subtle Z-depth of lower PR card with a slightly more separated shadow; preserve unobscured titles. No other changes."
+  },
+  {
+    "i": 6,
+    "prompt": "Make a precise text and avatar cleanup of this existing section, preserving the black/white split layout, all major headings, CTA, three artifacts and illustration disclaimer. In the GitHub crop replace the fabricated repository 'rein-protocol / agent-safety' with exact neutral label 'Community repository'; remove fake PR number '#427' and leave 'Draft contribution'. In supporter email replace the invented email address with just 'Nori' as sender, no email address at all. In the top document replace colored Nori variants under Contributors with three small generic grey human initials circles labelled 'Community contributors', since these are human collaborators. Keep Nori original mint/pink HEAD avatars elsewhere. Do not introduce repository names, addresses, numbers or new factual claims. Everything else stays."
+  },
+  {
+    "i": 7,
+    "prompt": "Precise edit: remove ONLY the entire top navigation header (Nori logo, Mission, Agent, Open Source, Get Started, top horizontal divider) and replace that region with clean white negative space. Preserve the headline, supporting sentence, three continuity artifacts, Nori avatars, footer copy, their dimensions, positions and depth exactly. It is an interior website section, not a separate page. No new content."
+  },
+  {
+    "i": 9,
+    "prompt": "Precise edit: remove ONLY the entire top website navigation header with logo, tagline and links. Replace it with clean white margin, retain 'Case cards: depth that responds.' title, Rest / Hover / Open case three state columns, case details and bottom interaction notes. This is a design review state sheet, not a website section. In Rest and Hover make Discord message typography look like a native message crop with modest avatar and sender name Nori instead of oversized headline inside app; put case title 'When Nori needs expertise, it brings people in.' just above the dark message card in black. Keep message 'I’ve narrowed the issue to the retry path. I need a developer and an independent tester.' Preserve same card dimensions between Rest and Hover; hover only comes 32px forward, slight tilt and clearer shadow, View case appears without changing overall card height. No content hidden under overlapping cards. Keep the exact full right-hand details panel and bottom notes unchanged. No new facts."
+  }
+]

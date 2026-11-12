@@ -2,7 +2,7 @@
 
 Standalone public website for Nori-Agent (Rein Agent), by Rein Protocol Foundation.
 
-**Status:** repository initialized; concept, content, and implementation are pending discussion. No website has been developed or deployed.
+**Status:** UI design v0.4 has been accepted as the direction for the website; content and design artifacts are documented. No website has been developed or deployed.
 
 ## Purpose
 
@@ -15,8 +15,8 @@ Website copy must distinguish demonstrated capabilities from product goals. Any 
 - This repository contains the public website only.
 - Agent implementation remains in [nori-agent](https://github.com/rein-protocol-foundation/nori-agent).
 - The administrative dashboard remains separate and access-restricted.
-- Design reference for the upcoming discussion: [LobeHub](https://lobehub.com/).
-- Framework, design, page structure, copy, and licensing have not been selected.
+- See the [website content v0.4](docs/design/website-content-v0.4.md) and [accepted UI design v0.4](docs/design/ui-design-v0.4.md), including nine section images and interaction states. Earlier visual concepts remain available for comparison, not as approved designs.
+- Framework and licensing remain undecided. Website implementation has not started.
 
 ## Planned hosting
 
