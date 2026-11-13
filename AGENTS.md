@@ -1,7 +1,7 @@
 # Development instructions
 
 - This is the standalone public website repository for Nori-Agent, maintained by Rein Protocol Foundation.
-- The v0.4 UI direction is accepted. Current work is content and design; wait for explicit implementation authorization before developing the website or selecting a framework.
+- The accepted visual direction is consolidated in `docs/design/design.md`; content is in `docs/design/content.md`. Local implementation has been authorized; keep each implementation task within its requested stage. Existing code is under revision, not an approved visual baseline.
 - Preserve the separation between the public website, agent implementation, and restricted administrative dashboard.
 - Never commit credentials, live organizational records, personal data, or runtime memory.
 - Describe capabilities accurately: distinguish implemented and verified behavior from planned capabilities.
@@ -22,9 +22,9 @@ user requests take precedence. Delegation does not authorize website implementat
   Other spawned agents default to **GPT-6.1 Sol Medium**, not the primary Astra model.
 - Do small, self-contained edits directly when delegation would add more overhead than it saves.
   Default to one subagent at a time; use two only for independent work with explicit file ownership.
-- Ground assignments in the existing `docs/design/website-content-v0.4.md` and
-  `docs/design/ui-design-v0.4.md`. Preserve accepted Nori identity, badges, case priorities, and
-  interaction specifications. Historical concepts are references, not equally approved alternatives.
+- Ground assignments in the existing `docs/design/content.md` and
+  `docs/design/design.md`. Preserve accepted Nori identity, badges, case priorities, and
+  interaction specifications. Historical documents are ZIP-archived under `docs/archive/`; do not load them during normal implementation. Current documents override outdated interactions in retained concept images.
 - Give workers concise task-specific context (`fork_turns="none"` when available): objective,
   owned files, relevant content sections or design images, accepted constraints, and verification
   criteria. Tell them they share the checkout, must preserve others' changes, and must not invent
