@@ -532,3 +532,10 @@ Nori brings open-source collaboration to the work of running an organization. Fo
 ## 9. Local website copy implementation — 2026-11-12
 
 Implementation is now explicitly authorized. `src/content.ts` contains the first complete English detail copy for the promise/handoff, everyday request, global hiring, payroll/leave, board, expenses, treasury, storefront, fundraising, first contribution, human expertise, events, public voice, media, Rein, and continuity stories. Details consistently cover context, actions, artifacts, human/platform collaboration, and outcome or next step. Section 6 remains the governing marketing and CTA decision. Existing planning history above is retained.
+
+
+## 8. 内容实施复核（2026-11-12）
+
+用户指出前版只呈现约七至八成内容，尤其 HR 和金融缺少业务深度。本次把第 3 节的专业工作落实为可直接阅读的场景和工作记录，而非只在段末提及名称。运营从已有席位继续展开到服务采购、跨国雇佣、签证与 E-Verify、payroll、休假交接、差旅报销和季度治理；金融从凭证核对继续展开到分层资金与智能合约、保险、店铺及持续捐赠、支付与银行协作、Atlas 行政服务、募资关系、会计审计与税务交接。原第 4 节“通过 Tab/详情承接”的实施方式由最新的连续长页要求覆盖。
+
+补全跨角色工具关系、社区自愿参与与付费协作匹配、志愿者缺位接续、传播前中后阶段，以及人员离职的责任人与权限流程。仍使用第 6 节直接营销口径；示例对话与工作记录不作为组织真实业绩、真实交易或集成验收证据。专业服务场景展示协调过程，不引入移民资格、办理结果或保险赔付承诺。

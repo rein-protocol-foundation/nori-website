@@ -15,8 +15,8 @@ export function Communications() {
           </>
         }
       >
-        Share the work. Join relevant conversations. Bring useful feedback back
-        into the organization.
+        Share what the team is doing, join relevant conversations, and turn
+        programs into stories people can discover, discuss, and support.
       </SectionHeading>
       <div className="communications-composition">
         <WorkSurface
@@ -100,7 +100,7 @@ export function Communications() {
           </p>
         </article>
         <article>
-          <h3>Quote with a point of view.</h3>
+          <h3>Repost. Quote with a point of view.</h3>
           <blockquote>
             “A useful evaluation asks what happens when the agent needs help—not
             only when everything works.”
@@ -114,8 +114,9 @@ export function Communications() {
           <h3>Keep the conversation going.</h3>
           <p>
             Turn programs into TikTok-ready shorts, Twitch or other live-session
-            outlines, speaker follow-ups, and donor updates. Give each audience
-            a relevant way to participate.
+            outlines, speaker follow-ups, and donor updates. Before an event,
+            recruit and invite; during it, share discussion and clips;
+            afterward, publish outcomes and the next way to participate.
           </p>
         </article>
       </div>

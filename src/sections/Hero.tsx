@@ -18,9 +18,9 @@ export function Hero() {
         <br className="wide-break" /> run your organization.
       </h1>
       <p className="hero-description">
-        Daily operations, governance, treasury, community, and growth.
-        <br className="wide-break" /> Carried forward over the long term,
-        alongside your team.
+        From daily operations and governance to treasury, community, and growth,
+        Nori carries work forward over the long term—alongside your team, in the
+        tools you already use.
       </p>
       <p className="audience">Built with nonprofits and NGOs in mind.</p>
       <Actions />

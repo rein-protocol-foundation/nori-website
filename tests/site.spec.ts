@@ -15,6 +15,13 @@ test("all product narratives are readable without interaction or JavaScript", as
     "Time off. Covered.",
     "Decisions that become work.",
     "The receipt that closes the loop.",
+    "Carry a specialized hiring process forward.",
+    "Keep payroll moving, every cycle.",
+    "Limits live in the infrastructure.",
+    "Every incoming payment has a purpose.",
+    "Bring in a person for the right step.",
+    "Find support that fits the mission.",
+    "Keep the evidence with the expense.",
     "A paid task with a clear finish line.",
     "First contribution",
     "A clearer first contribution.",
@@ -62,6 +69,17 @@ test("responsive layout and rendered artwork have no broken assets", async ({
     expect(src).toBeTruthy();
     const response = await page.request.get(src!);
     expect(response.ok()).toBeTruthy();
+  }
+  const brandImages = page.locator('img[src^="/brands/"]');
+  expect(await brandImages.count()).toBeGreaterThan(8);
+  for (const image of await brandImages.all()) {
+    expect(
+      await image.evaluate(
+        (node: HTMLImageElement) => node.complete && node.naturalWidth > 0,
+      ),
+    ).toBeTruthy();
+    const size = await image.boundingBox();
+    expect(size?.height).toBeLessThanOrEqual(24);
   }
   expect(failed).toEqual([]);
 });

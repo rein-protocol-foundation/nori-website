@@ -15,7 +15,8 @@ export function Continuity() {
         }
       >
         Keep decisions, commitments, and relationships connected across weeks,
-        quarters, and team changes.
+        quarters, and team changes. Give the next person the context to
+        continue, not a pile of disconnected tasks.
       </SectionHeading>
       <div className="continuity-composition">
         <WorkSurface title="Quarterly decisions">
@@ -35,7 +36,8 @@ export function Continuity() {
             items={[
               "Context and decisions",
               "Open commitments and contacts",
-              "Offboarding and access changes",
+              "Offboarding tasks assigned to responsible people",
+              "Access revoked or transferred through the right services",
               "A clear place to continue",
             ]}
           />

@@ -126,3 +126,19 @@ Case copy follows content Section 6 and stays in `src/content.ts`. Demonstration
 工牌职责和扩展岗位全部展开，角色与普通头像继续复用已有认可素材。移动端取消叠放与倾斜，按阅读顺序排列。页面没有案例按钮、折叠内容或模态框；导航和转化链接保留正常键盘操作。预渲染生产 HTML，无客户端 JavaScript 依赖。
 
 参考站再次核对：[Grok Bot](https://x.ai/bot) 用可读的工作界面解释产品，[LobeHub](https://lobehub.com/) 用角色身份与产品画面建立识别。采用这种内容表达原则，不照搬其业务文案、功能或交互。
+
+
+## 复核修订：内容深度与软件视觉（2026-11-12）
+
+用户再次指出前版未充分遵循图稿，HR 与金融被压缩成摘要，软件标记和界面比例失真。本次保持九节顺序、黑白网站基底、工牌角色和公开长页；所有主要内容直接展示，不恢复箭头、Tab、Drawer 或案例折叠。
+
+- 以图 01、03、04 的主线程与关联产物关系调整首屏、运营和财务。Slack 演示使用独立组件，按频道栏、日期分隔、紧凑消息、头像、APP 标记和输入区组织；正常桌面字号约 14px，手机约 13px。Discord 保留独立的深色频道结构。界面装饰不注册发送、支付等动作。
+- HR 增加服务选型记录、跨国雇佣对话、签证个案跟进、H-1B cap-exempt 场景、E-Verify 待办、发薪异常、病假覆盖、行程与报销、董事会会议包。金融增加限额执行记录、保险续期、数字商品与订单、持续捐赠、支付异常、银行指定人员步骤、募资关系记录和财务结账。具体任务由章节内独立模块承接。
+- 恢复首屏、角色、社区、传播及连续性 supporting copy 的完整含义；角色关系中直接显示 HR 与服务平台、社区岗位与 Discord/GitHub 的工作连接。
+- 财务、HR 服务产物是 Nori 的示例工作记录，不声称逐像素复刻特定 HRIS、Stripe 或银行后台。Slack/Discord 也是 HTML 重建的场景，尚无获授权的真实组织截图；演示标签保留。软件品牌不是已完成集成清单。
+
+### 本次软件资产来源
+
+品牌素材本地存放于 `public/brands/`，不依赖运行时远程加载。Slack 使用 [Slack 官方媒体 CDN 的品牌图标](https://a.slack-edge.com/80588/marketing/img/meta/slack_hash_256.png)。GitHub、Discord、X、Stripe、PayPal、Ethereum、BNB Chain、Solana 使用 [Simple Icons 13.21.0 的 SVG](https://github.com/simple-icons/simple-icons/tree/13.21.0/icons)，保留原始几何与 viewBox；[素材许可](https://github.com/simple-icons/simple-icons/blob/13.21.0/LICENSE.md)为 CC0，商标仍归各自权利人所有。仅用于标识相关软件场景，无合作伙伴或背书含义。
+
+Slack 结构参考 [Slack 官方产品截图入口](https://slack.com/media-kit)及[官方消息使用说明](https://slack.com/help/articles/201457107-Send-and-read-messages-in-Slack)。没有把官网截图用作 Nori 的实际运行记录。Nori 工牌与头部继续使用本仓库已认可图稿，未重新生成角色。

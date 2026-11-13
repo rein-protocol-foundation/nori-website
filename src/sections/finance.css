@@ -46,42 +46,6 @@
   margin: 10px -8px 0;
   box-shadow: var(--shadow);
 }
-.finance-stories {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
-  margin-top: 80px;
-}
-.finance-stories h3 {
-  font-size: 33px;
-}
-.finance-stories article > p:not(.eyebrow):not(.small-copy) {
-  font-size: 16px;
-  color: var(--muted);
-  margin: 18px 0 26px;
-}
-.contract-note {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 25px;
-  background: white;
-  box-shadow: var(--shadow);
-}
-.contract-note > span {
-  display: block;
-  border-top: 1px solid var(--line);
-  padding-top: 20px;
-  margin-top: 20px;
-  font-size: 13px;
-  font-weight: 650;
-}
-.storefront {
-  display: flex;
-  gap: 24px;
-  border-top: 1px solid var(--line);
-  padding-top: 25px;
-  align-items: center;
-}
 .digital-cover {
   background: #171717;
   color: white;
@@ -108,38 +72,9 @@
   font-size: 9px;
   color: #c1c1c1;
 }
-.storefront > div:last-child p {
-  font-size: 13px;
-  line-height: 1.8;
-  margin-top: 12px;
-  color: var(--muted);
-}
-.finance-footnotes {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
-  margin-top: 60px;
-  border-top: 1px solid var(--line);
-  padding-top: 35px;
-}
-.finance-footnotes h3 {
-  font-size: 22px;
-}
-.finance-footnotes p {
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 15px;
-}
 @media (max-width: 1000px) {
   .finance-main {
     gap: 24px;
-  }
-  .finance-stories,
-  .finance-footnotes {
-    gap: 35px;
-  }
-  .storefront {
-    gap: 16px;
   }
   .digital-cover {
     width: 140px;
@@ -147,29 +82,12 @@
   }
 }
 @media (max-width: 650px) {
-  .finance-main,
-  .finance-stories,
-  .finance-footnotes {
+  .finance-main {
     grid-template-columns: 1fr;
     gap: 40px;
   }
   .treasury {
     padding: 0;
-  }
-  .finance-stories {
-    margin-top: 50px;
-  }
-  .finance-stories h3 {
-    font-size: 29px;
-  }
-  .finance-stories article > p:not(.eyebrow):not(.small-copy) {
-    font-size: 14px;
-  }
-  .finance-footnotes {
-    margin-top: 40px;
-  }
-  .storefront {
-    gap: 25px;
   }
   .digital-cover {
     width: 145px;
@@ -179,5 +97,258 @@
   }
   .treasury-layer p {
     font-size: 12px;
+  }
+}
+.finance {
+  background: #fff;
+}
+.treasury {
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  padding: 27px;
+  background: #fafafa;
+}
+.treasury > h3 {
+  font-size: 26px;
+}
+.onchain-composition {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+.protection-stack,
+.reporting-stack {
+  display: grid;
+  gap: 25px;
+}
+.protection-stack .work-surface:last-child {
+  transform: rotate(1deg);
+}
+.network-row {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding-top: 25px;
+  margin-top: 12px;
+  border-top: 1px solid #ddd;
+}
+.network-row > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.network-row .app-icon {
+  width: 17px;
+  height: 17px;
+}
+.policy-lines {
+  margin: 22px 0 0;
+}
+.policy-lines > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 12px;
+}
+.policy-lines dt {
+  color: #555;
+}
+.policy-lines dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+.coverage-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  font-size: 11px;
+  margin-top: 20px;
+  color: #555;
+}
+.coverage-fields span {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+.protection-stack .surface-body > p:not(.document-kicker) {
+  font-size: 14px;
+}
+.commerce-composition {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+.store-preview {
+  background: #f7f5f1;
+  border: 1px solid #d5d2cb;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transform: rotate(-1deg);
+  overflow: hidden;
+}
+.store-brand {
+  padding: 22px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #dedbd5;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+}
+.store-brand span {
+  color: #625f5b;
+}
+.store-product {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  gap: 25px;
+  padding: 40px 28px;
+  align-items: center;
+}
+.store-product .digital-cover {
+  width: 100%;
+  min-height: 260px;
+  transform: rotate(-4deg);
+}
+.store-product h4 {
+  font-size: 24px;
+}
+.store-product p:not(.document-kicker) {
+  font-size: 13px;
+  color: #57534c;
+  margin-top: 15px;
+}
+.store-payment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  font-size: 11px;
+}
+.store-payment .app-icon {
+  width: 36px;
+}
+.store-order {
+  padding: 20px 22px;
+  border-top: 1px solid #dedbd5;
+  font-size: 11px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+.store-order > span {
+  color: #625f5b;
+}
+.payment-banking {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  margin-top: 40px;
+}
+.payment-banking .surface-body > p:not(.document-kicker) {
+  font-size: 14px;
+}
+.service-context {
+  font-size: 13px;
+  color: #555;
+  margin-top: 27px;
+  padding-top: 24px;
+  border-top: 1px solid #ddd;
+  max-width: 950px;
+}
+.funding-composition {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+.funding-brief {
+  transform: rotate(-1deg);
+}
+.reporting-stack .surface-body > p:not(.document-kicker) {
+  font-size: 14px;
+}
+@media (max-width: 1000px) {
+  .onchain-composition,
+  .commerce-composition,
+  .funding-composition {
+    gap: 26px;
+  }
+  .store-product {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+  .store-product .digital-cover {
+    width: 160px;
+    min-height: 220px;
+    margin: 0 auto 10px;
+  }
+  .payment-banking {
+    gap: 26px;
+  }
+}
+@media (max-width: 760px) {
+  .onchain-composition,
+  .commerce-composition,
+  .payment-banking,
+  .funding-composition {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .protection-stack .work-surface:last-child,
+  .store-preview,
+  .funding-brief {
+    transform: none;
+  }
+  .store-product {
+    grid-template-columns: 0.8fr 1fr;
+  }
+  .store-product .digital-cover {
+    width: 100%;
+    margin: 0;
+  }
+}
+@media (max-width: 650px) {
+  .treasury {
+    padding: 22px;
+  }
+  .treasury > h3 {
+    font-size: 25px;
+  }
+  .store-product {
+    padding: 30px 22px;
+    gap: 20px;
+  }
+  .store-product h4 {
+    font-size: 21px;
+  }
+  .store-product .digital-cover {
+    min-height: 220px;
+    padding: 15px;
+  }
+  .digital-cover strong {
+    font-size: 20px;
+  }
+  .store-brand {
+    font-size: 9px;
+  }
+  .network-row {
+    gap: 17px;
+  }
+}
+@media (max-width: 370px) {
+  .store-product {
+    grid-template-columns: 1fr;
+  }
+  .store-product .digital-cover {
+    width: 155px;
+    margin: 0 auto 10px;
   }
 }

@@ -25,41 +25,9 @@
   align-items: center;
   margin-top: 95px;
 }
-.onboarding-row {
-  padding: 19px 0;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 13px;
-}
-.onboarding-row b {
-  font-weight: 550;
-  text-align: right;
-}
-.onboarding-row span {
-  color: var(--muted);
-}
-.operations-bottom {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 80px;
-}
-.operations-bottom h3 {
-  font-size: 23px;
-}
-.operations-bottom article > p {
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 14px;
-}
 @media (max-width: 1000px) {
   .hiring-story {
     gap: 45px;
-  }
-  .operations-bottom {
-    gap: 25px;
   }
   .operations-main {
     gap: 24px;
@@ -68,8 +36,7 @@
 }
 @media (max-width: 650px) {
   .operations-main,
-  .hiring-story,
-  .operations-bottom {
+  .hiring-story {
     grid-template-columns: 1fr;
     gap: 30px;
   }
@@ -83,17 +50,120 @@
   .hiring-story {
     margin-top: 55px;
   }
-  .operations-bottom {
-    margin-top: 45px;
+}
+.hiring-story {
+  display: block;
+}
+.hiring-composition {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+.hiring-selection {
+  transform: rotate(1deg);
+}
+.hiring-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 38px;
+}
+.hiring-detail .surface-body > p:not(.document-kicker) {
+  font-size: 14px;
+}
+.payroll-leave {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 38px;
+  align-items: start;
+}
+.leave-story {
+  padding-top: 30px;
+}
+.leave-story > h4 {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+.coverage-strip {
+  padding: 20px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.coverage-strip b {
+  display: block;
+}
+.coverage-strip span {
+  color: #555;
+}
+.travel-governance {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.travel-governance .story-lead h3 {
+  font-size: 32px;
+}
+.travel-governance .story-lead > p:not(.eyebrow) {
+  font-size: 15px;
+}
+.itinerary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.itinerary > div + div {
+  border-left: 1px solid #ddd;
+  padding-left: 24px;
+}
+.itinerary span {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #666;
+}
+.itinerary h4 {
+  font-size: 19px;
+  margin: 12px 0;
+}
+.itinerary p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #555;
+}
+@media (max-width: 1000px) {
+  .hiring-composition {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
   }
-  .operations-bottom article {
-    border-top: 1px solid var(--line);
-    padding-top: 24px;
+  .travel-governance {
+    gap: 30px;
   }
-  .onboarding-row {
-    font-size: 12px;
+  .itinerary {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
-  .operations-bottom h3 {
-    font-size: 23px;
+  .itinerary > div + div {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .hiring-composition,
+  .hiring-detail,
+  .payroll-leave,
+  .travel-governance {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .hiring-selection {
+    transform: none;
+  }
+  .leave-story {
+    padding-top: 0;
+  }
+  .hiring-detail {
+    margin-top: 28px;
   }
 }

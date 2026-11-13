@@ -14,7 +14,8 @@ export function Community() {
         title="A community that builds with Nori."
       >
         Find a first contribution, work through a real problem, and help shape
-        what Nori can do next.
+        what Nori can do next. When the work needs human expertise, Nori brings
+        the right people into it.
       </SectionHeading>
       <h3 className="story-title">
         From saying hello to shipping a first contribution.
@@ -84,8 +85,10 @@ export function Community() {
             and an independent tester.
           </p>
           <p>
-            A clear brief, a sanitized reproduction, and agreed acceptance
-            checks give people a real starting point.
+            Nori matches the brief with interested contributors, invites
+            voluntary participation, and agrees the scope, fee, timeline, and
+            acceptance checks. A sanitized reproduction gives a developer and an
+            independent tester a concrete starting point.
           </p>
         </div>
         <WorkSurface title="Donation confirmation · retry issue" app="GitHub">
@@ -111,7 +114,10 @@ export function Community() {
             </div>
             <div>
               <dt>Follow-through</dt>
-              <dd>Agreed settlement, release, and contributor recognition</dd>
+              <dd>
+                Agreed settlement, release, contributor recognition, and
+                regression coverage for next time
+              </dd>
             </div>
           </dl>
         </WorkSurface>
@@ -122,7 +128,8 @@ export function Community() {
           Turn repeated questions into office hours, solutions into contributor
           guides, and shared interests into hackathons and conference talks.
           Coordinate speakers, logistics, and follow-up so the work continues
-          after the event.
+          after the event. If a volunteer steps away, Nori finds willing
+          coverage and updates the event assignments.
         </p>
       </div>
       <ScenarioNote />

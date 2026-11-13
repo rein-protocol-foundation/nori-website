@@ -93,3 +93,9 @@
     font-size: 14px;
   }
 }
+/* Reserve readable space beneath the overlapping GitHub excerpts. */
+@media (min-width: 1001px) {
+  .contributor-composition .conversation-main {
+    padding-right: 52px;
+  }
+}

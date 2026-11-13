@@ -1,36 +1,26 @@
 .work-surface {
   background: #fff;
   border: 1px solid #d8d8d8;
-  border-radius: 12px;
+  border-radius: 9px;
   box-shadow: var(--shadow);
   overflow: hidden;
   min-width: 0;
 }
 .surface-bar {
-  padding: 17px 22px;
+  padding: 14px 20px;
   border-bottom: 1px solid #e5e5e5;
   display: flex;
   align-items: center;
   gap: 12px;
   font-size: 14px;
   font-weight: 650;
-  background: linear-gradient(#fff, #fafafa);
+  background: #fafafa;
 }
 .surface-app {
   margin-left: auto;
   font-size: 11px;
   color: #6b6b6b;
   font-weight: 450;
-}
-.app-mark {
-  font-size: 23px;
-  line-height: 1;
-}
-.app-mark.slack {
-  color: #75335b;
-}
-.app-mark.github {
-  color: #161616;
 }
 .surface-body {
   padding: 26px;
@@ -71,141 +61,11 @@
   font-weight: 700;
   flex: none;
 }
-.conversation .surface-body {
-  padding: 0;
-}
-.messages {
-  padding: 8px 26px 0;
-  min-width: 0;
-}
-.message {
-  display: flex;
-  gap: 14px;
-  padding: 20px 0;
-}
-.message + .message {
-  border-top: 1px solid #eeeeee;
-}
-.message .nori-head {
-  width: 39px;
-  height: 42px;
-}
-.message > div {
-  min-width: 0;
-}
-.message strong {
-  font-size: 14px;
-  display: flex;
-  gap: 9px;
-  align-items: center;
-}
-.message strong small {
-  font-size: 8px;
-  background: #ededed;
-  color: #646464;
-  padding: 2px 4px;
-  border-radius: 3px;
-  letter-spacing: 0.03em;
-}
-.message p {
-  font-size: 15px;
-  line-height: 1.6;
-  margin-top: 6px;
-}
-.person {
-  width: 38px;
-  height: 38px;
-  flex: none;
-  display: grid;
-  place-items: center;
-  background: #ededed;
-  color: #555;
-  font-size: 13px;
-  border-radius: 7px;
-}
-.thread-end {
-  padding: 15px 0;
-  border-top: 1px solid #eee;
-  font-size: 11px;
-  color: #666;
-}
-.thread-end span {
-  color: #2f7b48;
-  margin-right: 7px;
-}
 .artifact-heading {
   font-size: 21px !important;
   color: #111 !important;
   font-weight: 650;
   letter-spacing: -0.03em;
-}
-.discord-surface {
-  background: #313338;
-  color: #f2f3f5;
-  border-color: #26272c;
-}
-.discord-surface .surface-bar {
-  background: #292b30;
-  border-color: #44464c;
-}
-.discord-surface .surface-app {
-  color: #b7bac2;
-}
-.conversation-layout {
-  display: flex;
-}
-.conversation-layout aside {
-  width: 172px;
-  flex: none;
-  background: #292b30;
-  padding: 25px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 17px;
-  font-size: 11px;
-  color: #c1c3cc;
-}
-.conversation-layout aside strong {
-  font-size: 12px;
-  color: white;
-  margin-bottom: 8px;
-}
-.conversation-layout aside b {
-  background: #414349;
-  color: white;
-  padding: 7px;
-  margin: 0 -7px;
-  border-radius: 3px;
-}
-.discord-surface .message + .message,
-.discord-surface .thread-end {
-  border-color: #46484e;
-}
-.discord-surface .thread-end {
-  color: #bdc1ca;
-}
-.discord-surface .nori-head {
-  mix-blend-mode: normal;
-  border-radius: 50%;
-}
-.discord-surface .person {
-  background: #555761;
-  color: white;
-}
-.discord-surface .message strong small {
-  background: #5865f2;
-  color: white;
-}
-.discord-surface .thread-end span {
-  color: #a1e7b5;
-}
-.mail-message {
-  padding: 24px 0;
-  border-bottom: 1px solid var(--line);
-  font-size: 15px;
-}
-.mail-message p {
-  margin-top: 9px;
 }
 .nori-mail {
   display: flex;
@@ -240,19 +100,13 @@
   margin-top: 20px;
 }
 @media (max-width: 1000px) {
-  .conversation-layout aside {
-    display: none;
-  }
   .surface-body {
     padding: 22px;
-  }
-  .message p {
-    font-size: 14px;
   }
 }
 @media (max-width: 650px) {
   .surface-bar {
-    padding: 14px 16px;
+    padding: 14px 20px;
     font-size: 12px;
     gap: 9px;
   }
@@ -268,40 +122,12 @@
   .surface-body > p {
     font-size: 13px;
   }
-  .messages {
-    padding: 5px 18px 0;
-  }
-  .message {
-    gap: 11px;
-    padding: 18px 0;
-  }
-  .message p {
-    font-size: 13px;
-  }
-  .message strong {
-    font-size: 12px;
-  }
-  .message .nori-head {
-    width: 31px;
-    height: 34px;
-  }
-  .person {
-    width: 30px;
-    height: 30px;
-    font-size: 11px;
-  }
   .checklist li {
     font-size: 13px;
-  }
-  .thread-end {
-    font-size: 10px;
   }
   .attachment {
     padding: 13px;
     flex-wrap: wrap;
-  }
-  .mail-message {
-    font-size: 13px;
   }
   .status {
     font-size: 11px;
@@ -311,7 +137,139 @@
   }
 }
 .app-icon {
-  width: 23px;
-  height: 23px;
+  width: 20px;
+  height: 20px;
   flex: none;
+}
+
+.app-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+.document-kicker {
+  font-size: 10px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin: 0 0 12px !important;
+  color: #646464;
+}
+.work-table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  margin-top: 24px;
+  font:
+    13px/1.55 Arial,
+    sans-serif;
+  text-align: left;
+}
+.work-table caption {
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+  font-size: 11px;
+  padding-bottom: 12px;
+}
+.work-table th,
+.work-table td {
+  padding: 13px 10px;
+  border-bottom: 1px solid #e5e5e5;
+  vertical-align: top;
+  overflow-wrap: break-word;
+}
+.work-table thead {
+  font-size: 11px;
+  color: #616161;
+  background: #f5f5f5;
+}
+.work-table tbody th {
+  font-weight: 500;
+  width: 38%;
+}
+.work-table td {
+  color: #555;
+}
+.artifact-note {
+  background: #f7f8f7;
+  padding: 17px;
+  margin-top: 22px;
+  border-left: 2px solid #91b6a1;
+  font-size: 12px;
+}
+.artifact-note p {
+  margin-top: 6px;
+  color: #555;
+}
+.case-log {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+.case-log li {
+  padding: 15px 0;
+  border-top: 1px solid #e3e3e3;
+  font-size: 13px;
+}
+.case-log b {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.case-log span {
+  display: block;
+  line-height: 1.6;
+  color: #555;
+}
+.meeting-record {
+  margin: 22px 0 0;
+}
+.meeting-record > div {
+  border-top: 1px solid #ddd;
+  padding: 17px 0;
+}
+.meeting-record dt {
+  font-size: 12px;
+  font-weight: 650;
+  margin-bottom: 6px;
+}
+.meeting-record dd {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #555;
+}
+.story-block {
+  margin-top: 100px;
+}
+.story-lead {
+  max-width: 780px;
+  margin-bottom: 38px;
+}
+.story-lead h3 {
+  font-size: clamp(28px, 3vw, 43px);
+}
+.story-lead > p:not(.eyebrow) {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #555;
+  margin-top: 20px;
+}
+@media (max-width: 650px) {
+  .story-block {
+    margin-top: 60px;
+  }
+  .story-lead {
+    margin-bottom: 26px;
+  }
+  .story-lead > p:not(.eyebrow) {
+    font-size: 15px;
+  }
+  .work-table {
+    font-size: 12px;
+  }
+  .work-table th,
+  .work-table td {
+    padding: 12px 6px;
+  }
 }
