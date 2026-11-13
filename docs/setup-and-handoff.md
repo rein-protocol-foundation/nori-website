@@ -40,3 +40,11 @@ No dashboard migration, Vercel provisioning, or DNS mutation is part of this ini
 - Application build and tests: not applicable until implementation exists.
 - Deployment and dashboard migration checks: pending future work.
 - Next step: discuss audience, positioning, evidence-backed capability claims, organizational case study, and page content with the user before implementation.
+
+## Local implementation handoff — 2026-11-13
+
+The authorized first implementation uses React, Vite, TypeScript, and Three.js in the existing checkout on `tempest/recursive-nori-hero`. Scope is the shared visual foundations, floating Header, and recursive animated Hero. The current design brief was the creative input; later sections and the archived designs were not used.
+
+Use `npm ci` and `npm run dev` for development, or `npm run build` followed by `npm run preview` for the production preview. Verification commands and scene architecture are documented in the root README. Generated captures remain local under ignored `artifacts/`.
+
+The earlier “no application scaffold” and “framework undecided” notes describe the initial setup date. This local implementation supersedes them. It does not change hosting or dashboard-migration status. Deployment, DNS changes, and dashboard migration remain outside this iteration.
