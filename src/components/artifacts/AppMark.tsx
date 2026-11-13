@@ -1,4 +1,4 @@
-/** Brand shapes come from the sources recorded in docs/design/ui-design-v0.4.md. */
+/** Brand shapes are local assets; visual guidance is in docs/design/design.md. */
 const brands: Record<string, string> = {
   Slack: "slack.png",
   GitHub: "github.svg",

@@ -2,7 +2,7 @@
 
 Standalone public website for Nori-Agent (Rein Agent), by Rein Protocol Foundation.
 
-**Status:** The accepted v0.4 direction is implemented locally as a responsive React + TypeScript + Vite website. It has not been deployed.
+**Status:** A local React + TypeScript + Vite implementation exists and is under design revision. It has not been deployed.
 
 ## Purpose
 
@@ -16,7 +16,7 @@ Website copy uses direct product-marketing language focused on Nori’s capabili
 - The website’s Explore GitHub CTA links to the product source in [nori-agent](https://github.com/rein-protocol-foundation/nori-agent); this does not change the website development repository.
 - Agent implementation remains in [nori-agent](https://github.com/rein-protocol-foundation/nori-agent).
 - The administrative dashboard remains separate and access-restricted.
-- See the [website content v0.4](docs/design/website-content-v0.4.md) and [accepted UI design v0.4](docs/design/ui-design-v0.4.md), including nine section images and interaction states. Earlier visual concepts remain available for comparison, not as approved designs.
+- Current design sources: [design](docs/design/design.md) and [content](docs/design/content.md). Nine section references and essential brand/proportion assets remain available. [Historical design archive](docs/archive/design-history-2026-11-12.zip) is for recovery, not normal implementation context.
 - Framework: React + TypeScript + Vite, with a static production build. Website licensing remains undecided.
 
 ## Planned hosting
