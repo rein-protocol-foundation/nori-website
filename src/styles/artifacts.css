@@ -1,0 +1,317 @@
+.work-surface {
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  min-width: 0;
+}
+.surface-bar {
+  padding: 17px 22px;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 650;
+  background: linear-gradient(#fff, #fafafa);
+}
+.surface-app {
+  margin-left: auto;
+  font-size: 11px;
+  color: #6b6b6b;
+  font-weight: 450;
+}
+.app-mark {
+  font-size: 23px;
+  line-height: 1;
+}
+.app-mark.slack {
+  color: #75335b;
+}
+.app-mark.github {
+  color: #161616;
+}
+.surface-body {
+  padding: 26px;
+}
+.surface-body > p {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 12px;
+}
+.surface-body > h3 {
+  font-size: 27px;
+}
+.status {
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 5px;
+  background: #e8f5ed;
+  color: #23673e;
+  margin-top: 14px;
+}
+.checklist {
+  padding: 0;
+  list-style: none;
+  margin: 22px 0 0;
+}
+.checklist li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 7px 0;
+}
+.checklist li > span {
+  color: #25854f;
+  font-weight: 700;
+  flex: none;
+}
+.conversation .surface-body {
+  padding: 0;
+}
+.messages {
+  padding: 8px 26px 0;
+  min-width: 0;
+}
+.message {
+  display: flex;
+  gap: 14px;
+  padding: 20px 0;
+}
+.message + .message {
+  border-top: 1px solid #eeeeee;
+}
+.message .nori-head {
+  width: 39px;
+  height: 42px;
+}
+.message > div {
+  min-width: 0;
+}
+.message strong {
+  font-size: 14px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.message strong small {
+  font-size: 8px;
+  background: #ededed;
+  color: #646464;
+  padding: 2px 4px;
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+}
+.message p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 6px;
+}
+.person {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  background: #ededed;
+  color: #555;
+  font-size: 13px;
+  border-radius: 7px;
+}
+.thread-end {
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  font-size: 11px;
+  color: #666;
+}
+.thread-end span {
+  color: #2f7b48;
+  margin-right: 7px;
+}
+.artifact-heading {
+  font-size: 21px !important;
+  color: #111 !important;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+.discord-surface {
+  background: #313338;
+  color: #f2f3f5;
+  border-color: #26272c;
+}
+.discord-surface .surface-bar {
+  background: #292b30;
+  border-color: #44464c;
+}
+.discord-surface .surface-app {
+  color: #b7bac2;
+}
+.conversation-layout {
+  display: flex;
+}
+.conversation-layout aside {
+  width: 172px;
+  flex: none;
+  background: #292b30;
+  padding: 25px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  font-size: 11px;
+  color: #c1c3cc;
+}
+.conversation-layout aside strong {
+  font-size: 12px;
+  color: white;
+  margin-bottom: 8px;
+}
+.conversation-layout aside b {
+  background: #414349;
+  color: white;
+  padding: 7px;
+  margin: 0 -7px;
+  border-radius: 3px;
+}
+.discord-surface .message + .message,
+.discord-surface .thread-end {
+  border-color: #46484e;
+}
+.discord-surface .thread-end {
+  color: #bdc1ca;
+}
+.discord-surface .nori-head {
+  mix-blend-mode: normal;
+  border-radius: 50%;
+}
+.discord-surface .person {
+  background: #555761;
+  color: white;
+}
+.discord-surface .message strong small {
+  background: #5865f2;
+  color: white;
+}
+.discord-surface .thread-end span {
+  color: #a1e7b5;
+}
+.mail-message {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+}
+.mail-message p {
+  margin-top: 9px;
+}
+.nori-mail {
+  display: flex;
+  gap: 14px;
+}
+.attachment {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 25px;
+  padding: 18px;
+  font-size: 13px;
+}
+.attachment > span:first-child {
+  font-size: 25px;
+}
+.attachment p {
+  font-size: 12px;
+  color: var(--muted);
+}
+.attachment .status {
+  margin: 0 0 0 auto;
+}
+.thank-you {
+  font-size: 13px;
+  color: var(--muted);
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+}
+@media (max-width: 1000px) {
+  .conversation-layout aside {
+    display: none;
+  }
+  .surface-body {
+    padding: 22px;
+  }
+  .message p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 650px) {
+  .surface-bar {
+    padding: 14px 16px;
+    font-size: 12px;
+    gap: 9px;
+  }
+  .surface-app {
+    font-size: 10px;
+  }
+  .surface-body {
+    padding: 20px;
+  }
+  .surface-body > h3 {
+    font-size: 23px;
+  }
+  .surface-body > p {
+    font-size: 13px;
+  }
+  .messages {
+    padding: 5px 18px 0;
+  }
+  .message {
+    gap: 11px;
+    padding: 18px 0;
+  }
+  .message p {
+    font-size: 13px;
+  }
+  .message strong {
+    font-size: 12px;
+  }
+  .message .nori-head {
+    width: 31px;
+    height: 34px;
+  }
+  .person {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
+  .checklist li {
+    font-size: 13px;
+  }
+  .thread-end {
+    font-size: 10px;
+  }
+  .attachment {
+    padding: 13px;
+    flex-wrap: wrap;
+  }
+  .mail-message {
+    font-size: 13px;
+  }
+  .status {
+    font-size: 11px;
+  }
+  .surface-body h4 {
+    font-size: 19px;
+  }
+}
+.app-icon {
+  width: 23px;
+  height: 23px;
+  flex: none;
+}

@@ -54,3 +54,7 @@ No dashboard migration, Vercel provisioning, or DNS mutation is part of this ini
 The user explicitly authorized framework selection and local implementation on a new branch, `tempest/implement-nori-website`. This supersedes the earlier implementation hold for this task. React, TypeScript, and Vite provide a static build in `dist/`; no backend, account connection, or dashboard dependency is introduced. See the root README for local commands.
 
 Use Vercel’s Vite build settings (`npm run build`, output `dist`) when deployment is separately authorized. No Vercel resources, publication, DNS changes, or dashboard migration were performed. The existing domain migration dependency above remains in force.
+
+## Rebuild handoff — 2026-11-12
+
+The rejected first implementation has been replaced with section-owned components and static HTML output. The latest user review overrides the historical tab, role-selection, and drawer specifications. `npm run build` now performs TypeScript checking, Vite client/server builds, and HTML prerendering; `npm test` verifies the production preview. Output remains `dist/` for eventual Vercel hosting. No client JavaScript, account integration, deployment, DNS change, or dashboard migration is needed for local review.

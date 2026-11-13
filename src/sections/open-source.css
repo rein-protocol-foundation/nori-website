@@ -1,0 +1,64 @@
+.open-source {
+  border-top: 1px solid var(--line);
+}
+.open-source h2 {
+  font-size: clamp(38px, 5.5vw, 78px);
+}
+.open-middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 38px;
+}
+.open-middle > p {
+  font-size: 20px;
+  max-width: 600px;
+  color: var(--muted);
+}
+.head-family {
+  display: flex;
+  flex: none;
+  gap: 6px;
+}
+.head-family .nori-head {
+  width: 95px;
+  height: 103px;
+}
+.community-link {
+  display: inline-block;
+  border-bottom: 1px solid #111;
+  padding-bottom: 4px;
+  font-size: 14px;
+  margin-top: 26px;
+}
+@media (max-width: 1000px) {
+  .head-family .nori-head {
+    width: 65px;
+    height: 71px;
+  }
+  .open-middle > p {
+    font-size: 17px;
+  }
+}
+@media (max-width: 650px) {
+  .open-middle {
+    flex-direction: column;
+    gap: 25px;
+    align-items: start;
+  }
+  .open-middle > p {
+    font-size: 16px;
+  }
+  .head-family {
+    gap: 10px;
+  }
+  .head-family .nori-head {
+    width: 60px;
+    height: 65px;
+  }
+  .open-source .actions {
+    flex-direction: column;
+    align-items: start;
+  }
+}

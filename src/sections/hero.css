@@ -1,0 +1,152 @@
+.hero {
+  max-width: 1440px;
+  margin: auto;
+  padding: 55px 42px 60px;
+  text-align: center;
+}
+.hero-eyebrow {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  max-width: 1240px;
+  margin: auto;
+}
+.hero-description {
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 24px auto 0;
+  color: #444;
+}
+.audience {
+  font-size: 15px;
+  color: #666;
+  margin: 12px 0 28px;
+}
+.hero .actions {
+  justify-content: center;
+}
+.hero-composition {
+  display: grid;
+  grid-template-columns: 1fr 2.7fr 1.15fr;
+  align-items: center;
+  margin: 62px auto 0;
+  max-width: 1280px;
+  text-align: left;
+  isolation: isolate;
+}
+.hero-composition > .conversation {
+  z-index: 2;
+}
+.hero-calendar {
+  transform: rotate(-4deg) translateX(24px);
+}
+.hero-delivery {
+  transform: rotate(4deg) translateX(-24px);
+}
+.hero-calendar .surface-body {
+  padding-right: 32px;
+}
+.hero-delivery .surface-body {
+  padding-left: 35px;
+}
+.hero-calendar .surface-app,
+.hero-delivery .surface-app {
+  display: none;
+}
+.hero-delivery .surface-bar {
+  padding-left: 35px;
+}
+.hero-composition .checklist li {
+  font-size: 13px;
+}
+.hero .scenario-note {
+  max-width: 1240px;
+  margin: 24px auto 0;
+}
+.hero-calendar p {
+  font-size: 13px;
+}
+.hero-composition .message {
+  padding: 17px 0;
+}
+.hero-composition .message p {
+  font-size: 14px;
+}
+@media (max-width: 1000px) {
+  .hero {
+    padding: 45px 30px;
+  }
+  .hero-composition {
+    grid-template-columns: 0.85fr 2.7fr 1fr;
+  }
+  .hero-calendar .surface-body,
+  .hero-delivery .surface-body {
+    padding: 20px;
+  }
+  .hero-composition .artifact-heading {
+    font-size: 17px !important;
+  }
+  .hero-composition .checklist li {
+    font-size: 11px;
+  }
+  .hero-description {
+    font-size: 18px;
+  }
+}
+@media (max-width: 650px) {
+  .hero {
+    padding: 36px 22px 35px;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+  }
+  .hero h1 {
+    font-size: 42px;
+  }
+  .hero-description {
+    font-size: 16px;
+  }
+  .audience {
+    font-size: 12px;
+  }
+  .hero-composition {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 35px;
+  }
+  .hero-composition .conversation {
+    grid-column: 1/-1;
+    grid-row: 1;
+  }
+  .hero-calendar,
+  .hero-delivery {
+    transform: none;
+    height: 100%;
+  }
+  .hero-calendar .surface-body,
+  .hero-delivery .surface-body {
+    padding: 16px;
+  }
+  .hero-calendar .surface-bar,
+  .hero-delivery .surface-bar {
+    padding: 12px;
+    font-size: 10px;
+  }
+  .hero-delivery .checklist {
+    margin-top: 10px;
+  }
+  .hero .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero .button {
+    width: min(100%, 310px);
+  }
+  .hero-composition .message p {
+    font-size: 13px;
+  }
+  .hero-composition .artifact-heading {
+    font-size: 16px !important;
+  }
+}

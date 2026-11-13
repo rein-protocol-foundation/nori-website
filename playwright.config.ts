@@ -3,7 +3,7 @@ export default defineConfig({
   testDir: "./tests",
   fullyParallel: true,
   use: {
-    baseURL: "http://127.0.0.1:5173",
+    baseURL: "http://127.0.0.1:4173",
     channel: "chrome",
     trace: "retain-on-failure",
   },
@@ -25,8 +25,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm run dev -- --port 5173",
-    url: "http://127.0.0.1:5173",
+    command: "npm run preview -- --port 4173",
+    url: "http://127.0.0.1:4173",
     reuseExistingServer: !process.env.CI,
   },
 });

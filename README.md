@@ -42,6 +42,18 @@ npm run preview
 
 `npm run build` checks TypeScript and produces `dist/`. `npm test` runs Playwright in desktop Chrome and mobile Chrome emulation, including axe accessibility checks. Install Google Chrome (or run `npx playwright install chrome`) before running tests.
 
-Content and case details live in `src/content.ts`; page components and interactions in `src/main.tsx`; responsive styles in `src/styles.css`. Manrope is served locally. Existing accepted art is reused as CSS-cropped character portraits and heads; no full concept image is used as a page section.
+The implementation is organized by responsibility:
+
+- `src/app/App.tsx`: page composition only.
+- `src/sections/`: nine independently authored page sections, each with its own stylesheet and narrative.
+- `src/components/artifacts/`: readable work surfaces, conversations, status records, and source markers.
+- `src/components/brand/` and `src/components/layout/`: identity, navigation, and shared layout primitives.
+- `src/content/`: shared destinations and role data; section-specific editorial copy stays with its section.
+- `src/styles/`: design tokens, global layout, and shared work-artifact styles.
+- `scripts/prerender.mjs`: static HTML generation after Vite client and server builds.
+
+The production page ships complete HTML and CSS, with no client JavaScript required. All stories and role responsibilities are visible without tabs, drawers, accordions, or click-to-read cards. Manrope is served locally. Existing accepted art supplies character portrait and head regions; full concept images are never page sections.
+
+`npm test` first builds the production site, then tests the preview server: no-JavaScript content, responsive overflow, asset requests, links, keyboard navigation, reduced motion, and axe accessibility checks.
 
 The website is a public marketing experience, without authentication or live organizational integrations. Case artifacts and dialogue are illustrative. All pilot and Discord links lead to the approved Discord invitation.

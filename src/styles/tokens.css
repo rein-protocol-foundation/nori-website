@@ -1,0 +1,15 @@
+:root {
+  --ink: #101010;
+  --muted: #606060;
+  --line: #dedede;
+  --paper: #fff;
+  --wash: #f6f6f6;
+  --mint: #bcebd7;
+  --shadow: 0 3px 5px #00000006, 0 16px 28px -18px #00000035;
+  --content: 1320px;
+  font-family: "Manrope Variable", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  font-weight: 450;
+}

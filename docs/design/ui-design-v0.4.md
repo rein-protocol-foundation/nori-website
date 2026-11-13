@@ -1,5 +1,8 @@
 # Nori Website UI 设计图 v0.4
 
+> 最新实施决定（2026-11-12，重做）：用户否定首版实现。删除跳转箭头、Tab、Drawer、点击展开案例及角色切换；所有核心角色职责和案例直接在长页呈现。以下历史交互描述仅为设计过程记录，不再作为实施要求。保留 v0.4 的角色身份、实体工牌、黑白基底、正常软件比例与分层工作产物构图。
+
+
 日期：2026-11-12
 任务：WEBSITE-DESIGN-04 · Owner：Codex / Rein Protocol Foundation
 依据：[website content v0.4](website-content-v0.4.md)，WEBSITE-CONTENT-07。
@@ -115,3 +118,11 @@ User authorization now covers local implementation. The nine sections use Manrop
 The first six badges select a responsibility and current work summary; additional roles expand inline. Operations, finance, community, and communication sections use keyboard-navigable scenario tabs. Work artifacts open a native modal dialog, 640px on desktop and full-width on narrow screens, with focus wrapping, Escape/close, focus restoration, and background scroll locking. A stable button surface contains the depth/tilt layer; touch layouts flatten the compositions, and reduced motion removes displacement.
 
 Case copy follows content Section 6 and stays in `src/content.ts`. Demonstration labels identify illustrative stories without weakening capability copy. The Rein journey is explicitly illustrative and includes no invented historical records, customer metrics, or quotations. Browser QA does not verify Nori-Agent integrations.
+
+## 重做实现：连续阅读的产品官网
+
+首版组件与样式已整体替换。九节各自拥有 TSX 与 CSS，不再使用一个通用案例选择器重复生成页面。Slack 请求与采购交付、跨国入职清单、财务凭证和分层资金、Discord 贡献线程与 GitHub issue/PR、付费协作任务、公开帖子与指南修订、竖版视频脚本、Rein 项目工件均直接可读。视频为明确标记的脚本展示，不伪装成可播放的活动录像。
+
+工牌职责和扩展岗位全部展开，角色与普通头像继续复用已有认可素材。移动端取消叠放与倾斜，按阅读顺序排列。页面没有案例按钮、折叠内容或模态框；导航和转化链接保留正常键盘操作。预渲染生产 HTML，无客户端 JavaScript 依赖。
+
+参考站再次核对：[Grok Bot](https://x.ai/bot) 用可读的工作界面解释产品，[LobeHub](https://lobehub.com/) 用角色身份与产品画面建立识别。采用这种内容表达原则，不照搬其业务文案、功能或交互。
