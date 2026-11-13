@@ -75,6 +75,10 @@
 
 ![交互状态 · Nori 向人类寻求专业帮助](concepts-v0.4/10-interaction-states.png)
 
+## 转化入口与营销交接
+
+2026-11-12 更新：Discord 与机构试点 CTA 均指向 https://discord.gg/m8qnWv9XX ，试点通过社区接洽；GitHub 入口指向产品源码仓库 https://github.com/rein-protocol-foundation/nori-agent 。网站仅在独立的 `nori-website` 仓库实现，代码、资源和 PR 不写入 `nori-agent`。现有图片的 CTA 文字体现视觉方向，实际链接按此规则实现。产品文案采用内容稿第 6 节的直接营销口径，不要求逐项能力证据作为开发前置条件。域名迁移在开发完成、准备上线时处理。
+
 ## Z 轴交互交接
 
 - 常态：稳定浅层次，标题与主要信息始终可读，不自动漂浮。
@@ -103,3 +107,11 @@
 未进行网页构建、运行交互或真实平台集成测试，因为本轮没有网页实现。用户已认可本版视觉方向；后续反馈在本版基础上调整。该认可不代表演示案例已成为真实运行记录。
 
 设计参考致谢仅保留在设计文档：[Grok Bot](https://x.ai/bot) 的视觉层级与产品展示，[LobeHub](https://lobehub.com/) 的工牌思路。未修改 README 的设计参考。
+
+## Local implementation decisions — 2026-11-12
+
+User authorization now covers local implementation. The nine sections use Manrope typography, an off-white/near-black foundation, restrained mint accents, and the accepted colorful Nori identities. Existing role and open-source artwork supplies only CSS-cropped portrait/head regions; badge names, physical sleeves and clips, work threads, artifacts, tabs, and case details are native HTML/CSS. No complete concept image forms a website section. Original image files are preserved.
+
+The first six badges select a responsibility and current work summary; additional roles expand inline. Operations, finance, community, and communication sections use keyboard-navigable scenario tabs. Work artifacts open a native modal dialog, 640px on desktop and full-width on narrow screens, with focus wrapping, Escape/close, focus restoration, and background scroll locking. A stable button surface contains the depth/tilt layer; touch layouts flatten the compositions, and reduced motion removes displacement.
+
+Case copy follows content Section 6 and stays in `src/content.ts`. Demonstration labels identify illustrative stories without weakening capability copy. The Rein journey is explicitly illustrative and includes no invented historical records, customer metrics, or quotations. Browser QA does not verify Nori-Agent integrations.

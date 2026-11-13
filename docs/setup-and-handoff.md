@@ -40,3 +40,17 @@ No dashboard migration, Vercel provisioning, or DNS mutation is part of this ini
 - Application build and tests: not applicable until implementation exists.
 - Deployment and dashboard migration checks: pending future work.
 - Next step: discuss audience, positioning, evidence-backed capability claims, organizational case study, and page content with the user before implementation.
+
+## Updated handoff — 2026-11-12
+
+- UI v0.4 is accepted; content and UI documents govern the current design. Framework selection and implementation await explicit authorization.
+- Discord and pilot-organization CTAs use https://discord.gg/m8qnWv9XX ; pilot inquiries start in the community.
+- Domain cutover and dashboard migration are deferred until development is complete and launch is being prepared. They do not block local development. The migration checks above still apply before cutover.
+
+- Website implementation, assets, and PRs belong exclusively to `rein-protocol-foundation/nori-website`. The Explore GitHub CTA points visitors to the product source at https://github.com/rein-protocol-foundation/nori-agent . The separate `nori-agent` repository is not the website development or submission target.
+
+## Local implementation handoff — 2026-11-12
+
+The user explicitly authorized framework selection and local implementation on a new branch, `tempest/implement-nori-website`. This supersedes the earlier implementation hold for this task. React, TypeScript, and Vite provide a static build in `dist/`; no backend, account connection, or dashboard dependency is introduced. See the root README for local commands.
+
+Use Vercel’s Vite build settings (`npm run build`, output `dist`) when deployment is separately authorized. No Vercel resources, publication, DNS changes, or dashboard migration were performed. The existing domain migration dependency above remains in force.

@@ -56,7 +56,7 @@ Meet Nori. Built to help run your organization.
 
 **Supporting copy**
 
-From daily operations and governance to treasury, community, and growth, Nori is designed to carry work forward over the long term—alongside your team, in the tools you already use.
+From daily operations and governance to treasury, community, and growth, Nori carries work forward over the long term—alongside your team, in the tools you already use.
 
 **Audience line**
 
@@ -66,7 +66,7 @@ Built with nonprofits and NGOs in mind.
 
 原先 “An organization has a mission. Nori helps carry it forward.” 保留为 Rein 案例或品牌宣言，不再占用首屏唯一解释产品的机会。
 
-**展示对象**：首屏主案例固定为“有人休假，一项对外承诺仍能按时推进”：Nori 从未完成事项中发现临近截止的承诺，找到缺失材料，联系可接续的人或适用服务，完成交付并留下记录。主画面是短工作线程，辅助卡是交付物和状态变化。它以高频、容易理解的工作进入，再揭示跨人、跨工具的主动推进能力。首屏不列出所有平台；Nori 仅用头部头像。该场景为新增策划，未取得证据前作为示意。
+**展示对象**：首屏主案例固定为“有人休假，一项对外承诺仍能按时推进”：Nori 从未完成事项中发现临近截止的承诺，找到缺失材料，联系可接续的人或适用服务，完成交付并留下记录。主画面是短工作线程，辅助卡是交付物和状态变化。它以高频、容易理解的工作进入，再揭示跨人、跨工具的主动推进能力。首屏不列出所有平台；Nori 仅用头部头像。该场景以产品演示呈现。
 
 ### 02 · 角色：从高管到一线执行的 Agent Org
 
@@ -316,7 +316,7 @@ Rein Protocol Foundation is a nonprofit focused on AI safety and making AI agent
 4. 对外沟通：如何公开进展、回应讨论、更新支持者。
 5. 持续发展：哪些经验和承诺进入下一轮工作。
 
-这是编辑结构，不画成机械箭头流程。选取有证据的两三个关键片段做深入解释，其余以计划/演示说明。若尚无完整真实项目记录，不能把合成故事包装为已发生的完整运营历史。
+这是编辑结构，不画成机械箭头流程。选取两三个关键片段讲清 Nori 如何推进组织工作；演示素材按场景呈现。若尚无完整真实项目记录，不能把合成故事包装为已发生的完整运营历史。
 
 **CTA**：Meet Nori in Discord。旁边解释访客可以认识社区中的 Nori、了解项目并参与讨论；不暗示访客能进入内部 Slack、资金系统或管理员 dashboard。
 
@@ -338,7 +338,7 @@ Keep decisions, commitments, and relationships connected across weeks, quarters,
 
 > Clear roles. Appropriate access. A record of what happened.
 >
-> Nori’s responsibilities should fit the organization’s policies, with people involved where decisions and authority require them.
+> Nori works within the organization’s policies, with people involved where decisions and authority require them.
 
 数据隔离、组织记忆和权限边界属于产品可信度，应体现在案例中，而不是霸占首页成为警告清单。不能声称任意渠道自动共享全部记忆。
 
@@ -350,11 +350,11 @@ Open source. Built with the community.
 
 **Supporting copy**
 
-Nori brings together ideas from the open-source community to explore what long-term organizational agents can become. Follow the work, contribute your perspective, or help shape Nori in your organization.
+Nori brings open-source collaboration to the work of running an organization. Follow the work, contribute your perspective, or help shape Nori in your organization.
 
 **CTA**：Become a pilot organization / Explore GitHub；轻量 Meet Nori in Discord。
 
-不列技术产品名单，不把不同层次的项目并列成合作伙伴。普通页尾只使用小型头部形象；没有 3D 半身雕像。开源定位需匹配最终许可证。试点按钮目标与 Discord 邀请仍待确认；不设计假提交成功的表单。
+不列技术产品名单，不把不同层次的项目并列成合作伙伴。普通页尾只使用小型头部形象；没有 3D 半身雕像。开源定位需匹配最终许可证。Discord 与 Become a pilot organization 均链接至 [Join our Discord server](https://discord.gg/m8qnWv9XX)，机构试点通过社区接洽；Explore GitHub 链接至产品实现仓库 `rein-protocol-foundation/nori-agent`。首版不设置试点申请表单。
 
 ## 4. 案例策划：频率、痛点与 Aha Moment
 
@@ -481,13 +481,17 @@ Nori brings together ideas from the open-source community to explore what long-t
 
 **后续验收**：鼠标移入、移动、移出都有明确且平稳的反馈；快速跨卡移动不闪跳；键盘与触摸均可完成打开/关闭；文字、焦点与按钮不被裁切；减少动态模式下仍可读取和展开全部案例。静态视觉稿中另用状态说明标出交互，不靠“看起来立体”代替这些行为。
 
-## 6. 内容状态与发布前核对
+## 6. 产品营销口径与转化入口
 
-本文保留用户提出的完整能力范围，尤其是资金、银行、公链、智能合约、募资与治理。保留不等于宣称每项已上线。设计和编辑过程使用三种内部状态：已有证据 / 待核实 / 产品方向；对外表达应据此采用真实案例、准确限定或轻量场景说明。
+用户于 2026-11-12 确认：官网从 product marketing 的角度表达产品，以本文完整能力范围作为营销口径，直接讲 Nori 能完成的工作、给组织带来的价值和参与方式。不以逐项工程验收或证据收集作为文案设计、开发的前置条件，不用“可能可以”“计划支持”或“探索是否能够”等措辞弱化定位。
 
-首页不使用 Reconstructed demo 字样。合成案例组以一条不抢视觉的说明区分真实记录；真实案例用日期和来源。金融板块不能因证据待核实而从内容架构消失，也不能将演示结果当真实交易。
+标题和正文使用明确、主动的表达；产品场景展示问题、Nori 的行动和工作结果。内部的策划来源与素材状态不作为面向访客的功能状态标签。该营销决策不是工程验证记录；具体组织历史、客户引言、交易回执和量化成果不凭空编造。演示案例可用轻量说明保持其场景属性，不堆叠警告。
 
-优先补充：Rein 可公开运营片段、HR 服务与采购任务、财务/智能合约实际支持范围、资金隔离与保障、真实活动与对外传播记录。待核实的服务商名不先做成 Supported integrations 墙。本文保持网页内容设计范围，不扩写移民法规、支付协议、保险条款或系统实现教程；案例和连接的真实运行状态尚待相应素材。
+全站 Meet Nori in Discord / Join our Discord server 和 Become a pilot organization 使用同一邀请地址：https://discord.gg/m8qnWv9XX 。机构试点先通过 Discord 接洽，不另建表单。Explore GitHub 指向 https://github.com/rein-protocol-foundation/nori-agent 。
+
+网站开发、代码、资源和 PR 均归属独立的 `nori-website` 仓库。`nori-agent` 是另一个产品实现仓库，不是本任务工作目录或提交目标；不要在其中实现网站。官网 Explore GitHub 指向 `nori-agent`，供访客了解产品源码；该链接不改变网站的开发仓库。
+
+域名切换与现有 dashboard 迁移在开发完成、准备上线时处理，不阻塞内容设计和本地开发。实施与发布仍分别遵循用户授权。
 
 ## 7. 原始需求覆盖检查
 
@@ -520,4 +524,8 @@ Nori brings together ideas from the open-source community to explore what long-t
 
 本轮完成：新增并筛选 14 个候选案例，按频率假设、痛点、Aha Moment 和展示位置排序；重写新人到开源贡献者与 Nori 求助/付费协作的社区故事；定义 Z 轴 hover、指针倾斜、点击展开和可访问交互。此前正向参考保留，原 5/6 整图仍为负向参考。修改当前文档，未另起视觉版本；没有新的图像生成或外部发布。
 
-检查：本地文档引用、diff 空白与原始需求覆盖。跳过网站构建/交互/运行验收，因为没有网站实现；真实案例和集成验证尚待材料。下一步先确认本内容稿的叙事与重点，再基于已锁定内容生成视觉稿，不再让六张图的数量决定产品内容。
+检查：本地文档引用、diff 空白与原始需求覆盖。跳过网站构建/交互/运行验收，因为没有网站实现；真实案例和集成验证尚待材料。后续 UI v0.4 已获认可；下一步补齐首版案例详情与独立素材，获得实施授权后进入开发。营销口径与 CTA 以后续第 6 节决定为准。
+
+## 9. Local website copy implementation — 2026-11-12
+
+Implementation is now explicitly authorized. `src/content.ts` contains the first complete English detail copy for the promise/handoff, everyday request, global hiring, payroll/leave, board, expenses, treasury, storefront, fundraising, first contribution, human expertise, events, public voice, media, Rein, and continuity stories. Details consistently cover context, actions, artifacts, human/platform collaboration, and outcome or next step. Section 6 remains the governing marketing and CTA decision. Existing planning history above is retained.
