@@ -11,7 +11,6 @@ const roles = [
   {
     portrait: "operations",
     name: "Chief Operating Officer",
-    title: "COO",
     short: "Operations",
     duty: "Priorities, people & follow-through",
     color: "mint",
@@ -19,7 +18,6 @@ const roles = [
   {
     portrait: "people",
     name: "Chief People Officer",
-    title: "CPO",
     short: "People",
     duty: "A better everyday experience at work",
     color: "pink",
@@ -27,7 +25,6 @@ const roles = [
   {
     portrait: "finance",
     name: "Chief Financial Officer",
-    title: "CFO",
     short: "Finance",
     duty: "Resources connected to the mission",
     color: "cream",
@@ -35,7 +32,6 @@ const roles = [
   {
     portrait: "community",
     name: "Community Lead",
-    title: "CL",
     short: "Community",
     duty: "Contributors, conversations & shared work",
     color: "blue",
@@ -43,7 +39,6 @@ const roles = [
   {
     portrait: "engineering",
     name: "Software Engineer",
-    title: "SWE",
     short: "Engineering",
     duty: "Build, test & deliver useful software",
     color: "lilac",
@@ -269,7 +264,7 @@ function Badge({ index, paused }: { index: number; paused: boolean }) {
             </div>
             <div className="badge-identity">
               <div>
-                <h3>{role.title}</h3>
+                <h3>{role.name}</h3>
               </div>
 
               <p>{role.duty}</p>

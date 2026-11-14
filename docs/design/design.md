@@ -81,4 +81,4 @@ Header 是与顶部及两侧留有明显间距的悬浮毛玻璃胶囊，背景�
 
 工牌默认轻微错峰晃动，和拖拽共用同一挂点及弹簧模型。提供暂停按钮，尊重减少动态偏好；页面隐藏或工牌离屏时暂停推进。
 
-工牌可见职位标题统一缩写：COO、CPO、CFO、CL、SWE；完整职位名称保留在无障碍标签中。
+工牌可见职位标题使用完整名称：Chief Operating Officer、Chief People Officer、Chief Financial Officer、Community Lead、Software Engineer。允许自然换行，不使用缩写。
