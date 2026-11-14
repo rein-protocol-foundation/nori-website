@@ -1,0 +1,450 @@
+.team-showcase {
+  background: #f3f2ec;
+  overflow: hidden;
+  padding-bottom: 65px;
+}
+.team-intro {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 55px;
+  align-items: end;
+}
+.team-intro .new-lead {
+  font-size: 14px;
+  margin: 0 0 25px;
+}
+.badge-instructions {
+  font-size: 12px;
+  color: #394f42;
+}
+.badge-instructions span {
+  display: block;
+  font-size: 10px;
+  color: #647064;
+  margin-top: 8px;
+}
+.badge-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 340px);
+  justify-content: center;
+  gap: 34px;
+  margin-top: 45px;
+  position: relative;
+  background: radial-gradient(ellipse at 50% 48%, #e3e9da88, transparent 65%);
+}
+.badge-stage {
+  position: relative;
+  width: 340px;
+  height: 735px;
+  perspective: 1100px;
+}
+.elastic-lanyard {
+  position: absolute;
+  inset: 0;
+  width: 340px;
+  height: 720px;
+  overflow: visible;
+  pointer-events: none;
+  filter: drop-shadow(4px 5px 3px #192a2426);
+}
+.rope-body {
+  fill: none;
+  stroke: #252b29;
+  stroke-width: 22;
+  stroke-linecap: butt;
+}
+.rope-stitch {
+  fill: none;
+  stroke: #757d76;
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+}
+.badge-object {
+  position: absolute;
+  top: 153px;
+  left: 24px;
+  width: 292px;
+  transform-origin: 50% 0;
+  transform-style: preserve-3d;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  outline-offset: 12px;
+  will-change: transform;
+  --shine-x: 40%;
+  --shine-y: 25%;
+}
+.badge-object.is-dragging {
+  cursor: grabbing;
+}
+.badge-object:focus-visible {
+  outline: 2px solid #456d55;
+  border-radius: 17px;
+}
+.badge-hardware {
+  position: absolute;
+  top: -20px;
+  left: calc(50% - 18px);
+  width: 36px;
+  height: 64px;
+  z-index: 4;
+  transform: translateZ(12px);
+}
+.hardware-ring {
+  display: block;
+  width: 26px;
+  height: 24px;
+  margin: auto;
+  border: 4px solid #b8bfbb;
+  border-radius: 7px;
+  background: linear-gradient(
+    110deg,
+    #535c58,
+    #f5f7f3 38%,
+    #737e77 62%,
+    #dae1dc
+  );
+  box-shadow:
+    inset 0 0 0 2px #5e6862,
+    2px 3px 3px #233c2633;
+}
+.hardware-clip {
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 8px;
+  width: 20px;
+  height: 40px;
+  border-radius: 4px 4px 8px 8px;
+  background: linear-gradient(
+    90deg,
+    #75817b,
+    #f4f6ef 30%,
+    #b9c4bd 55%,
+    #66746b 90%
+  );
+  box-shadow: 2px 3px 3px #10281844;
+  border: 1px solid #6c7770;
+}
+.hardware-clip:after {
+  content: "";
+  position: absolute;
+  inset: 8px 4px 7px;
+  border: 1px solid #8b978e;
+  border-radius: 3px;
+}
+.hardware-rivet {
+  position: absolute;
+  left: 15px;
+  top: 43px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 25%, #fff, #859389);
+  box-shadow: 0 1px 2px #24362b;
+}
+.badge-shell {
+  position: relative;
+  padding: 44px 10px 13px;
+  border-radius: 19px;
+  background: linear-gradient(
+    112deg,
+    #ffffffa6,
+    #e5eee75c 33%,
+    #ffffff40 55%,
+    #c2d1c477
+  );
+  border: 1px solid #fff;
+  box-shadow:
+    1px 1px 0 #e5eee6,
+    2px 3px 0 #b9c6bdbb,
+    3px 5px 0 #c9d5ca,
+    5px 9px 0 -2px #a7b6aa55,
+    10px 30px 32px -19px #19372566,
+    inset 0 0 0 3px #ffffff60;
+  transform-style: preserve-3d;
+}
+.badge-shell > .badge-slot {
+  top: 20px;
+  width: 63px;
+  height: 8px;
+  left: calc(50% - 31px);
+  background: #9ba99b;
+  box-shadow:
+    0 1px 0 #fff,
+    inset 0 2px 3px #43513a77;
+  border: 1px solid #dce5d8;
+}
+.badge-insert {
+  background: #fcfcf7;
+  border-radius: 9px;
+  overflow: hidden;
+  border: 1px solid #c4cec3;
+  box-shadow: 0 2px 4px #26382420;
+  transform: translateZ(2px);
+}
+.badge-brand {
+  padding: 20px 20px 13px;
+}
+.badge-brand > b {
+  display: block;
+  font-size: 22px;
+  letter-spacing: -1.1px;
+  color: #26392d;
+}
+.badge-brand > b span {
+  font-weight: 450;
+  color: #5c6f61;
+}
+.badge-brand > span {
+  display: block;
+  font-size: 7px;
+  letter-spacing: 1.8px;
+  margin-top: 7px;
+  color: #526456;
+}
+.badge-photo {
+  height: 242px;
+  position: relative;
+  background: radial-gradient(ellipse at 50% 45%, #f5fcf5, #d5e9dc);
+  overflow: hidden;
+}
+.badge-pink .badge-photo {
+  background: radial-gradient(ellipse at 50% 45%, #fff5f2, #ead9d5);
+}
+.badge-cream .badge-photo {
+  background: radial-gradient(ellipse at 50% 45%, #fffdf1, #e9e5ca);
+}
+.badge-photo:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 1px 0 #ffffff90;
+  pointer-events: none;
+}
+.badge-photo img {
+  position: absolute;
+  width: 242px;
+  height: 242px;
+  object-fit: contain;
+  bottom: -2px;
+  left: calc(50% - 121px);
+  filter: drop-shadow(0 7px 5px #5d897820);
+}
+.badge-series {
+  position: absolute;
+  left: 13px;
+  top: 17px;
+  font-size: 8px;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  color: #576b5c;
+  z-index: 1;
+}
+.badge-identity {
+  padding: 18px 19px 15px;
+}
+.badge-identity > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.team-showcase .badge-identity h3 {
+  font-size: 35px;
+  letter-spacing: -1.8px;
+  line-height: 1.1;
+  font-weight: 750;
+  margin: 0;
+}
+.badge-role-tag {
+  font-size: 9px;
+  padding: 5px 8px;
+  border: 1px solid #bbcbbd;
+  border-radius: 4px;
+  color: #415344;
+}
+.team-showcase .badge-identity h4 {
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.3px;
+  margin: 11px 0 7px;
+}
+.badge-identity > p {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #5a695d;
+  margin: 0;
+  min-height: 32px;
+}
+.badge-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  border-top: 1px solid #d9e0d4;
+  margin-top: 17px;
+  padding-top: 13px;
+}
+.badge-bottom > span:first-child {
+  font-size: 7px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+  color: #536253;
+}
+.badge-code {
+  width: 53px;
+  height: 22px;
+  background: repeating-linear-gradient(
+    90deg,
+    #425746 0 1px,
+    transparent 1px 3px,
+    #425746 3px 5px,
+    transparent 5px 6px
+  );
+  opacity: 0.7;
+}
+.badge-gloss {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      ellipse at var(--shine-x) var(--shine-y),
+      #ffffff60,
+      transparent 60%
+    ),
+    linear-gradient(
+      113deg,
+      transparent 30%,
+      #ffffff20 31%,
+      #ffffff03 45%,
+      transparent 46%
+    );
+  transform: translateZ(5px);
+  mix-blend-mode: screen;
+}
+.badge-gallery-caption {
+  text-align: center;
+  font-size: 11px;
+  color: #596c5d;
+  margin: 12px 0 0;
+}
+.badge-gallery {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 15px 10px 35px;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #9aab9b transparent;
+  transform: none;
+  margin-bottom: 0;
+}
+.badge-stage {
+  flex: 0 0 340px;
+  width: 340px;
+  height: 800px;
+  zoom: 0.7;
+  scroll-snap-align: center;
+  perspective: none;
+}
+.badge-object {
+  left: 24px;
+  transform-origin: 50% -8px;
+  touch-action: pan-x;
+}
+.badge-hardware {
+  transform: none;
+}
+.badge-object {
+  transform-style: preserve-3d;
+}
+.badge-gallery:focus-visible {
+  outline: 2px solid #59705a;
+  outline-offset: 5px;
+}
+.badge-blue .badge-photo {
+  background: radial-gradient(ellipse at 50% 45%, #f3fbfd, #d1e3ea);
+}
+.badge-lilac .badge-photo {
+  background: radial-gradient(ellipse at 50% 45%, #fbf5ff, #e0d7eb);
+}
+.badge-identity > p {
+  font-size: 12px;
+}
+.badge-identity h4 {
+  min-height: 34px;
+}
+.badge-gallery-caption {
+  margin-top: 18px;
+}
+@media (max-width: 1000px) {
+  .team-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .team-intro .new-lead {
+    max-width: 600px;
+  }
+  .badge-stage {
+    zoom: 0.82;
+  }
+}
+@media (max-width: 600px) {
+  .badge-stage {
+    zoom: 0.86;
+  }
+  .badge-gallery {
+    margin-left: -25px;
+    margin-right: -25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    gap: 4px;
+  }
+  .badge-instructions span {
+    max-width: 270px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .badge-object {
+    will-change: auto;
+  }
+  .badge-gloss {
+    display: none;
+  }
+}
+.team-showcase .badge-identity h3 {
+  font-size: 25px;
+  line-height: 1.14;
+  letter-spacing: -0.8px;
+  min-height: 58px;
+  margin: 0 0 13px;
+  font-weight: 750;
+  text-wrap: balance;
+}
+.badge-motion-control {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+.badge-motion-control button {
+  background: transparent;
+  border: 1px solid #b5c2b1;
+  border-radius: 30px;
+  padding: 10px 18px;
+  color: #465d49;
+  font-size: 11px;
+  cursor: pointer;
+}
+.badge-motion-control button:hover {
+  background: #e8eddf;
+}
+@media (prefers-reduced-motion: reduce) {
+  .badge-motion-control {
+    display: none;
+  }
+}

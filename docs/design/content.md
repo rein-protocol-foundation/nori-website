@@ -24,7 +24,7 @@ Discord 与机构试点均链接 https://discord.gg/m8qnWv9XX ，不另建申请
 
 ## 2. 全页阅读顺序
 
-导航建议：What Nori does / Meet the team / Running with Rein / Open source；右侧 Become a pilot organization。
+导航建议：What Nori does / Meet the team / Running with Rein / Open source；右侧 Join Nori on Discord。
 
 | 顺序 | 章节 | 访客需要理解的内容 | 内容比重 |
 | --- | --- | --- | --- |
@@ -60,7 +60,7 @@ From daily operations and governance to treasury, community, and growth, Nori is
 
 Built with nonprofits and NGOs in mind.
 
-**CTA**：Meet Nori in Discord（主） / Become a pilot organization（次）；GitHub 用导航或轻量文字链接。
+**CTA**：Meet Nori in Discord（主） / Join Nori on Discord（次）；GitHub 用导航或轻量文字链接。
 
 原先 “An organization has a mission. Nori helps carry it forward.” 保留为 Rein 案例或品牌宣言，不再占用首屏唯一解释产品的机会。
 
@@ -350,6 +350,15 @@ Open source. Built with the community.
 
 Nori brings together ideas from the open-source community to explore what long-term organizational agents can become. Follow the work, contribute your perspective, or help shape Nori in your organization.
 
-**CTA**：Become a pilot organization / Explore GitHub；轻量 Meet Nori in Discord。
+**CTA**：Join Nori on Discord / Explore GitHub；轻量 Meet Nori in Discord。
 
-不列技术产品名单，不把不同层次的项目并列成合作伙伴。开源定位需匹配最终许可证。试点按钮目标与 Discord 邀请仍待确认；不设计假提交成功的表单。
+不列技术产品名单，不把不同层次的项目并列成合作伙伴。开源定位需匹配最终许可证。Join Nori 与 Meet Nori 按钮使用 design.md 已确认的 Discord 邀请 https://discord.gg/m8qnWv9XX ，Explore GitHub 指向 https://github.com/rein-protocol-foundation/nori-agent ；不设计假提交成功的表单。
+
+
+### 产品品牌与工牌补充
+
+本落地页以 Nori 产品为主体。Rein Protocol Foundation 只在 06 客户场景中具名，提供进入实际组织 Discord 体验 Nori 的入口；不作为工牌品牌、通用示例工作区名称或页尾署名。现有 GitHub 仓库链接保持有效。
+
+五个工牌均为 Nori，不设置不同人名。主标题直接展示具体职位：Chief Operating Officer、Chief People Officer、Chief Financial Officer、Community Lead、Software Engineer。每个职位使用独立服装与配饰，保留统一 Nori 身份。工牌区禁止 example teammates、role concept 等占位式营销文案；不添加虚构人员任职或客户成果。工牌在所有屏宽保持单行横排，空间不足时在区域内横向滚动，不堆为纵列。悬停位移、倾斜、绳索末端与拖拽共用连续运动状态；挂点是卡片旋转中心，避免出现卡动绳不动或突然切换角度。
+
+工牌默认轻微错峰晃动，和拖拽共用同一挂点及弹簧模型。提供暂停按钮，尊重减少动态偏好；页面隐藏或工牌离屏时暂停推进。
