@@ -1,5 +1,4 @@
 import { WorkCells } from "./WorkCells";
-import { useState } from "react";
 import { SectionLabel } from "./Section";
 import { WorkApp, Message } from "./WorkApp";
 const scenes = [
@@ -41,8 +40,6 @@ const scenes = [
   ],
 ];
 export function Operations() {
-  const [index, setIndex] = useState(0);
-  const s = scenes[index];
   return (
     <section
       className="section work-redesign"
@@ -61,92 +58,92 @@ export function Operations() {
           The conversation is the starting point. Nori connects the people,
           tools, and follow-through around it.
         </p>
-        <div
-          className="scenario-tabs"
-          role="tablist"
-          aria-label="Work examples"
-        >
-          {scenes.map((s, i) => (
-            <button
-              key={s[0]}
-              role="tab"
-              aria-selected={i === index}
-              onClick={() => setIndex(i)}
+        <div className="work-stories">
+          {scenes.map((s, index) => (
+            <article
+              className="work-story"
+              key={s[1]}
+              aria-labelledby={`work-story-${s[1]}`}
             >
-              {s[0]}
-            </button>
+              <div className="work-story-heading">
+                <p className="work-story-label">
+                  <span>0{index + 1}</span>
+                  {s[0]}
+                </p>
+                <h3 id={`work-story-${s[1]}`}>{s[2]}</h3>
+              </div>
+              <WorkApp channel={s[1]}>
+                <Message name={s[3]}>
+                  <p>{s[4]}</p>
+                </Message>
+                <Message name="Nori">
+                  <p>{s[5]}</p>
+                  <div className="app-document">
+                    <b>{s[6]}</b>
+                    {s.slice(7).map((t) => (
+                      <p key={t}>▤ &nbsp; {t}</p>
+                    ))}
+                  </div>
+                </Message>
+                <Message name={s[3]}>
+                  <p>
+                    Thanks. Keep the owners in the loop and bring anything that
+                    needs my decision back here.
+                  </p>
+                </Message>
+              </WorkApp>
+              <p className="example-caption">
+                Illustrative Slack workflow · Sample people and work records
+              </p>
+              <div className="linked-work">
+                <article>
+                  <small>GOOGLE DOCS / BRIEF</small>
+                  <b>
+                    {index === 0
+                      ? "Alex · onboarding plan"
+                      : index === 1
+                        ? "Design workspace request"
+                        : "Quarterly board packet"}
+                  </b>
+                  <p>
+                    Requirements, owners, next steps
+                    <br />
+                    Owner: Maya · Draft for review
+                  </p>
+                </article>
+                <article>
+                  <small>CALENDAR / NEXT STEP</small>
+                  <b>
+                    {index === 0
+                      ? "Day-one orientation"
+                      : index === 1
+                        ? "Access follow-up"
+                        : "Board review"}
+                  </b>
+                  <p>
+                    Next scheduled checkpoint
+                    <br />
+                    Maya, Alex, Nori
+                  </p>
+                </article>
+                <article>
+                  <small>GITHUB / DELIVERY</small>
+                  <b>
+                    {index === 0
+                      ? "Account provisioning"
+                      : index === 1
+                        ? "Workspace access"
+                        : "Decision follow-through"}
+                  </b>
+                  <p>
+                    Task · scoped and linked
+                    <br />
+                    Test, review, delivery record
+                  </p>
+                </article>
+              </div>
+            </article>
           ))}
-        </div>
-        <h3>{s[2]}</h3>
-        <WorkApp channel={s[1]}>
-          <Message name={s[3]}>
-            <p>{s[4]}</p>
-          </Message>
-          <Message name="Nori">
-            <p>{s[5]}</p>
-            <div className="app-document">
-              <b>{s[6]}</b>
-              {s.slice(7).map((t) => (
-                <p key={t}>▤ &nbsp; {t}</p>
-              ))}
-            </div>
-          </Message>
-          <Message name={s[3]}>
-            <p>
-              Thanks. Keep the owners in the loop and bring anything that needs
-              my decision back here.
-            </p>
-          </Message>
-        </WorkApp>
-        <p className="example-caption">
-          Illustrative Slack workflow · Sample people and work records
-        </p>
-        <div className="linked-work">
-          <article>
-            <small>GOOGLE DOCS / BRIEF</small>
-            <b>
-              {index === 0
-                ? "Alex · onboarding plan"
-                : index === 1
-                  ? "Design workspace request"
-                  : "Quarterly board packet"}
-            </b>
-            <p>
-              Requirements, owners, next steps
-              <br />
-              Owner: Maya · Draft for review
-            </p>
-          </article>
-          <article>
-            <small>CALENDAR / NEXT STEP</small>
-            <b>
-              {index === 0
-                ? "Day-one orientation"
-                : index === 1
-                  ? "Access follow-up"
-                  : "Board review"}
-            </b>
-            <p>
-              Next scheduled checkpoint
-              <br />
-              Maya, Alex, Nori
-            </p>
-          </article>
-          <article>
-            <small>GITHUB / DELIVERY</small>
-            <b>
-              {index === 0
-                ? "Account provisioning"
-                : index === 1
-                  ? "Workspace access"
-                  : "Decision follow-through"}
-            </b>
-            <p>
-              Task · scoped and linked
-              <br />
-              Test, review, delivery record
-            </p>
-          </article>
         </div>
       </div>
     </section>

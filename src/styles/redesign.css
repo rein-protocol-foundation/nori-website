@@ -153,24 +153,6 @@ h1 strong {
   text-align: center;
   margin: 20px 0;
 }
-.scenario-tabs {
-  display: flex;
-  gap: 8px;
-  border-bottom: 1px solid #cbd0c6;
-  margin-bottom: 35px;
-}
-.scenario-tabs button {
-  border: 0;
-  background: transparent;
-  padding: 16px 24px;
-  color: #52604a;
-  cursor: pointer;
-}
-.scenario-tabs button[aria-selected="true"] {
-  border-bottom: 3px solid #425a38;
-  color: #22331e;
-  font-weight: bold;
-}
 .linked-work {
   display: flex;
   justify-content: space-around;
@@ -250,10 +232,6 @@ h1 strong {
     margin: 0 10px 12px;
     font-size: 10px;
     padding: 12px;
-  }
-  .scenario-tabs button {
-    padding: 14px 10px;
-    font-size: 12px;
   }
   .linked-work {
     gap: 15px;
@@ -613,5 +591,45 @@ h1 strong {
   .linked-work:before,
   .linked-work article:before {
     display: none;
+  }
+}
+
+.work-stories {
+  margin-top: 65px;
+}
+.work-story + .work-story {
+  margin-top: 95px;
+  padding-top: 70px;
+  border-top: 1px solid #aebaab;
+}
+.work-story-heading {
+  max-width: 840px;
+}
+.work-story-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  font-weight: 650;
+  color: #41573c;
+  margin: 0 0 16px;
+}
+.work-story-label span {
+  font-size: 10px;
+  border: 1px solid #a8b99d;
+  padding: 5px 7px;
+}
+.work-redesign .work-story-heading h3 {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.2;
+}
+@media (max-width: 700px) {
+  .work-stories {
+    margin-top: 40px;
+  }
+  .work-story + .work-story {
+    margin-top: 55px;
+    padding-top: 40px;
   }
 }

@@ -82,3 +82,8 @@ Header 是与顶部及两侧留有明显间距的悬浮毛玻璃胶囊，背景�
 工牌默认轻微错峰晃动，和拖拽共用同一挂点及弹簧模型。提供暂停按钮，尊重减少动态偏好；页面隐藏或工牌离屏时暂停推进。
 
 工牌可见职位标题使用完整名称：Chief Operating Officer、Chief People Officer、Chief Financial Officer、Community Lead、Software Engineer。允许自然换行，不使用缩写。
+
+
+### 核心场景直接展示
+
+Landing page 的核心内容不使用 Tab、折叠面板或其他需要额外点击才能发现的切换方式。Work 的 Onboarding、Tool access、Governance 按阅读顺序直接展开，各自展示标题、完整应用场景及关联工件。用清晰间距、分隔线与小节标识组织滚动阅读；不自动轮播、不隐藏非选中场景。

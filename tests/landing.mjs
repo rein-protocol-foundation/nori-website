@@ -29,14 +29,12 @@ try {
   for (const id of sections) {
     await expect(page.locator(`main #${id} h2`)).toHaveCount(1);
   }
-  const targets = await page
-    .locator('a[href^="#"]')
-    .evaluateAll((links) =>
-      links.map((link) => ({
-        href: link.getAttribute("href"),
-        exists: !!document.getElementById(link.getAttribute("href").slice(1)),
-      })),
-    );
+  const targets = await page.locator('a[href^="#"]').evaluateAll((links) =>
+    links.map((link) => ({
+      href: link.getAttribute("href"),
+      exists: !!document.getElementById(link.getAttribute("href").slice(1)),
+    })),
+  );
   expect(targets.every((target) => target.exists)).toBe(true);
   const ctas = page.locator(
     ".button-primary, .button-secondary, .button-outline, .header-cta",
@@ -78,7 +76,7 @@ try {
         nodes
           .filter((node) => {
             if (node.closest(".badge-gallery")) return false;
-      const r = node.getBoundingClientRect();
+            const r = node.getBoundingClientRect();
             return r.width > 0 && (r.left < -1 || r.right > innerWidth + 1);
           })
           .map((node) => node.textContent.slice(0, 60)),
@@ -86,13 +84,26 @@ try {
     expect(clipped, `text outside viewport at ${width}px`).toEqual([]);
   }
   checks.push("No page or text overflow at eight widths, 320–1440px.");
-  await page.getByRole('tab', { name: 'Tool access', exact: true }).click();
-  await expect(page.getByText('A request. The right access. Work continues.', {exact:true})).toBeVisible();
-  await page.getByRole('tab', { name: 'Governance', exact: true }).click();
-  await expect(page.getByText('The meeting ends. The work keeps moving.', {exact:true})).toBeVisible();
-  await page.getByRole('tab', { name: 'Onboarding', exact: true }).click();
-  await expect(page.getByText('Become a pilot organization', {exact:true})).toHaveCount(0);
-  await expect(page.locator('em')).toHaveCount(0);
+  await expect(
+    page.getByText("A request. The right access. Work continues.", {
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("The meeting ends. The work keeps moving.", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Become a pilot organization", { exact: true }),
+  ).toHaveCount(0);
+  await expect(page.locator("em")).toHaveCount(0);
+  await expect(page.getByRole("tablist")).toHaveCount(0);
+  await expect(page.locator("#work .work-story")).toHaveCount(3);
+  await expect(
+    page.getByRole("heading", {
+      name: "From an offer to ready for day one.",
+      exact: true,
+    }),
+  ).toBeVisible();
   const desktopAxe = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
     .analyze();
