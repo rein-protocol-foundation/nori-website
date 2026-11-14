@@ -48,3 +48,6 @@ The authorized first implementation uses React, Vite, TypeScript, and Three.js i
 Use `npm ci` and `npm run dev` for development, or `npm run build` followed by `npm run preview` for the production preview. Verification commands and scene architecture are documented in the root README. Generated captures remain local under ignored `artifacts/`.
 
 The earlier “no application scaffold” and “framework undecided” notes describe the initial setup date. This local implementation supersedes them. It does not change hosting or dashboard-migration status. Deployment, DNS changes, and dashboard migration remain outside this iteration.
+
+
+The subsequent authorized landing-page expansion adds all remaining sections from `docs/design/content.md`, responsive section navigation, and a footer. All action buttons now use text without arrows. The design decisions are recorded in `docs/design/design.md`; `npm run check:landing` adds page-wide layout, navigation, and accessibility checks. Product scenarios remain explicitly illustrative. This expands the local UI scope only; hosting and dashboard-migration status are unchanged.

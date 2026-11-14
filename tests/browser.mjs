@@ -34,7 +34,7 @@ expect(await time()).toBeGreaterThan(stopped);
 results.push({ check: 'pause freezes camera and cellular time; keyboard resumes', passed: true });
 
 const links = await page.locator('a').evaluateAll(elements => elements.map(el => ({ text: el.textContent.trim(), href: el.getAttribute('href') })));
-expect(links.filter(link => link.href === 'https://discord.gg/m8qnWv9XX')).toHaveLength(3);
+expect(links.filter(link => link.href === 'https://discord.gg/m8qnWv9XX').length).toBeGreaterThanOrEqual(3);
 expect(links.some(link => link.href === 'https://github.com/rein-protocol-foundation/nori-agent')).toBeTruthy();
 expect(await page.locator('h1').count()).toBe(1);
 const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
@@ -84,7 +84,7 @@ await phone.locator('.cellular-scene.is-ready').waitFor();
 await phone.evaluate(() => document.fonts.ready);
 await phone.getByRole('button', { name: 'Pause animation' }).click();
 await phone.evaluate(() => window.scrollTo(0, 0));
-await phone.screenshot({ path: `${output}/mobile.png`, fullPage: true });
+await phone.locator('.hero').screenshot({ path: `${output}/mobile.png` });
 for (const width of [320, 390, 699, 768]) {
   await phone.setViewportSize({ width, height: 844 });
   expect(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
@@ -102,7 +102,7 @@ still.on('request', request => fetched.push(request.url()));
 await still.goto(baseURL);
 await expect(still.locator('.static-label')).toHaveText(/Reduced motion/);
 expect(fetched.some(url => /\/three[-.]/.test(url))).toBe(false);
-await still.screenshot({ path: `${output}/mobile-reduced-motion.png`, fullPage: true });
+await still.locator('.hero').screenshot({ path: `${output}/mobile-reduced-motion.png` });
 await still.keyboard.press('Tab');
 await expect(still.getByRole('link', { name: 'Skip to content' })).toBeFocused();
 await still.keyboard.press('Enter');
