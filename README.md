@@ -6,7 +6,14 @@ Standalone public website for Nori-Agent, by Rein Protocol Foundation.
 
 ## Run locally
 
-Requires Node.js 22.12+ (verified with 22.19) and npm.
+Use Node.js 22.19.0 (pinned in `.nvmrc`) and npm. With nvm installed, first run:
+
+```sh
+nvm install
+nvm use
+```
+
+Then install the locked dependencies and start Vite:
 
 ```sh
 npm ci
@@ -43,6 +50,8 @@ Recursive composition is staged. An exponential camera transform reveals an eigh
 The scene uses a full-screen Three.js shader with shallow bevel shading rather than expensive physical 3D materials. DOM text and links stay above the scene. Pause stops both camera and state progression. Offscreen/hidden documents stop active time. Reduced motion, low-capability devices, sustained poor frame cadence, unavailable WebGL, shader failure, and context loss use a static composition. The frame-cadence fallback is a conservative heuristic, not a device benchmark. No animation controls are shown when the scene is static.
 
 ## Verification
+
+GitHub Actions runs the locked dependency install, unit tests, and production build for pull requests targeting `main` and pushes to `main`. Run the browser checks below locally for visual and interaction changes.
 
 ```sh
 npm test
