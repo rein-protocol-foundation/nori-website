@@ -1,0 +1,37 @@
+import { chromium, expect } from '@playwright/test';
+const browser=await chromium.launch();
+const page=await browser.newPage({viewport:{width:1440,height:1000}});
+try {
+ await page.goto(process.env.TEST_URL||'http://127.0.0.1:4173');
+ await page.getByRole("button",{name:"Pause badge motion",exact:true}).click();
+ const badge=page.locator('.badge-object').nth(1);
+ await badge.scrollIntoViewIfNeeded();
+ await expect(badge.locator('img')).toBeVisible();
+ expect(await badge.locator('img').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
+ const initial=await badge.boundingBox();
+ await page.mouse.move(initial.x+initial.width/2,initial.y+180);
+ await page.mouse.down();
+ await page.mouse.move(initial.x+initial.width/2+55,initial.y+240,{steps:15});
+ await expect.poll(async()=> (await badge.boundingBox()).x-initial.x).toBeGreaterThan(30);
+ await expect(badge).toHaveClass(/is-dragging/);
+ const stretched=await page.locator('.rope-body').nth(1).getAttribute('d');
+ expect(stretched).not.toBe('M170 -12V156');
+ await page.screenshot({path:'artifacts/badge-drag.png'});
+ await page.mouse.up();
+ await page.mouse.move(20,20);
+ await expect(badge).not.toHaveClass(/is-dragging/);
+ await expect.poll(async()=>Math.abs((await badge.boundingBox()).x-initial.x),{timeout:6000}).toBeLessThan(2);
+ await badge.focus();
+ await page.keyboard.press('ArrowRight');
+ await expect.poll(async()=>Math.abs((await badge.boundingBox()).x-initial.x)).toBeGreaterThan(3);
+ await page.keyboard.press('Escape');
+ await expect.poll(async()=>Math.abs((await badge.boundingBox()).x-initial.x)).toBeLessThan(1);
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.keyboard.press('ArrowRight');
+ await expect.poll(async()=>Math.abs((await badge.boundingBox()).x-initial.x)).toBeLessThan(1);
+ await page.locator('#team-title').click();
+ await page.locator('#team').screenshot({path:'artifacts/badges-desktop.png'});
+ await page.setViewportSize({width:390,height:844});
+ await page.locator('#team').screenshot({path:'artifacts/badges-mobile.png'});
+ console.log('PASS: portrait load, pointer drag, spring return, keyboard impulse/reset, reduced motion, desktop/mobile captures');
+} finally {await browser.close()}
