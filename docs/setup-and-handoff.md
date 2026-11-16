@@ -67,6 +67,12 @@ alongside the foundation website. The project uses Node 22, Vite, `npm ci`,
 `.vercelignore` excludes design archives, local evidence, and environment files from uploads.
 The generated `.vercel/` link and `.env.local` remain ignored and must never be committed.
 
+The first deployment is ready at [nori-website-flax.vercel.app](https://nori-website-flax.vercel.app)
+([build details](https://vercel.com/agi-studio/nori-website/8rwQ5fJbCJqw6cFumEq8ipAt8qGq)).
+Vercel automatically assigned the first deployment to the project's production slot.
+Its default Vercel authentication protection remains enabled. This is a generated Vercel
+hostname, not the planned public-domain cutover.
+
 The Git connection attempt was blocked by Vercel: “To link a GitHub repository, you need
 to install the GitHub integration first.” An organization administrator must grant the
 [Vercel GitHub app](https://github.com/apps/vercel) access to

@@ -86,8 +86,8 @@ and configure Vercel Deployment Checks before relying on it as a production gate
 - The authoritative creative brief is [design](docs/design/design.md). Page content is maintained in [content](docs/design/content.md).
 - The agent implementation is [nori-agent](https://github.com/rein-protocol-foundation/nori-agent). This website does not run the agent or expose administrative data.
 - Product copy and labeled scenarios describe the intended role of Nori; the animation makes no claim about operational results or implemented RSI.
-- Hosting is planned for Vercel at `nori.rein-protocol.org`. That hostname currently serves the restricted dashboard and cannot be cut over until an agreed dashboard migration has been completed.
-- Website licensing remains undecided. Bundled font licenses are included in `public/fonts/`. No publishing, DNS changes, or dashboard migration are part of this iteration.
+- Vercel hosting is configured at [nori-website-flax.vercel.app](https://nori-website-flax.vercel.app), with Vercel authentication protection enabled. The planned `nori.rein-protocol.org` hostname currently serves the restricted dashboard and cannot be cut over until an agreed dashboard migration has been completed.
+- Website licensing remains undecided. Bundled font licenses are included in `public/fonts/`. DNS changes and dashboard migration are outside this CI and hosting setup.
 
 See [setup and handoff](docs/setup-and-handoff.md) for repository and hosting context.
 
