@@ -13,18 +13,6 @@ export function SectionLabel({
     </p>
   );
 }
-export function ExampleLabel({
-  children = "Illustrative workflow",
-}: {
-  children?: ReactNode;
-}) {
-  return (
-    <p className="example-label">
-      <span aria-hidden="true" />
-      {children}
-    </p>
-  );
-}
 export function Check() {
   return (
     <span className="check-mark" aria-hidden="true">

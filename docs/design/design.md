@@ -1,104 +1,60 @@
 # Nori — Design
 
-## 首次实现范围（已完成）
+本文为 2026-11-16 第二次整页重设计的当前依据，取代此前的自动缩远循环、持续工牌摆动、可见暂停按钮、重复示例脚注与绿色 Rein 章节规范。内容见 [content.md](content.md)。本轮授权本地网站实现、提交代码和创建 PR；不包含部署、域名切换或真实业务操作。
 
-先建立字体、色彩、材质与动态语言，完成悬浮 Header 和包含完整递归动画的 Hero。暂不实现角色、工牌、业务案例或页尾，不填充整页占位内容。首次阶段以本文为独立输入；后续章节现已按下方「完整落地页」范围单独开展。
+## 身份与视觉方向
 
-艺术方向与核心动画保持明确，字体选择、具体排版、视觉参数和实现方式由设计者判断。首次目标是一个有个人审美、值得停留观察的动态首屏。
+Nori 是一个 super agent，以多个数字分身或下属 subagents 承担职责；不是互不相关的 peer agents，也不是五名真人员工。保留薄荷粉发色、猫耳、胶囊眼睛与耳机／天线识别特征。普通头像仅用头部，工牌使用已接受的独立半身照片与服装资产，不重复生成。
 
-## 艺术与字体
+产品主体使用暖白、鼠尾草与深森林绿、大尺度无衬线正体、细分隔线及正常密度的应用界面。全站不使用斜体；强调通过字重与尺度完成。保留元胞身份，但减少重复卡片、装饰性流程箭头与营销脚注。正文始终可读，不依赖入场动画。
 
-- 小而美的独立开源产品，具有研究者与极客气质，同时保持亲近的社区感。数学与计算美学表达协作、长期工作和自我改进的探索，产品定位仍要易懂。
-- 暖白、珍珠白和浅灰为底，炭黑用于文字与深色元胞，嫩绿／苔绿用于活跃细胞与重点入口，少量暖杏光点缀。色彩集中，不使用霓虹或大面积彩虹渐变。
-- 清晰、对齐的方形元胞与圆润的玻璃导航、按钮形成对照。半透明、柔和光影、边缘高光和克制的 3D 厚度建立空间感；避免所有元素膨胀成软胶玩具。以视觉效果决定技术，不要求复杂物理材质模拟。
-- 大标题使用有性格的现代无衬线字体，不使用斜体或衬线字体切换；可用粗体强调；正文清晰，小标注可用等宽字体。用尺度、断行与留白体现个性，避免堆叠字体。形成可供后续章节沿用的统一色彩、材质、字体和空间规则。
+## Header 与 Hero
 
-## Hero 与 Header
+Header 保留 Nori 标识、章节平滑锚点和 GitHub 图标，不放 Discord CTA。Hero 主按钮 `Meet Nori` 链接 https://discord.gg/m8qnWv9XX ，次按钮 `See Nori at work` → `#work`；只有一个 Discord 目的地按钮。页尾保留社区与代码入口。
 
-Hero 是全幅元胞自动机场景，覆盖首屏并延伸至导航和文字后方；不采用左文案右独立插画，也不把模拟放进小卡片。背景由 Nori 的方格轮廓构成，大尺度 Nori 内包含小尺度 Nori，可适度裁切。
+Hero 为全幅元胞场景，文字与按钮使用 HTML 叠加；不采用左右插画卡。滚动驱动四个小像素 Nori 汇聚并拼成一个大 Nori，表达一个身份的多个分身。拼装的位置与镜头是人为编排，不能称为 Conway 自然自组装；局部细胞状态使用真实 B3/S23 演化：死细胞三个活邻居出生，活细胞两个或三个邻居存活。状态、拼装与渲染适当分离。
 
-Nori 的识别特征是薄荷粉发色、猫耳、发型轮廓、胶囊眼睛和耳机／天线。元胞造型提炼这些特征；演化时允许轮廓变化，不要求每帧都是固定吉祥物。身份依据：[原始 Nori](references/nori-original.png)。
+不再要求 28 秒／8 倍自动递归循环，不宣称自然自复制或已实现 RSI。无可见暂停控件；主要运动由用户滚动控制。减少动态时采用可识别的静态组合，当前使用 Canvas 2D；Canvas 不可用时保留正文、链接及静态画面，不声称已验证低性能设备自动检测策略。离屏和页面隐藏停止不必要的推进。
 
-标题、说明与 CTA 直接叠在场景上，通过背景明暗、视觉密度和局部柔化保持阅读，不用大块不透明面板盖住动画；视觉处理不改变元胞状态规则。
+## 工牌
 
-Header 是与顶部及两侧留有明显间距的悬浮毛玻璃胶囊，背景可透出。包含 Nori 标识、GitHub 和主行动入口；不放尚无目标的章节链接。移动端收紧布局，保持可读、可操作。
+五张均为 Nori：Chief Operating Officer、Chief People Officer、Chief Financial Officer、Community Lead、Software Engineer。完整职位自然换行；所有屏宽单行横排，窄屏区域内横向滚动。
 
-首次使用的文案与链接：
+透明卡套、黑色织带、独立金属扣、接触阴影与 CSS 3D 分层保留。有限的入场动作结束后静止，不无限自动摆动，不显示暂停按钮。拖拽、悬停、倾斜和绳索末端使用同一挂点与连续弹簧状态。支持指针捕获、触控、键盘方向键及 Escape 复位；焦点进入后显示操作说明。减少动态时不产生惯性回弹。该实现为 CSS 3D／弹簧模型，不声称刚体模拟。
 
-- Eyebrow：An open-source super agent for organizations.
-- 标题：Meet Nori. Built to help run your organization.
-- 说明：From daily operations and governance to treasury, community, and growth, Nori is designed to carry work forward over the long term—alongside your team, in the tools you already use.
-- 主 CTA：Meet Nori in Discord；次 CTA：Join the Discord community。两者均链接 https://discord.gg/m8qnWv9XX 。
-- GitHub：https://github.com/rein-protocol-foundation/nori-agent 。
+## 直接展开的工作场景
 
-## 递归元胞动画
+核心场景不使用 Tab、折叠或自动轮播。保留应用真实宽高比、文字密度、工具栏、头像、时间与工件状态；可自然裁切非关键边缘，不把整套桌面压进小卡，不用厚软胶外框。各平台单独构图，不复用换 logo 的聊天壳。
 
-**Nori 格子初态 → 康威生命游戏演化 → 镜头持续缩远 → 当前画面成为更大尺度 Nori 的一部分 → 继续演化与缩远，形成循环。**
+- **Work**：Slack onboarding 展示工作区／aubergine 导航、频道与独立 thread pane；Lark 展示工具访问申请、负责人批准与后续验证；Google Docs／Calendar 展示董事会材料、议程、待决事项、负责人和期限。三个场景依次可见。
+- **Finance**：iMessage 请求 → Stripe invoice draft → owner review → project ledger。`INV–014 / Workshop registration` 为四个 workshop places，每个 $60，总计 $240；Stripe 保留 Draft，Maya 的发送授权未取得，账本为 Awaiting review；不伪造支付成功、银行记录或真实交易。资金三层与其他金融服务是产品设计／planned workflows，不声称已验证 live payment。
+- **Community / software**：Discord 反馈 → GitHub issue → PR、checks 与 maintainer review → 回报与 monitoring。Discord 使用 charcoal server rail、分类频道、主消息与 member rail；GitHub 使用 repo 导航、issue／PR timeline、checks、review 与 metadata sidebar。样例 issue #142 关联 PR #143，Alex 已审阅批准，四项 checks 通过且 PR 显示 Merged；这是样例的完成状态，不代表真实合并或发布。
+- **Outreach**：X 原创帖与 reply 呈现不同动作；Reels 以竖屏 SVG 视频视觉呈现；Gmail 明确是 draft。不得把 SVG 预览称为已生成视频、把草稿称为已发送或把示例互动当真实背书。
+- **Continuity**：展示可访问来源 → 有出处的回答及下一步，保留权限边界；不宣称所有渠道自动共享记忆。
 
-先看见角色，再注意到细胞变化，最后通过缩远发现更大的角色。节奏连续、舒缓，有揭示感；不频繁闪烁、突兀切镜或让所有组件持续漂动。
+只在页尾显示一次 `Product walkthroughs use sample data.`。删除每张界面重复的 illustrative／example caption；草稿、待审、planned 等有业务含义的状态继续保留。页面不用真实组织记录、证件、私密对话或运行记忆。
 
-局部状态遵循 Conway B3/S23：死细胞有三个活邻居时出生，活细胞有两个或三个活邻居时存活。递归嵌套和循环由镜头及动画编排实现，不宣称任意 Nori 初态会自然恢复或自复制。种子、演化节奏、边界和循环方案由实现者选择；采用预计算、重置或混合时在交付说明中简述。
+## Rein 独立品牌章节
 
-递归是 RSI 研究方向的视觉隐喻，不等于已实现递归自我改进。最终图案以实际演化和镜头效果决定，不逐像素复刻静态概念图。
+Rein 仅在具名组织章节出现，不成为工牌雇主、通用示例工作区或页尾署名。采用官方标记 [rein-logo.png](../../public/brands/rein-logo.png)，从 https://rein-protocol.org/brand/rein-mark-footer.png 原样取得；192×192 PNG，不重绘。官方页同时使用 `/brand/rein-mark-header.png`；标志旁的 Rein Protocol／Foundation 有明确字级。
 
-## 验证底线
+公开首页 https://www.rein-protocol.org 的实际 CSS（https://rein-protocol.org/_next/static/immutable/chunks/3p2itxezsoxq6.css ）给出以下参考值：paper `#f4ecdd`、paper-deep `#e9dac5`、paper-light `#fbf6ec`、ink `#1d140e`、ink-soft `#43342c`、ink-faint `#70635a`、line `#b8ac9d`、line-dark `#4d3f37`、accent `#ee4217`、accent-dark `#a8260a`、focus `#d12e00`。其 display 为 Newsreader，body 为 Manrope；这是观察到的网站实现，不是独立发布的 brand manual。Nori 全站正体约束继续适用，Rein 章节借用纸色、棕黑、橙红与官方 R，不复制斜体。
 
-- 观察完整运行周期：Nori 可识别，演化与缩远有连续性，递归揭示清楚，循环接缝自然；各阶段文字和 CTA 都可读。背景不截获操作，正文与按钮使用 HTML。
-- 提供暂停／继续，同时控制演化与镜头；离屏暂停。减少动态模式及低性能设备采用同风格静态构图，移动端可简化渲染但保留全幅布局。图形失效时仍可阅读和使用链接。
-- 保留语义标题、键盘焦点和足够对比度。元胞状态、镜头编排与渲染适当分离，避免全写进入口；只读取当前任务需要的代码和素材。
-- 分别报告视觉、动画与工程检查，展示桌面和移动端效果。静态图或构建通过都不能替代完整动画验证；未完成部分如实说明。
+公开使命为使 AI agents 对人和社会安全，通过社区、开源项目与研究推进 transparency、observability、policy controls。可说明人设定边界、审阅重大决定并承担责任；不增加融资、合作、成果或规模声明。
 
-## 首次本地实现参数
+## 原始 UI 参考
 
-- 字体采用 Manrope Variable；标题与场景短句统一使用 Manrope，使用粗体强调。字体本地打包，避免外部字体请求。
-- 材质采用暖纸白、苔绿入口与薄荷／浅粉元胞，方格带轻微边缘明暗；阅读区域以连续渐变降低场景对比，不使用文字卡片。
-- 镜头采用 28 秒、8 倍缩远的递归构图；128 × 128 元胞网格预计算真实 B3/S23 离散状态，细节层淡出后由新种子的父级接替。淡色底材与活细胞分开呈现。具体边界、预计算、重置及降级机制见 README；此构图不代表自然自复制或已实现 RSI。
+- Slack sidebar 组成：https://slack.com/help/articles/212596808-Adjust-your-sidebar-preferences
+- Slack parent message 与 thread：https://slack.com/help/articles/115000769927-Use-threads-to-organize-discussions-
+- Discord 官方 server／text／voice 结构：https://support.discord.com/hc/en-us/articles/360045138571-Beginner-s-Guide-to-Discord
+- Discord community roles／channels：https://support.discord.com/hc/en-us/articles/11074987197975-Community-Onboarding-FAQ
+- GitHub issue 右侧 assignees：https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/assigning-issues-and-pull-requests-to-other-github-users
+- GitHub PR tabs／checks／review：https://docs.github.com/en/pull-requests/reference/pull-requests
 
+以上为已查阅的官方结构依据。Lark、Google Docs／Calendar、iMessage、Stripe、X、Reels 与 Gmail 的本轮组合是产品演示设计，不代表这些集成已验证；不得把未查阅的产品指南写成已核实来源。
 
-## 用户修订：真实工作界面与 Nori 身份
+## 验证与边界
 
-本节取代前次完整落地页的工件卡片方案。除 Hero 构图与动画外，其余章节需重新设计。
+分别检查桌面和移动端视觉、完整滚动拼装、真实 Conway 状态、减少动态与Canvas 不可用降级、工牌入场结束与交互回弹、键盘焦点、文字对比、横向溢出和锚点。静态截图与构建不能替代运动／交互验证；报告实际运行的工程检查及未完成项。
 
-- 全站禁止斜体，包括 organization；强调使用字重。行动按钮无箭头，取消试点 CTA，使用明确的 Discord 入口。
-- Nori 身份以用户新上传的薄荷粉猫耳形象为准。网站标识采用元胞格点的像素头像；普通场景仅出现头部。
-- 只设置一个工牌区域：透明卡套、黑色挂绳、金属扣、员工身份照式半身像；组织、具体职位、职责明确分层。不再单独重复职位名册。
-- Work 以一个主任务连接文档、日历、对话、代码任务与交付物。使用轻透视、浅阴影、Z 层和少量边缘遮挡，关键内容不可被遮住。背景使用实际元胞规则演化，支持暂停与减少动态。
-- 场景以真实 Discord、Slack、Lark 等应用的界面结构呈现 Nori 与用户对话，保留软件正常文字密度与宽高比。约 4:3 仅作阅读空间参考，允许自然局部裁切；不得将完整应用缩成小卡、放大品牌图标、使用厚软胶边框或层层套卡。
-- 入职、社区协作必须显示具体应用中的任务与交付；财务需要准确应用图标及权限分层工作流，而非纯文字介绍。不同业务选择对应软件和工件，不复用统一聊天加摘要模板。
-- 内容节奏参考 LobeHub 团队聊天中的 Agent 工作展示与 Grok Bot 产品界面尺度。仓库中的 lobehub-badge.png 与 grok-product-proportions.png 为比例参考；不照搬其产品能力或品牌身份。
-- 所有构造场景明确标示示例，不冒充真实组织记录、已发生交易、已完成集成或验证结果。
-
-### 工牌交互修订
-
-工牌更换为基于用户 Nori 参考生成的立体半身身份照，保留薄荷粉头发、猫耳、胶囊眼睛、耳机天线与深色外套。卡套采用 CSS 3D 分层、透明边缘、高光与接触阴影；金属扣独立置于前景。SVG 黑色织带随拖动变形，阻尼弹簧控制释放后的回弹，鼠标位置控制卡面倾斜与高光。支持指针捕获、触控拖动、键盘方向键与 Escape 复位；减少动态模式下不产生惯性摆动。该效果是 CSS 3D 与弹簧模型，不是刚体碰撞模拟。普通页面头像不受这次工牌专用资产替换影响。
-
-
-### 产品品牌与工牌补充
-
-本落地页以 Nori 产品为主体。Rein Protocol Foundation 只在 06 客户场景中具名，提供进入实际组织 Discord 体验 Nori 的入口；不作为工牌品牌、通用示例工作区名称或页尾署名。现有 GitHub 仓库链接保持有效。
-
-五个工牌均为 Nori，不设置不同人名。主标题直接展示具体职位：Chief Operating Officer、Chief People Officer、Chief Financial Officer、Community Lead、Software Engineer。每个职位使用独立服装与配饰，保留统一 Nori 身份。工牌区禁止 example teammates、role concept 等占位式营销文案；不添加虚构人员任职或客户成果。工牌在所有屏宽保持单行横排，空间不足时在区域内横向滚动，不堆为纵列。悬停位移、倾斜、绳索末端与拖拽共用连续运动状态；挂点是卡片旋转中心，避免出现卡动绳不动或突然切换角度。
-
-工牌默认轻微错峰晃动，和拖拽共用同一挂点及弹簧模型。提供暂停按钮，尊重减少动态偏好；页面隐藏或工牌离屏时暂停推进。
-
-工牌可见职位标题使用完整名称：Chief Operating Officer、Chief People Officer、Chief Financial Officer、Community Lead、Software Engineer。允许自然换行，不使用缩写。
-
-
-### 核心场景直接展示
-
-Landing page 的核心内容不使用 Tab、折叠面板或其他需要额外点击才能发现的切换方式。Work 的 Onboarding、Tool access、Governance 按阅读顺序直接展开，各自展示标题、完整应用场景及关联工件。用清晰间距、分隔线与小节标识组织滚动阅读；不自动轮播、不隐藏非选中场景。
-
-### 阅读层级修订：场景与交付物
-
-本轮以 NGO / nonprofit 负责人、运营团队与董事会的首次访问为阅读情境；保留亲近、克制、开源研究产品的身份与元胞 Hero。
-
-- Hero 标题附近直接说明 nonprofit / NGO 受众，正文聚焦承诺、负责人和交接背景。收紧 Hero 到工牌及工作区的内部留白，保留现有章节顺序。
-- 三个核心场景继续全部展开，但不再使用三个相同 Slack 窗口：Onboarding 展示完整线程和具体交接工件；Tool access 展示申请、负责人批准、访问验证；Governance 展示董事会材料与待决事项、负责人和跟进期限。
-- 财务以示例支出记录为主视觉，明确金额、审批、付款和收据状态；资金权限分层继续独立说明。删除与记录重复的筹资执行四步说明，保留服务边界与筹资关系内容。
-- 传播区 Before / During / After 统一无衬线正体；减少章节标题的末尾粗体套路。工牌职责、工作界面脚注和页尾文字提高字号及可读性。
-- 工牌默认提示简化；键盘焦点进入工牌区时显示完整操作说明，屏幕阅读器仍可通过描述读取。
-- Rein 维持真实组织介绍与示意项目计划的区别。本轮没有加入未经来源核实的实际成果。
-
-### CTA 修订建议（待单独讨论，未实施）
-
-建议 Hero 只保留一个 `Meet Nori in Discord` 主入口，旁边说明 `Join Rein’s community to meet Nori and explore the current work.`；次入口改为 `Explore the workflows`，定位到 `#work`。页尾保留 Discord 主按钮和现有 GitHub 入口，移除重复的 `Or come say hello in Discord`。Header 与 Rein 的上下文入口可保留，但同一目的地不包装成不同体验。此建议涉及此前确认的 CTA 方案，本轮不改变现有按钮与链接。
+公开代码不等于已获开源许可。Nori README https://github.com/rein-protocol-foundation/nori-agent 当前明确尚未选择许可证；页面使用 super agent、public code、built in the open，不声称已授予开源许可证。产品目标与已验证能力保持区分，不访问管理员 dashboard 证明公共演示。

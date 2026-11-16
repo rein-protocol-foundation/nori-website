@@ -2,7 +2,7 @@
 
 Standalone public website for Nori-Agent, by Rein Protocol Foundation.
 
-**Status:** Complete local landing-page UI: floating Header, animated Hero, physical employee badges, app-based operations, resources, community, communications, Rein, continuity, and open-source participation. Built with React, Vite, TypeScript, and Three.js. Scenarios are illustrative; this website does not establish that the agent implements the described workflows.
+**Status:** Complete local landing-page UI: floating Header, animated Hero, interactive Nori role badges, app-based operations, resources, community, communications, Rein, continuity, and public-code participation. Built with React, Vite, TypeScript, Canvas 2D, and SVG. Scenarios are illustrative; this website does not establish that the agent implements the described workflows.
 
 ## Run locally
 
@@ -24,23 +24,21 @@ The production preview uses `http://127.0.0.1:4173`.
 
 ## Structure
 
-- `src/components/`: semantic Header/Hero, responsive navigation, role portraits, scene lifecycle, and motion control.
-- `src/components/sections/`: eight landing-page sections and the footer.
+- `src/components/`: semantic Header/Hero, responsive navigation, role portraits, scene lifecycle, and reduced-motion support.
+- `src/components/sections/`: the mission introduction, eight product chapters, and the footer.
 - `src/data/roles.ts`: the original role reference data.
 - `src/styles/`: shared visual tokens, composition, responsive layouts, and focus states.
 - `src/scene/identity.ts`: original cellular interpretation of the approved Nori identity.
 - `src/scene/life.ts`: deterministic seed and pure Conway B3/S23 evolution with finite dead boundaries.
-- `src/scene/choreography.ts`: active-time clock, eightfold zoom, and 28-second recursive loop.
-- `src/scene/renderer.ts` and `shaders.ts`: Three.js resource management and cellular materials.
-- `public/nori-cells.svg`: matching static fallback; generated from `portraitSvg()` in `identity.ts`.
+- `src/scene/choreography.ts`: scroll progress, continuous assembly paths, and cellular generation mapping.
+- `src/scene/renderer.ts`: demand-driven Canvas 2D composition.
+- `src/scene/identity.ts`: also supplies the inline SVG fallback. `public/nori-cells.svg` is a decorative footer asset.
 
 ## What the animation represents
 
-A 128 × 128 binary grid is seeded with blocks, blinkers, and small interacting patterns arranged into Nori's silhouette. Twenty generations are precomputed using actual Conway B3/S23. Interpolation between adjacent generations softens the visual transition; the discrete states remain binary. The faint colored substrate identifies dormant sites independently of live microcells.
+Four recognizable small Nori portraits form one larger portrait as the visitor scrolls. Continuous trajectories carry existing cells into the assembled identity. Conway B3/S23 births and deaths run in a separate deterministic layer; assembly is authored choreography, not a claim of natural self-replication or recursive self-improvement.
 
-Recursive composition is staged. An exponential camera transform reveals an eightfold parent portrait. Spatial detail blending resolves the smaller portraits into the parent's cellular material; the freshly seeded parent becomes the next cycle's foreground. The hidden fine level resets at the seam. This is neither natural self-replication of the seed nor evidence of recursive self-improvement.
-
-The scene uses a full-screen Three.js shader with shallow bevel shading rather than expensive physical 3D materials. DOM text and links stay above the scene. Pause stops both camera and state progression. Offscreen/hidden documents stop active time. Reduced motion, low-capability devices, sustained poor frame cadence, unavailable WebGL, shader failure, and context loss use a static composition. The frame-cadence fallback is a conservative heuristic, not a device benchmark. No animation controls are shown when the scene is static.
+The sticky stage renders only when scroll, size, or visibility changes. There is no autoplay loop or visible motion control. Offscreen and hidden documents do not paint. Reduced motion and unavailable Canvas 2D use a static SVG portrait with the same readable DOM content and links. Badge entrances settle, while pointer drag and keyboard impulses remain available. Product-scene entrances and SVG storytelling run once for less than five seconds.
 
 ## Verification
 
@@ -52,13 +50,19 @@ npm run preview
 # In a second terminal:
 npm run check:browser
 npm run check:landing
+node tests/badges.mjs
+node tests/badge-layout.mjs
+# Optional cross-engine checks (install matching engines once):
+npx playwright install firefox webkit
+TEST_BROWSER=firefox npm run check:landing
+TEST_BROWSER=webkit npm run check:landing
 ```
 
-The browser checks use the production preview by default; set `TEST_URL` to test another local server. They capture a complete loop and check pause/keyboard resume, responsive overflow, link targets, semantic headings, axe accessibility rules, offscreen suspension, live and initial reduced motion, missing/lost WebGL, and a low-capability device. Local screenshots, a recording, and the machine-readable result are written to ignored `artifacts/`.
+The browser checks use the production preview by default; set `TEST_URL` to test another local server. They check scroll-driven assembly, smooth anchor navigation, idle/offscreen/hidden suspension, reduced motion, Canvas 2D failure, and mobile layout. Screenshots and machine-readable results are written to ignored `artifacts/`.
 
 The landing-page checks verify section navigation, text-only CTA destinations, mobile-menu keyboard behavior, layout at eight widths from 320–1440px, and desktop/mobile axe scans. They also capture each section and the full page.
 
-Automated checks do not replace manual visual review, screen-reader testing, or testing real low-end phones. Chromium and the Codex in-app browser are the first-iteration verification targets; Safari/Firefox and physical-device performance remain to be checked.
+Automated checks do not replace manual visual review, screen-reader testing, or testing real low-end phones. The 2026-11-16 redesign passes the landing checks in Chromium, Firefox, and WebKit. This covers eight viewport widths, keyboard navigation, and desktop/mobile axe scans. The animation and badge interaction suites pass in Chromium. Actual Safari/iOS devices, assistive-technology use, and real low-end phone performance remain unverified. WebKit automation is not a substitute for device testing.
 
 ## Project boundaries
 
@@ -70,4 +74,6 @@ Automated checks do not replace manual visual review, screen-reader testing, or 
 
 See [setup and handoff](docs/setup-and-handoff.md) for repository and hosting context.
 
-The revised work scenes are illustrative HTML reconstructions of software contexts, not live integrations or captures of organizational records. The Work background evolves a separate finite Conway grid, with pause, offscreen suspension, and reduced-motion handling. The supplied Nori portrait is stored in `public/nori-reference.png`; vendor marks under `public/brands/` come from Simple Icons and identify illustrative services.
+The application scenes reconstruct familiar software interfaces with sample data; they are not live integrations or records of organizational outcomes. One discreet footer disclosure covers the walkthroughs. Slack, Lark, Google Docs/Calendar, iMessage/Stripe, Discord/GitHub, X, Instagram, and Gmail each have a distinct task and interface. Rein's official public mark and observed cream/brown/orange palette are documented with primary sources in the design notes.
+
+The UI bundles Latin Manrope locally and uses a system serif for the Rein chapter. Five lazy-loaded role WebPs total about 190 KB, with a 3 KB Nori avatar. Original approved portraits remain available. No private screenshot messages, personal contact details, organizational financial data, or partner claims are included.

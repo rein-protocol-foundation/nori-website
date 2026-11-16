@@ -1,0 +1,2503 @@
+/* Product walkthroughs retain each application's visual grammar. */
+.product-scene {
+  margin: 0;
+  min-width: 0;
+  position: relative;
+}
+.ui-icon {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.scene-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #e5eee7;
+  font-size: 14px;
+  font-weight: 600;
+  color: #62513f;
+}
+.human-alex {
+  background: #e6d9c7;
+}
+.human-maya {
+  background: #e8dbed;
+  color: #634b6c;
+}
+.human-sam {
+  background: #d4e3f0;
+  color: #3c5b70;
+}
+.scene-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.scene-message > div {
+  flex: 1;
+  min-width: 0;
+}
+.message-byline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  line-height: 1.5;
+}
+.message-byline > strong {
+  font-size: 14px;
+  font-weight: 750;
+}
+.message-byline time {
+  font-size: 11px;
+  color: #657063;
+}
+.app-tag {
+  font-size: 9px;
+  font-weight: 750;
+  line-height: 1.4;
+  border-radius: 3px;
+  background: #e8e8e5;
+  color: #51564e;
+  padding: 1px 4px;
+}
+.scene-message p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 5px 0 0;
+}
+.application-stories.work-stories {
+  display: block;
+  margin-top: 0;
+}
+.application-stories .work-story + .work-story {
+  padding-top: 0;
+  border: 0;
+  margin-top: 72px;
+}
+.scene-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+.scene-heading .overline {
+  margin-bottom: 11px;
+}
+.scene-heading h3 {
+  margin: 0;
+  font-size: 28px;
+}
+.ecosystem-caption {
+  font-size: 12px;
+  color: #53614e;
+  line-height: 1.7;
+  text-align: right;
+}
+.work-redesign {
+  background: #f0f3eb;
+}
+/* Slack: global search, navigation bar, workspace sidebar, channel and thread. */
+.slack-demo {
+  border: 1px solid #d0c5d2;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fffefb;
+  box-shadow: 0 28px 65px -42px #28152c60;
+  color: #252328;
+}
+.slack-topbar {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 0 17px;
+  background: #3f0d40;
+  color: #fbf5fc;
+}
+.window-dots {
+  display: flex;
+  gap: 6px;
+}
+.window-dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ed6665;
+}
+.window-dots i:nth-child(2) {
+  background: #eeb94f;
+}
+.window-dots i:nth-child(3) {
+  background: #6ebc76;
+}
+.slack-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff24;
+  padding: 6px 15px;
+  border: 1px solid #ffffff20;
+  border-radius: 5px;
+  width: 50%;
+  font-size: 12px;
+}
+.slack-search svg {
+  width: 15px;
+  height: 15px;
+}
+.slack-app-name {
+  font-size: 12px;
+  font-weight: 700;
+}
+.slack-layout {
+  display: grid;
+  grid-template-columns: 54px 175px minmax(0, 1fr) 260px;
+}
+.slack-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #3f0d40;
+  color: #e6cde8;
+  gap: 8px;
+  padding: 17px 0;
+}
+.workspace-tile {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: #e7eee0;
+  color: #25452e;
+  border-radius: 9px;
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 17px;
+}
+.slack-rail > svg {
+  margin-top: 12px;
+}
+.slack-rail small {
+  font-size: 9px;
+}
+.slack-sidebar {
+  background: #522654;
+  color: #ead8ec;
+  padding: 20px 12px;
+}
+.slack-sidebar > b {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #fdf8fe;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+.slack-sidebar p {
+  font-size: 12px;
+  margin: 0 -5px 4px;
+  padding: 7px 8px;
+}
+.slack-sidebar .selected {
+  background: #f2e6f5;
+  color: #3d1541;
+  border-radius: 5px;
+  font-weight: 650;
+}
+.sidebar-label {
+  display: block;
+  margin: 24px 0 12px;
+  font-size: 10px;
+  color: #dbc2df;
+}
+.nori-sidebar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.nori-sidebar .scene-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+}
+.slack-channel {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.slack-channel > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 22px 12px;
+}
+.slack-channel > header > b {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 16px;
+}
+.slack-tabs {
+  display: flex;
+  gap: 25px;
+  padding: 0 22px;
+  border-bottom: 1px solid #dedbdc;
+  font-size: 12px;
+  color: #656064;
+}
+.slack-tabs > span {
+  padding: 10px 0;
+}
+.slack-tabs > span:first-child {
+  border-bottom: 3px solid #7d4185;
+  color: #3c233e;
+  font-weight: 700;
+}
+.slack-messages {
+  padding: 24px 22px 18px;
+}
+.slack-checklist {
+  margin-top: 16px;
+  border-left: 3px solid #97689c;
+  padding: 5px 0 4px 15px;
+}
+.slack-checklist > b {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.slack-checklist > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 0;
+  font-size: 12px;
+}
+.slack-checklist small {
+  margin-left: auto;
+  white-space: nowrap;
+  color: #5f6860;
+  font-size: 10px;
+}
+.task-tick {
+  color: #25845c;
+  font-weight: 800;
+}
+.task-open {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #8b8c84;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.slack-thread-count {
+  display: block;
+  font-size: 11px;
+  color: #225b93;
+  margin-top: 14px;
+}
+.calendar-attachment {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border: 1px solid #dbdfda;
+  border-radius: 6px;
+  margin-left: 47px;
+  padding: 16px;
+}
+.calendar-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 49px;
+  border: 1px solid #d7dce2;
+  border-radius: 4px;
+  font-size: 24px;
+  line-height: 1.4;
+}
+.calendar-date > b {
+  width: 100%;
+  background: #e7f0ff;
+  font-size: 9px;
+  padding: 4px 7px;
+  color: #315a96;
+  text-align: center;
+}
+.integration-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: #5c656f;
+  margin-bottom: 6px;
+}
+.integration-label svg {
+  width: 13px;
+  height: 13px;
+  color: #3676c7;
+}
+.calendar-attachment strong {
+  display: block;
+  font-size: 14px;
+}
+.calendar-attachment p {
+  font-size: 11px;
+  margin: 6px 0 0;
+  color: #5e6662;
+}
+.slack-composer {
+  border: 1px solid #cecdca;
+  border-radius: 7px;
+  padding: 10px 13px;
+  margin: auto 22px 20px;
+  font-size: 12px;
+  color: #65636a;
+}
+.slack-composer > span {
+  display: block;
+  font-size: 11px;
+}
+.slack-composer > p {
+  margin: 12px 0 20px;
+  font-size: 12px;
+}
+.slack-thread {
+  border-left: 1px solid #dedbdc;
+  padding: 18px;
+  background: #faf9f7;
+}
+.slack-thread > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  font-size: 14px;
+}
+.slack-thread .scene-message {
+  gap: 8px;
+}
+.slack-thread .scene-avatar {
+  width: 29px;
+  height: 29px;
+}
+.slack-thread .message-byline > strong {
+  font-size: 13px;
+}
+.slack-thread .message-byline time {
+  font-size: 10px;
+}
+.slack-thread .scene-message p {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.mention {
+  color: #17648e;
+  background: #e2f0fa;
+  padding: 1px 3px;
+}
+.linked-issue {
+  border: 1px solid #dedde2;
+  border-radius: 7px;
+  background: #fefdfb;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+}
+.linked-issue > svg {
+  width: 18px;
+  height: 18px;
+}
+.linked-issue > span {
+  font-size: 10px;
+  color: #62616b;
+}
+.linked-issue > strong {
+  grid-column: 1 / -1;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.linked-issue > div {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  font-size: 10px;
+}
+.status-pill {
+  display: inline-block;
+  padding: 3px 7px;
+  color: #245c3d;
+  background: #e2efe6;
+  border: 1px solid #c4dbc8;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.status-pill.amber {
+  color: #74531c;
+  background: #faf1d8;
+  border-color: #e3d5b1;
+}
+.thread-outcome {
+  color: #67705f;
+  font-size: 11px;
+  margin: 20px 0 0;
+  line-height: 1.7;
+}
+/* Lark: bright workspace and native approval chain. */
+.lark-demo {
+  border: 1px solid #d9dee6;
+  border-radius: 11px;
+  overflow: hidden;
+  background: #fdfefe;
+  color: #273042;
+  max-width: 1040px;
+  margin-left: auto;
+}
+.lark-topbar {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 22px;
+  border-bottom: 1px solid #e2e6ee;
+}
+.lark-logo {
+  color: #3376ec;
+  font-size: 31px;
+  line-height: 1;
+}
+.lark-topbar > b {
+  font-size: 17px;
+}
+.lark-topbar > span:not(.lark-logo) {
+  border-left: 1px solid #dce2eb;
+  margin-left: 10px;
+  padding-left: 22px;
+  font-size: 13px;
+}
+.lark-topbar > .ui-icon {
+  margin-left: auto;
+  color: #66717e;
+  width: 17px;
+}
+.lark-topbar > .scene-avatar {
+  width: 27px;
+  height: 27px;
+  margin-left: 8px;
+}
+.lark-layout {
+  display: grid;
+  grid-template-columns: 65px 1fr;
+}
+.lark-rail {
+  background: #f0f4fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 30px 0;
+  color: #64738c;
+}
+.lark-rail .active {
+  display: grid;
+  place-items: center;
+  padding: 9px;
+  border-radius: 8px;
+  background: #d9e8ff;
+  color: #2265ce;
+}
+.lark-request {
+  padding: 30px 38px;
+}
+.lark-request-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.lark-approval-icon {
+  padding: 13px;
+  background: #e3edff;
+  color: #3262bf;
+  border-radius: 12px;
+}
+.lark-request-title h4 {
+  font-size: 23px;
+  margin-bottom: 6px;
+}
+.lark-request-title p {
+  font-size: 12px;
+  color: #5c6a7c;
+  margin: 0;
+}
+.lark-found {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f3f7fd;
+  border-radius: 7px;
+  padding: 17px;
+  margin-top: 24px;
+}
+.lark-found p {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0;
+  color: #536179;
+}
+.lark-found p b {
+  color: #2f4261;
+  font-weight: 600;
+}
+.saving-tag {
+  margin-left: auto;
+  font-size: 10px;
+  color: #27634a;
+  background: #e3f0e8;
+  border-radius: 4px;
+  padding: 5px 7px;
+  white-space: nowrap;
+}
+.lark-fields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 23px 0;
+  margin: 0;
+}
+.lark-fields dt {
+  font-size: 11px;
+  color: #5d6b7d;
+}
+.lark-fields dd {
+  font-size: 14px;
+  margin: 9px 0 0;
+}
+.approval-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #e0e6ef;
+  padding-top: 24px;
+  gap: 12px;
+}
+.approval-person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+  font-size: 12px;
+}
+.approval-person small {
+  font-size: 10px;
+  color: #5c6b7b;
+}
+.approval-person.current small {
+  color: #3062ad;
+}
+.approval-person.current .scene-avatar {
+  outline: 2px solid #7aa8ee;
+  outline-offset: 4px;
+}
+.approval-track > i {
+  height: 1px;
+  background: #cdd9e9;
+  flex: 1;
+  margin-top: -35px;
+}
+/* Google Docs: the document and its decision follow-up, not a generic feature card. */
+.board-demo {
+  border: 1px solid #d4dad3;
+  background: #edf1f4;
+  border-radius: 11px;
+  overflow: hidden;
+  max-width: 1110px;
+}
+.docs-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 25px;
+  background: #fafcfc;
+  border-bottom: 1px solid #d9e0e4;
+}
+.google-doc-icon {
+  background: #4285ec;
+  color: #f8fbfe;
+  padding: 9px;
+  border-radius: 3px;
+}
+.docs-toolbar > div > b {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+}
+.docs-toolbar > div > span {
+  display: block;
+  font-size: 11px;
+  color: #5c6469;
+  margin-top: 7px;
+}
+.docs-share {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-size: 12px;
+  border-radius: 30px;
+  background: #d7e8fc;
+  color: #254f7b;
+  padding: 10px 16px;
+}
+.docs-share svg {
+  width: 14px;
+  height: 14px;
+}
+.board-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 28px;
+  padding: 30px;
+}
+.board-document {
+  background: #fffefa;
+  border: 1px solid #dce0dc;
+  padding: 32px;
+  box-shadow: 0 2px 5px #2332420a;
+}
+.document-kicker {
+  font-size: 10px;
+  color: #64706c;
+  letter-spacing: 0.1em;
+}
+.board-document h4 {
+  font-size: 29px;
+  line-height: 1.2;
+  margin: 26px 0;
+  font-weight: 550;
+  letter-spacing: -0.04em;
+}
+.agenda-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 17px 0;
+  border-top: 1px solid #e0e3db;
+}
+.agenda-row > span:first-child {
+  font-size: 10px;
+  color: #697566;
+  padding-top: 3px;
+}
+.agenda-row b {
+  font-size: 13px;
+}
+.agenda-row p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #5e6a5e;
+  line-height: 1.7;
+}
+.agenda-row > .status-pill {
+  margin-left: auto;
+  font-size: 9px;
+}
+.board-comment {
+  padding-top: 8px;
+}
+.calendar-mini {
+  border-left: 3px solid #4d81cf;
+  background: #f9fbfe;
+  padding: 18px;
+  margin-bottom: 28px;
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 8px 12px;
+}
+.calendar-mini > svg {
+  color: #3e6cad;
+  grid-row: 1 / 3;
+}
+.calendar-mini > b {
+  font-size: 13px;
+}
+.calendar-mini > span {
+  font-size: 11px;
+  color: #586b80;
+}
+.board-comment .scene-message {
+  padding: 20px;
+  background: #fdfefb;
+  border: 1px solid #d7ded4;
+  border-radius: 8px;
+}
+.board-comment .scene-message p {
+  font-size: 13px;
+}
+.followup-marker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #586d57;
+  font-size: 12px;
+  padding: 0 8px;
+}
+/* Finance: a message travels into a real billing surface and its linked record. */
+.resources-section {
+  background: #fafbf7;
+}
+.finance-demo {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 65px;
+  align-items: center;
+  padding: 38px 30px;
+  background: #edf2e9;
+  border-radius: 18px;
+}
+.finance-path {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.finance-path svg {
+  width: 100%;
+  height: 100%;
+}
+.path-bed {
+  stroke: #bbcdad;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 4 7;
+}
+.path-travel {
+  stroke: #658c4e;
+  stroke-width: 2;
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 25 1600;
+  stroke-dashoffset: -1600;
+}
+.imessage-window {
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+  padding: 17px 16px 14px;
+  border: 5px solid #e2e5df;
+  outline: 1px solid #bac3b7;
+  border-radius: 38px;
+  background: #fdfdfb;
+  box-shadow: 0 18px 35px -23px #26412c55;
+  position: relative;
+  min-height: 540px;
+}
+.phone-status {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 14px 12px;
+  font-size: 10px;
+}
+.imessage-window > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ecece6;
+  margin: 0 -16px;
+  padding: 0 18px 14px;
+  color: #3176cd;
+  font-size: 26px;
+}
+.imessage-window > header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  color: #273528;
+  font-size: 11px;
+}
+.imessage-window .scene-avatar {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+.phone-video {
+  font-size: 27px;
+}
+.imessage-date {
+  font-size: 9px;
+  text-align: center;
+  color: #666c67;
+  margin: 19px 0;
+}
+.message-bubble {
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 11px 14px;
+  border-radius: 18px;
+  max-width: 92%;
+}
+.message-bubble.sent {
+  margin-left: auto;
+  background: #0865cd;
+  color: #f7fbff;
+  border-bottom-right-radius: 5px;
+}
+.message-bubble.received {
+  background: #eceee9;
+  color: #2c3c2d;
+  border-bottom-left-radius: 5px;
+  margin-top: 14px;
+}
+.phone-attachment {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  background: #f1f4ec;
+  border: 1px solid #d9e0d0;
+  border-radius: 9px;
+  margin-top: 15px;
+  padding: 12px;
+}
+.phone-attachment > svg {
+  color: #678951;
+}
+.phone-attachment b {
+  display: block;
+  font-size: 11px;
+}
+.phone-attachment span {
+  display: block;
+  font-size: 9px;
+  color: #5a6a4e;
+  margin-top: 5px;
+}
+.phone-compose {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  font-size: 17px;
+  color: #687061;
+}
+.phone-compose > span:nth-child(2) {
+  border: 1px solid #d5dacf;
+  border-radius: 25px;
+  flex: 1;
+  font-size: 11px;
+  padding: 8px 12px;
+}
+.phone-home {
+  display: block;
+  width: 90px;
+  height: 4px;
+  border-radius: 10px;
+  margin: 17px auto 0;
+  background: #253327;
+}
+.finance-desktop {
+  position: relative;
+  min-width: 0;
+}
+.stripe-window {
+  background: #fffefa;
+  border: 1px solid #d6d9df;
+  border-radius: 11px;
+  overflow: hidden;
+  box-shadow: 0 19px 45px -28px #253f2c44;
+}
+.stripe-window > header {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 18px 23px;
+  border-bottom: 1px solid #e6e6ed;
+  font-size: 12px;
+  color: #555c71;
+}
+.stripe-window > header > img {
+  object-fit: contain;
+}
+.stripe-window > header > .scene-avatar {
+  margin-left: auto;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.stripe-body {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+}
+.stripe-body > aside {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  background: #f7f8fc;
+  padding: 25px 15px;
+  font-size: 11px;
+  color: #5d6077;
+}
+.stripe-body > aside b {
+  color: #373954;
+}
+.stripe-body > aside .selected {
+  color: #5541b2;
+  background: #ece9fb;
+  margin: -7px -7px;
+  padding: 7px;
+  border-radius: 5px;
+}
+.invoice-content {
+  padding: 26px;
+  min-width: 0;
+  color: #34364d;
+}
+.invoice-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #62657d;
+}
+.invoice-draft {
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #ebedf4;
+  color: #4c5269;
+}
+.invoice-content h3 {
+  font-size: 22px;
+  margin: 22px 0 12px;
+}
+.invoice-total {
+  font-size: 37px;
+  letter-spacing: -0.045em;
+  font-weight: 600;
+}
+.invoice-total > span {
+  font-size: 12px;
+  font-weight: 450;
+  color: #6a6d81;
+  letter-spacing: 0;
+}
+.invoice-customer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 11px;
+  margin: 20px 0;
+}
+.invoice-customer > span {
+  color: #64687b;
+}
+.invoice-customer b {
+  font-weight: 550;
+}
+.invoice-content table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 11px;
+}
+.invoice-content th {
+  border-top: 1px solid #e1e3eb;
+  border-bottom: 1px solid #e1e3eb;
+  padding: 10px 0;
+  color: #676c7e;
+  font-weight: 500;
+}
+.invoice-content td {
+  padding: 14px 0;
+}
+.invoice-content :is(td, th):last-child {
+  text-align: right;
+}
+.invoice-sum {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e1e3eb;
+  padding: 14px 0;
+  font-size: 12px;
+}
+.invoice-approval {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #e5dabb;
+  background: #fcf8ee;
+  padding: 13px;
+  border-radius: 6px;
+  margin-top: 18px;
+}
+.approval-seal {
+  color: #8b713b;
+}
+.invoice-approval strong {
+  font-size: 12px;
+  color: #5c4d31;
+}
+.invoice-approval p {
+  font-size: 10px;
+  line-height: 1.7;
+  color: #736344;
+  margin: 4px 0 0;
+}
+.ledger-slip {
+  position: relative;
+  margin: 20px 0 0 -22px;
+  background: #fdfef8;
+  border: 1px solid #b9c8ad;
+  padding: 17px 20px;
+  border-radius: 7px;
+  box-shadow: 0 8px 18px -15px #26412c44;
+}
+.ledger-slip > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+}
+.ledger-slip > div > span {
+  margin-left: auto;
+  font-size: 10px;
+  color: #607653;
+}
+.ledger-slip p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 11px;
+  margin: 14px 0 0;
+}
+.authority-strip {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 1fr;
+  gap: 32px;
+  padding-top: 45px;
+  align-items: center;
+}
+.authority-intro .overline {
+  font-size: 9px;
+  margin-bottom: 12px;
+}
+.authority-intro h3 {
+  font-size: 24px;
+  margin: 0;
+}
+.authority-layer {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 16px 0 16px 23px;
+  border-left: 1px solid #c5d0ba;
+}
+.authority-layer > svg {
+  width: 23px;
+  height: 23px;
+  color: #698653;
+}
+.authority-layer b {
+  display: block;
+  font-size: 12px;
+}
+.authority-layer span {
+  display: block;
+  font-size: 11px;
+  color: #596e4a;
+  margin-top: 8px;
+}
+.authority-layer .scene-avatar {
+  width: 27px;
+  height: 27px;
+}
+/* Discord: a different social and visual context, with server and member rails. */
+.community-section {
+  background: #f1f2ee;
+}
+.discord-demo {
+  background: #1f2025;
+  border: 1px solid #34353d;
+  border-radius: 12px;
+  overflow: hidden;
+  color: #f1f1f4;
+}
+.discord-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 9px 16px;
+  background: #111216;
+  border-bottom: 1px solid #2e2f34;
+  font-size: 11px;
+  font-weight: 650;
+}
+.discord-titlebar > img {
+  filter: brightness(0) invert(0.9);
+}
+.discord-layout {
+  display: grid;
+  grid-template-columns: 60px 180px minmax(0, 1fr) 155px;
+}
+.discord-servers {
+  background: #121317;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17px;
+}
+.discord-servers > img {
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  background: #34353b;
+  border-radius: 13px;
+  filter: grayscale(1) brightness(1.8);
+}
+.discord-servers > span {
+  width: 38px;
+  height: 38px;
+  background: #2e3037;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+.discord-servers .scene-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+}
+.discord-server-active {
+  position: relative;
+}
+.discord-server-active:before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 6px;
+  width: 3px;
+  height: 26px;
+  background: #eeeef1;
+  border-radius: 4px;
+}
+.discord-channels {
+  background: #191a20;
+  padding: 0 12px 22px;
+}
+.discord-channels > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 650;
+  padding: 18px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #34353b;
+}
+.discord-category {
+  display: block;
+  font-size: 9px;
+  color: #abb0bc;
+  margin: 25px 0 10px;
+  letter-spacing: 0.05em;
+}
+.discord-channels p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #b6bac6;
+  padding: 9px;
+  margin: 3px -4px;
+}
+.discord-channels .selected {
+  background: #35363f;
+  color: #f8f7fc;
+  border-radius: 5px;
+}
+.discord-channels .ui-icon {
+  width: 16px;
+  height: 16px;
+}
+.discord-conversation {
+  min-width: 0;
+}
+.discord-conversation > header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 23px;
+  border-bottom: 1px solid #34353d;
+}
+.discord-conversation > header b {
+  font-size: 15px;
+}
+.discord-conversation > header > span {
+  color: #b3b6c1;
+  font-size: 11px;
+  border-left: 1px solid #4c4c55;
+  padding-left: 18px;
+}
+.discord-messages {
+  padding: 26px 23px 4px;
+}
+.discord-demo .scene-avatar {
+  border-radius: 50%;
+}
+.discord-demo .scene-message {
+  margin-bottom: 26px;
+}
+.discord-demo .scene-message p {
+  font-size: 14px;
+  color: #e6e7ed;
+}
+.discord-demo .message-byline time {
+  color: #b0b3bf;
+  font-size: 10px;
+}
+.discord-demo .app-tag {
+  color: #f8f9ff;
+  background: #5964d6;
+  font-size: 9px;
+}
+.discord-mention {
+  background: #3f466c;
+  color: #d2d9ff;
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+.discord-issue-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  background: #2c2e36;
+  border-left: 3px solid #729fe0;
+  padding: 13px;
+  border-radius: 3px;
+}
+.discord-issue-link > svg {
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+  color: #e4e7ed;
+}
+.discord-issue-link span {
+  font-size: 10px;
+  color: #b6c8e3;
+  display: block;
+  margin-bottom: 5px;
+}
+.discord-issue-link b {
+  font-size: 12px;
+  font-weight: 600;
+  color: #dae6f9;
+}
+.contributor-role {
+  font-size: 10px;
+  display: inline-block;
+  color: #afddb5;
+  margin-top: 4px;
+}
+.discord-compose {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 17px;
+  color: #c0c3d0;
+  background: #34363f;
+  border-radius: 7px;
+  padding: 14px;
+  margin: 0 23px 22px;
+}
+.discord-compose span {
+  flex: 1;
+  font-size: 12px;
+}
+.discord-members {
+  border-left: 1px solid #34353d;
+  background: #1c1d23;
+  padding: 24px 13px;
+}
+.discord-members > span {
+  font-size: 9px;
+  color: #b4b7c4;
+}
+.discord-members > p {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  margin: 21px 0;
+}
+.discord-members .scene-avatar {
+  width: 27px;
+  height: 27px;
+  font-size: 11px;
+}
+.discord-members b {
+  font-weight: 550;
+}
+.discord-members i {
+  color: #fff;
+  font-style: normal;
+  background: #5964d6;
+  font-size: 8px;
+  padding: 2px 3px;
+  border-radius: 3px;
+}
+.discord-members small {
+  display: block;
+  font-size: 9px;
+  color: #a8ceb0;
+  margin-top: 5px;
+}
+.contribution-bridge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 35px 18px;
+}
+.contribution-bridge > span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #50654b;
+}
+.contribution-bridge .scene-avatar {
+  width: 26px;
+  height: 26px;
+}
+.contribution-bridge > span:nth-child(2):before,
+.contribution-bridge > span:nth-child(2):after {
+  content: "";
+  width: 35px;
+  height: 1px;
+  background: #adbda4;
+  margin: 0 10px;
+}
+/* GitHub: issue-to-PR proof, actual review, checks, and change anatomy. */
+.github-demo {
+  border: 1px solid #d1d7df;
+  border-radius: 10px;
+  overflow: hidden;
+  color: #24292f;
+  background: #fefefe;
+}
+.github-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 21px 26px;
+  background: #f6f8fa;
+}
+.github-topbar > svg {
+  width: 25px;
+  height: 25px;
+}
+.github-topbar > b {
+  font-size: 14px;
+  font-weight: 600;
+  color: #175b9c;
+}
+.github-topbar > b > span {
+  font-weight: 750;
+}
+.github-public {
+  border: 1px solid #ced4dc;
+  color: #5b6570;
+  border-radius: 20px;
+  padding: 3px 7px;
+  font-size: 9px;
+}
+.github-repo-tabs {
+  display: flex;
+  gap: 30px;
+  padding: 0 26px;
+  background: #f6f8fa;
+  border-bottom: 1px solid #d5dae0;
+}
+.github-repo-tabs > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  padding: 14px 0;
+  white-space: nowrap;
+}
+.github-repo-tabs > .selected {
+  border-bottom: 2px solid #ed9275;
+  font-weight: 700;
+}
+.github-repo-tabs .ui-icon {
+  width: 14px;
+  height: 14px;
+}
+.github-pr {
+  padding: 30px;
+}
+.github-pr-title h3 {
+  font-size: 27px;
+  letter-spacing: -0.035em;
+  margin-bottom: 15px;
+}
+.github-pr-title h3 > span {
+  color: #626b76;
+  font-weight: 400;
+}
+.github-pr-title > p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #56616d;
+  margin: 0 0 24px;
+}
+.github-merged {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 9px;
+  background: #7952b3;
+  color: #f9f7fd;
+  border-radius: 22px;
+  margin-right: 6px;
+  font-size: 11px;
+}
+.github-merged svg {
+  width: 13px;
+  height: 13px;
+}
+.github-pr-title code {
+  background: #edf0f5;
+  font-size: 11px;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+.github-pr-tabs {
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid #d8dce3;
+  font-size: 11px;
+  margin-bottom: 25px;
+}
+.github-pr-tabs > * {
+  padding: 13px 0;
+  white-space: nowrap;
+}
+.github-pr-tabs > b {
+  border-bottom: 2px solid #df927b;
+}
+.github-pr-tabs > b > span {
+  margin-left: 5px;
+  background: #e9edf0;
+  padding: 2px 5px;
+  border-radius: 9px;
+}
+.github-pr-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 25px;
+}
+.github-comment {
+  border: 1px solid #cdd5df;
+  border-radius: 7px;
+  overflow: hidden;
+}
+.github-comment > header {
+  background: #f6f8fb;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 17px;
+  border-bottom: 1px solid #d9e0e7;
+  font-size: 12px;
+}
+.github-comment .scene-avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.github-comment > header > span {
+  font-size: 11px;
+  color: #5e6977;
+}
+.github-comment > div {
+  padding: 20px;
+}
+.github-comment h4 {
+  font-size: 18px;
+  margin-bottom: 11px;
+}
+.github-comment p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0 0 18px;
+  color: #46525e;
+}
+.code-diff {
+  border: 1px solid #d5ded6;
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.code-diff > div {
+  padding: 2px 12px;
+  overflow-wrap: anywhere;
+}
+.diff-removed {
+  background: #ffebe9;
+  color: #7f3032;
+}
+.diff-added {
+  background: #dcf3e1;
+  color: #285938;
+}
+.closes-issue {
+  display: block;
+  color: #21639c;
+  font-size: 12px;
+  margin-top: 18px;
+}
+.github-timeline {
+  margin-left: 20px;
+  padding-left: 23px;
+  border-left: 2px solid #dfe5e9;
+}
+.github-timeline > div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 20px 0;
+}
+.timeline-node {
+  position: absolute;
+  left: -38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  color: #267443;
+  background: #e1f1e5;
+  border: 3px solid #fefefe;
+}
+.timeline-node > svg {
+  width: 14px;
+  height: 14px;
+}
+.github-timeline .scene-avatar {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+}
+.github-timeline p {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 0;
+}
+.github-timeline p > span {
+  display: block;
+  font-size: 11px;
+  color: #5b6975;
+}
+.github-checks {
+  border-top: 1px solid #dfe5e9;
+}
+.github-checks b {
+  font-size: 13px;
+}
+.github-checks p {
+  font-size: 11px;
+  color: #586957;
+  margin-top: 5px;
+}
+.checks-count {
+  margin-left: auto;
+  font-size: 11px;
+  color: #2d683c;
+}
+.github-meta > span {
+  display: block;
+  color: #586571;
+  border-top: 1px solid #dce2e7;
+  padding-top: 17px;
+  font-size: 11px;
+  font-weight: 650;
+}
+.github-meta > span:first-child {
+  border: 0;
+  padding-top: 5px;
+}
+.github-meta p {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 12px 0 20px;
+}
+.github-meta .scene-avatar {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+}
+.github-meta p > b {
+  margin-left: auto;
+  color: #26703c;
+}
+.github-meta i {
+  font-style: normal;
+  font-size: 10px;
+  background: #f8d7de;
+  color: #772c42;
+  padding: 2px 7px;
+  border-radius: 12px;
+}
+.github-meta i + i {
+  background: #e7e0f6;
+  color: #5d4589;
+}
+.release-followthrough {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  border-top: 1px solid #d8e0e4;
+  padding-top: 26px;
+  margin-top: 10px;
+}
+.release-followthrough > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.release-followthrough svg {
+  color: #507450;
+  width: 17px;
+  height: 17px;
+}
+.release-followthrough b {
+  display: block;
+  font-size: 13px;
+}
+.release-followthrough small {
+  display: block;
+  font-size: 10px;
+  line-height: 1.7;
+  margin-top: 5px;
+  color: #5a676f;
+}
+.community-principle {
+  font-size: 14px;
+  text-align: center;
+  color: #526448;
+  margin: 30px 0 0;
+  line-height: 1.9;
+}
+/* Continuity stays in the product, expressed as context crossing surfaces. */
+.memory-demo {
+  display: grid;
+  grid-template-columns: 1fr 100px 1.35fr;
+  align-items: center;
+  padding: 35px 0;
+}
+.memory-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.memory-sources > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #ced9c3;
+  background: #fafcf6;
+  padding: 22px;
+  border-radius: 8px;
+}
+.memory-sources > div > svg {
+  color: #64854c;
+}
+.memory-sources b {
+  display: block;
+  font-size: 14px;
+}
+.memory-sources small {
+  display: block;
+  font-size: 11px;
+  color: #596c4d;
+  margin-top: 8px;
+}
+.memory-sources > div > span:last-child {
+  margin-left: auto;
+  font-size: 10px;
+  color: #5b724b;
+}
+.memory-center {
+  display: flex;
+  align-items: center;
+}
+.memory-center > span {
+  flex: 1;
+  height: 1px;
+  background: #a8be98;
+}
+.memory-center > img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 5px solid #e0ebd4;
+  box-sizing: content-box;
+}
+.memory-answer {
+  border: 1px solid #bfd1b0;
+  background: #fafcf5;
+  padding: 32px;
+  border-radius: 12px;
+}
+.memory-answer > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+.memory-answer > div:first-child > span {
+  margin-left: auto;
+  font-size: 10px;
+  color: #5b724c;
+}
+.memory-answer h3 {
+  font-size: 27px;
+}
+.memory-answer > p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #48603e;
+}
+.memory-citations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.memory-citations > span {
+  border: 1px solid #c9d8bd;
+  font-size: 9px;
+  padding: 5px 7px;
+  border-radius: 4px;
+  color: #4f6844;
+}
+.memory-next {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  border-top: 1px solid #d1dec7;
+  padding-top: 21px;
+  font-size: 13px;
+  color: #3e6634;
+  line-height: 1.7;
+}
+/* Finite reveals: no looping autoplay, no visible motion-control UI. */
+@keyframes product-settle {
+  from {
+    transform: translateY(12px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes product-travel {
+  from {
+    stroke-dashoffset: 40;
+  }
+  to {
+    stroke-dashoffset: -1600;
+  }
+}
+.scene-playing .scene-step {
+  animation: product-settle 0.8s var(--ease-out) both;
+}
+.scene-playing .scene-step-1 {
+  animation-delay: 0.15s;
+}
+.scene-playing .scene-step-4 {
+  animation-delay: 2.6s;
+}
+.scene-playing .scene-step-2 {
+  animation-delay: 0.55s;
+}
+.scene-playing .scene-step-3 {
+  animation-delay: 1s;
+}
+.scene-playing .path-travel {
+  animation: product-travel 3.8s 0.2s var(--ease-out) both;
+}
+@media (max-width: 1150px) {
+  .slack-layout {
+    grid-template-columns: 48px 145px minmax(0, 1fr);
+  }
+  .slack-thread {
+    grid-column: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 20px;
+    border-top: 1px solid #dedbdc;
+    border-left: 0;
+  }
+  .slack-thread > header {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+  .slack-thread .linked-issue {
+    grid-column: 1 / -1;
+  }
+  .slack-thread .thread-outcome {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+  .slack-rail,
+  .slack-sidebar {
+    grid-row: 1 / 3;
+  }
+  .finance-demo {
+    gap: 30px;
+    padding: 30px 20px;
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+  .stripe-body {
+    grid-template-columns: 1fr;
+  }
+  .stripe-body > aside {
+    display: none;
+  }
+  .authority-strip {
+    gap: 20px;
+  }
+  .authority-layer {
+    padding-left: 15px;
+  }
+  .discord-layout {
+    grid-template-columns: 52px 160px minmax(0, 1fr);
+  }
+  .discord-members {
+    display: none;
+  }
+  .github-pr-layout {
+    grid-template-columns: minmax(0, 1fr) 160px;
+  }
+  .contribution-bridge > span:nth-child(2):before,
+  .contribution-bridge > span:nth-child(2):after {
+    display: none;
+  }
+  .memory-demo {
+    grid-template-columns: 1fr 60px 1.3fr;
+  }
+}
+@media (max-width: 800px) {
+  .slack-layout {
+    grid-template-columns: 45px minmax(0, 1fr);
+  }
+  .slack-sidebar {
+    display: none;
+  }
+  .slack-thread {
+    grid-column: 2;
+  }
+  .board-layout {
+    grid-template-columns: 1.35fr 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+  .board-document {
+    padding: 25px;
+  }
+  .agenda-row {
+    flex-wrap: wrap;
+  }
+  .agenda-row > .status-pill {
+    margin-left: 25px;
+  }
+  .board-comment .scene-message {
+    padding: 14px;
+  }
+  .finance-demo {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 20px;
+    padding: 30px 16px;
+  }
+  .imessage-window {
+    padding-left: 12px;
+    padding-right: 12px;
+    border-width: 4px;
+  }
+  .message-bubble {
+    font-size: 12px;
+    padding: 10px;
+  }
+  .imessage-window > header {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+  .invoice-content {
+    padding: 20px;
+  }
+  .invoice-content h3 {
+    font-size: 20px;
+  }
+  .invoice-approval {
+    gap: 8px;
+    padding: 10px;
+  }
+  .invoice-approval strong {
+    font-size: 11px;
+  }
+  .ledger-slip {
+    margin-left: 0;
+    padding: 15px;
+  }
+  .authority-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+  .authority-layer {
+    min-height: 70px;
+  }
+  .discord-layout {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+  .discord-channels {
+    display: none;
+  }
+  .github-meta {
+    display: none;
+  }
+  .github-pr-layout {
+    grid-template-columns: 1fr;
+  }
+  .release-followthrough {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 22px;
+  }
+  .contribution-bridge {
+    padding: 26px 0;
+    gap: 10px;
+  }
+  .contribution-bridge > span {
+    font-size: 10px;
+  }
+  .contribution-bridge > span > .ui-icon {
+    width: 16px;
+    height: 16px;
+  }
+  .memory-demo {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0;
+  }
+  .memory-center {
+    justify-content: center;
+  }
+  .memory-center > span {
+    flex: 0 1 70px;
+  }
+}
+@media (max-width: 600px) {
+  .scene-heading {
+    display: block;
+    margin-bottom: 22px;
+  }
+  .scene-heading h3 {
+    font-size: 25px;
+  }
+  .ecosystem-caption {
+    display: block;
+    margin-top: 12px;
+    text-align: left;
+    font-size: 11px;
+  }
+  .application-stories .work-story + .work-story {
+    margin-top: 48px;
+  }
+  .slack-topbar {
+    gap: 12px;
+    padding: 0 12px;
+  }
+  .slack-search {
+    flex: 1;
+    font-size: 10px;
+    padding: 6px 8px;
+  }
+  .slack-app-name {
+    font-size: 10px;
+  }
+  .window-dots {
+    display: none;
+  }
+  .slack-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .slack-rail {
+    display: none;
+  }
+  .slack-channel > header {
+    padding: 17px;
+  }
+  .slack-tabs {
+    padding: 0 17px;
+  }
+  .slack-messages {
+    padding: 23px 17px;
+  }
+  .scene-message {
+    gap: 9px;
+  }
+  .scene-avatar {
+    width: 29px;
+    height: 29px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+  .scene-message p {
+    font-size: 13px;
+  }
+  .message-byline > strong {
+    font-size: 13px;
+  }
+  .message-byline time {
+    font-size: 10px;
+  }
+  .slack-checklist {
+    padding-left: 10px;
+  }
+  .slack-checklist > div {
+    flex-wrap: wrap;
+    font-size: 11px;
+  }
+  .slack-checklist small {
+    font-size: 9px;
+    margin-left: 18px;
+  }
+  .calendar-attachment {
+    margin-left: 0;
+    padding: 13px;
+  }
+  .slack-thread {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    padding: 20px 17px;
+  }
+  .slack-thread .scene-message {
+    margin-bottom: 0;
+  }
+  .slack-thread .scene-message p {
+    font-size: 13px;
+  }
+  .slack-composer {
+    margin: 0 17px 20px;
+  }
+  .lark-topbar {
+    padding: 0 17px;
+    gap: 10px;
+  }
+  .lark-topbar > span:not(.lark-logo) {
+    padding-left: 13px;
+    margin-left: 0;
+  }
+  .lark-topbar > .ui-icon {
+    display: none;
+  }
+  .lark-layout {
+    grid-template-columns: 1fr;
+  }
+  .lark-rail {
+    display: none;
+  }
+  .lark-request {
+    padding: 24px 18px;
+  }
+  .lark-request-title {
+    gap: 12px;
+  }
+  .lark-request-title h4 {
+    font-size: 21px;
+  }
+  .lark-request-title p {
+    font-size: 11px;
+  }
+  .lark-found {
+    flex-wrap: wrap;
+    padding: 13px;
+  }
+  .lark-found p {
+    font-size: 11px;
+  }
+  .saving-tag {
+    margin-left: 40px;
+  }
+  .lark-fields {
+    gap: 12px;
+  }
+  .lark-fields dd {
+    font-size: 12px;
+  }
+  .lark-fields dt {
+    font-size: 10px;
+  }
+  .approval-track {
+    gap: 5px;
+  }
+  .approval-person {
+    font-size: 10px;
+    gap: 8px;
+  }
+  .approval-person small {
+    font-size: 9px;
+  }
+  .approval-track > i {
+    min-width: 5px;
+  }
+  .docs-toolbar {
+    gap: 10px;
+    padding: 17px;
+  }
+  .docs-toolbar > div > b {
+    font-size: 13px;
+  }
+  .docs-toolbar > div > span {
+    font-size: 10px;
+  }
+  .docs-share {
+    font-size: 10px;
+    padding: 8px;
+  }
+  .docs-share svg {
+    display: none;
+  }
+  .board-layout {
+    grid-template-columns: 1fr;
+    padding: 17px;
+    gap: 20px;
+  }
+  .board-document {
+    padding: 24px 20px;
+  }
+  .board-document h4 {
+    font-size: 27px;
+  }
+  .board-comment {
+    padding: 0;
+  }
+  .board-comment .scene-message {
+    margin-bottom: 16px;
+    padding: 17px;
+  }
+  .finance-demo {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px 15px;
+  }
+  .finance-path {
+    display: none;
+  }
+  .imessage-window {
+    max-width: 285px;
+    min-height: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .message-bubble {
+    font-size: 14px;
+    padding: 12px;
+  }
+  .imessage-window > header {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+  .invoice-content {
+    padding: 20px 17px;
+  }
+  .stripe-window > header {
+    gap: 17px;
+    padding: 17px;
+    font-size: 11px;
+  }
+  .stripe-window > header > img {
+    width: 44px;
+  }
+  .invoice-total {
+    font-size: 34px;
+  }
+  .invoice-content h3 {
+    font-size: 23px;
+  }
+  .invoice-approval strong {
+    font-size: 12px;
+  }
+  .ledger-slip > div > span {
+    font-size: 9px;
+  }
+  .ledger-slip p {
+    font-size: 10px;
+  }
+  .authority-strip {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding-top: 32px;
+  }
+  .authority-intro h3 br {
+    display: none;
+  }
+  .authority-layer {
+    border-left: 0;
+    border-top: 1px solid #c5d0ba;
+    padding: 18px 0;
+    min-height: 0;
+  }
+  .discord-layout {
+    grid-template-columns: 1fr;
+  }
+  .discord-servers {
+    display: none;
+  }
+  .discord-conversation > header {
+    gap: 12px;
+    padding: 17px;
+  }
+  .discord-conversation > header > span {
+    font-size: 10px;
+    padding-left: 12px;
+  }
+  .discord-messages {
+    padding: 23px 17px 0;
+  }
+  .discord-demo .scene-message p {
+    font-size: 13px;
+  }
+  .discord-demo .message-byline time {
+    font-size: 9px;
+  }
+  .discord-issue-link {
+    padding: 11px;
+    gap: 9px;
+  }
+  .discord-issue-link b {
+    font-size: 11px;
+  }
+  .discord-compose {
+    margin: 0 17px 20px;
+    padding: 12px;
+  }
+  .contribution-bridge {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    padding: 26px 0;
+  }
+  .contribution-bridge > span:nth-child(2) {
+    width: 100%;
+    justify-content: center;
+    order: 3;
+    font-size: 11px;
+  }
+  .github-topbar {
+    gap: 8px;
+    padding: 17px;
+    flex-wrap: wrap;
+  }
+  .github-topbar > b {
+    font-size: 12px;
+  }
+  .github-topbar > b > span {
+    display: block;
+    margin-top: 4px;
+  }
+  .github-topbar > .github-public {
+    margin-left: auto;
+  }
+  .github-repo-tabs {
+    gap: 20px;
+    padding: 0 17px;
+    flex-wrap: wrap;
+  }
+  .github-repo-tabs > span {
+    font-size: 10px;
+    padding: 11px 0;
+  }
+  .github-repo-tabs > span:nth-child(n + 4) {
+    display: none;
+  }
+  .github-pr {
+    padding: 22px 17px;
+  }
+  .github-pr-title h3 {
+    font-size: 24px;
+  }
+  .github-pr-title > p {
+    font-size: 10px;
+  }
+  .github-pr-tabs {
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 10px;
+  }
+  .github-pr-tabs > * {
+    padding: 10px 0;
+  }
+  .github-comment > header {
+    gap: 7px;
+    padding: 12px;
+    flex-wrap: wrap;
+  }
+  .github-comment > header > span {
+    font-size: 10px;
+  }
+  .github-comment > div {
+    padding: 17px 12px;
+  }
+  .github-comment h4 {
+    font-size: 17px;
+  }
+  .github-comment p {
+    font-size: 12px;
+  }
+  .code-diff {
+    font-size: 11px;
+    overflow-wrap: anywhere;
+  }
+  .code-diff > div {
+    padding: 3px 6px;
+  }
+  .github-timeline {
+    margin-left: 13px;
+    padding-left: 19px;
+  }
+  .timeline-node {
+    left: -34px;
+  }
+  .github-timeline p {
+    font-size: 11px;
+  }
+  .github-timeline p > span {
+    font-size: 10px;
+  }
+  .github-checks p {
+    font-size: 10px;
+  }
+  .release-followthrough {
+    gap: 22px 12px;
+  }
+  .release-followthrough > div {
+    gap: 8px;
+  }
+  .release-followthrough small {
+    font-size: 9px;
+  }
+  .community-principle {
+    font-size: 12px;
+  }
+  .memory-sources > div {
+    padding: 20px;
+  }
+  .memory-answer {
+    padding: 25px 20px;
+  }
+  .memory-answer > div:first-child {
+    flex-wrap: wrap;
+  }
+  .memory-answer > div:first-child > span {
+    font-size: 9px;
+  }
+  .memory-answer h3 {
+    font-size: 25px;
+  }
+  .memory-answer > p {
+    font-size: 14px;
+  }
+  .memory-next {
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene-playing .scene-step,
+  .scene-playing .path-travel {
+    animation: none !important;
+  }
+}
+@media (forced-colors: active) {
+  .finance-path {
+    display: none;
+  }
+  .product-scene {
+    border: 1px solid CanvasText;
+  }
+}
+
+/* The financial story travels from the request to the draft, then its authority gate. */
+.finance-demo.scene-playing .scene-step {
+  animation-name: workflow-arrive;
+  animation-duration: 0.9s;
+}
+.finance-demo.scene-playing .scene-step-2 {
+  animation-delay: 1s;
+}
+.finance-demo.scene-playing .scene-step-3 {
+  animation-delay: 1.9s;
+}
+.finance-demo.scene-playing .approval-seal {
+  animation: review-emphasis 1.3s 2s ease-out both;
+}
+@keyframes workflow-arrive {
+  from {
+    opacity: 0.4;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes review-emphasis {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 #ac7f2600;
+  }
+  45% {
+    box-shadow: 0 0 0 9px #ac7f2626;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .finance-demo.scene-playing .approval-seal {
+    animation: none;
+  }
+}

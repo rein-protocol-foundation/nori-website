@@ -1,4 +1,4 @@
-import { chromium, expect } from "@playwright/test";
+import { chromium, firefox, webkit, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { mkdir, writeFile } from "node:fs/promises";
 const baseURL = process.env.TEST_URL || "http://127.0.0.1:4173";
@@ -12,7 +12,12 @@ const sections = [
   "continuity",
   "open-source",
 ];
-const browser = await chromium.launch();
+const browserName = process.env.TEST_BROWSER || "chromium";
+const engine = { chromium, firefox, webkit }[browserName];
+if (!engine) throw new Error(`Unsupported TEST_BROWSER: ${browserName}`);
+const browser = await engine.launch();
+const output =
+  browserName === "chromium" ? "artifacts" : `artifacts/${browserName}`;
 const context = await browser.newContext({
   viewport: { width: 1440, height: 960 },
   reducedMotion: "reduce",
@@ -21,11 +26,16 @@ const page = await context.newPage();
 const errors = [];
 page.on("pageerror", (error) => errors.push(error.message));
 const checks = [];
-await mkdir("artifacts", { recursive: true });
+await mkdir(output, { recursive: true });
 try {
   await page.goto(baseURL);
   await page.evaluate(() => document.fonts.ready);
   await expect(page.locator("h1")).toHaveCount(1);
+  await expect(page.getByRole("button", { name: /pause|resume/i })).toHaveCount(
+    0,
+  );
+  await expect(page.locator("body")).not.toContainText(/illustrative/i);
+  await expect(page.locator("header.header a[href*=discord]")).toHaveCount(0);
   for (const id of sections) {
     await expect(page.locator(`main #${id} h2`)).toHaveCount(1);
   }
@@ -46,6 +56,7 @@ try {
   expect(
     destinations.every((href) =>
       [
+        "#work",
         "https://discord.gg/m8qnWv9XX",
         "https://github.com/rein-protocol-foundation/nori-agent",
       ].includes(href),
@@ -56,11 +67,14 @@ try {
   );
   await page
     .getByRole("navigation", { name: "Sections", exact: true })
-    .getByRole("link", { name: "Meet the team" })
+    .getByRole("link", { name: "One Nori" })
     .click();
   await expect(page.locator("#team-title")).toBeInViewport();
   await page.getByRole("link", { name: "Back to top", exact: true }).click();
   await expect(page.locator("h1")).toBeInViewport();
+  await expect(page.locator(".desktop-navigation [aria-current]")).toHaveCount(
+    0,
+  );
   checks.push("Desktop section navigation and return to top work.");
   for (const width of [320, 390, 540, 699, 768, 1050, 1200, 1440]) {
     await page.setViewportSize({ width, height: 960 });
@@ -85,12 +99,12 @@ try {
   }
   checks.push("No page or text overflow at eight widths, 320–1440px.");
   await expect(
-    page.getByText("A request. The right access. Work continues.", {
+    page.getByText("The right access. Already in reach.", {
       exact: true,
     }),
   ).toBeVisible();
   await expect(
-    page.getByText("The meeting ends. The work keeps moving.", { exact: true }),
+    page.getByText("The decision becomes the next step.", { exact: true }),
   ).toBeVisible();
   await expect(
     page.getByText("Become a pilot organization", { exact: true }),
@@ -100,7 +114,7 @@ try {
   await expect(page.locator("#work .work-story")).toHaveCount(3);
   await expect(
     page.getByRole("heading", {
-      name: "From an offer to ready for day one.",
+      name: "A new teammate. A ready first day.",
       exact: true,
     }),
   ).toBeVisible();
@@ -116,10 +130,10 @@ try {
   for (const id of sections)
     await page
       .locator("#" + id)
-      .screenshot({ path: `artifacts/section-${id}.png` });
+      .screenshot({ path: `${output}/section-${id}.png` });
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({
-    path: "artifacts/landing-desktop.png",
+    path: `${output}/landing-desktop.png`,
     fullPage: true,
   });
   await page.setViewportSize({ width: 390, height: 844 });
@@ -138,9 +152,10 @@ try {
   await toggle.click();
   await page
     .getByRole("navigation", { name: "Mobile sections" })
-    .getByRole("link", { name: "See Nori at work" })
+    .getByRole("link", { name: "Nori at Rein" })
     .click();
   await expect(page.locator("#rein-title")).toBeInViewport();
+  await expect(page.locator("#rein")).toBeFocused();
   await expect(
     page.getByRole("navigation", { name: "Mobile sections" }),
   ).toHaveCount(0);
@@ -161,20 +176,30 @@ try {
   await page.keyboard.press("Escape");
   await page.locator("h1").click();
   await page.screenshot({
-    path: "artifacts/landing-mobile.png",
+    path: `${output}/landing-mobile.png`,
     fullPage: true,
   });
   for (const id of sections)
     await page
       .locator("#" + id)
-      .screenshot({ path: `artifacts/mobile-${id}.png` });
+      .screenshot({ path: `${output}/mobile-${id}.png` });
   checks.push("Desktop and mobile (menu open) axe scans: zero violations.");
   expect(errors).toEqual([]);
   await writeFile(
-    "artifacts/landing-checks.json",
-    JSON.stringify({ passed: true, checks, errors }, null, 2),
+    `${output}/landing-checks.json`,
+    JSON.stringify(
+      { passed: true, browser: browserName, checks, errors },
+      null,
+      2,
+    ),
   );
-  console.log(JSON.stringify({ passed: true, checks, errors }, null, 2));
+  console.log(
+    JSON.stringify(
+      { passed: true, browser: browserName, checks, errors },
+      null,
+      2,
+    ),
+  );
 } finally {
   await context.close();
   await browser.close();

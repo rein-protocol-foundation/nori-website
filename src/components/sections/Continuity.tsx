@@ -1,36 +1,5 @@
-import { DocumentGlyph, ExampleLabel, SectionLabel } from "./Section";
-const records = [
-  {
-    index: "01",
-    type: "Decision record",
-    title: "Last quarter’s decision.\nThis quarter’s follow-through.",
-    fields: [
-      ["Keep", "The decision, its rationale, and the people responsible."],
-      ["Continue", "The next check-in and what remains unresolved."],
-    ],
-    audience: "For the relevant team & decision-makers",
-  },
-  {
-    index: "02",
-    type: "Member handoff",
-    title: "A new person.\nA clear place to begin.",
-    fields: [
-      ["Keep", "Open tasks, relationship context, and access boundaries."],
-      ["Continue", "Who to contact, what is due, and the next useful action."],
-    ],
-    audience: "For the incoming owner, with appropriate access",
-  },
-  {
-    index: "03",
-    type: "Supporter commitment",
-    title: "A promise made.\nAn update that follows.",
-    fields: [
-      ["Keep", "The commitment, purpose, and communication context."],
-      ["Continue", "Follow up on support and send the agreed project update."],
-    ],
-    audience: "For the people responsible for the relationship",
-  },
-];
+import { SectionLabel } from "./Section";
+import { Avatar, ProductScene, UiIcon } from "./ProductScenes";
 export function Continuity() {
   return (
     <section
@@ -41,57 +10,75 @@ export function Continuity() {
       <div className="section-inner">
         <div className="section-heading split-heading">
           <div>
-            <SectionLabel number="07">Long-term continuity</SectionLabel>
+            <SectionLabel number="07">The work remembers</SectionLabel>
             <h2 id="continuity-title">
-              The work continues.
+              New conversation.
               <br />
-              <strong>Even as the team changes.</strong>
+              <span className="muted-title">Same context.</span>
             </h2>
           </div>
           <p className="heading-aside">
-            Keep decisions, commitments, and relationships connected across
-            weeks, quarters, and team changes. Give the next person the context
-            to continue, not a pile of disconnected tasks.
+            A decision in a document. A promise in a thread. A deadline in a
+            calendar. Nori connects the context that the next step depends on.
           </p>
         </div>
-        <ExampleLabel>Illustrative work records</ExampleLabel>
-        <div className="continuity-records">
-          {records.map((record) => (
-            <article className="continuity-record" key={record.index}>
-              <div className="record-topline">
-                <span>{record.type}</span>
-                <span>{record.index}</span>
-              </div>
-              <DocumentGlyph />
-              <h3>
-                {record.title.split("\n").map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </h3>
-              <dl>
-                {record.fields.map(([label, text]) => (
-                  <div key={label}>
-                    <dt>{label}</dt>
-                    <dd>{text}</dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="record-audience">{record.audience}</p>
-            </article>
-          ))}
-        </div>
-        <div className="trust-line">
-          <h3>
-            Clear roles. Appropriate access.
-            <br />
-            <strong>A record of what happened.</strong>
-          </h3>
-          <p>
-            Nori’s responsibilities should fit the organization’s policies, with
-            people involved where decisions and authority require them. Context
-            stays within the access boundaries of the work.
-          </p>
-        </div>
+        <ProductScene
+          className="memory-demo"
+          label="Product walkthrough of Nori carrying an existing commitment into a new conversation"
+        >
+          <div className="memory-sources">
+            <div>
+              <UiIcon name="file" />
+              <span>
+                <b>Board decision</b>
+                <small>Workshop scope · Last quarter</small>
+              </span>
+              <span>01</span>
+            </div>
+            <div>
+              <UiIcon name="chat" />
+              <span>
+                <b>Team handoff</b>
+                <small>Sam owns the next check-in</small>
+              </span>
+              <span>02</span>
+            </div>
+            <div>
+              <UiIcon name="calendar" />
+              <span>
+                <b>Supporter update</b>
+                <small>Due next month</small>
+              </span>
+              <span>03</span>
+            </div>
+          </div>
+          <div className="memory-center" aria-hidden="true">
+            <span />
+            <Avatar />
+            <span />
+          </div>
+          <div className="memory-answer">
+            <div>
+              <Avatar />
+              <b>Nori</b>
+              <span>Same work. Next chapter.</span>
+            </div>
+            <h3>Here’s where we left off.</h3>
+            <p>
+              The workshop scope is agreed. Sam owns the next check-in. The
+              supporter update is due next month.
+            </p>
+            <div className="memory-citations">
+              <span>01 Board decision</span>
+              <span>02 Handoff</span>
+              <span>03 Calendar</span>
+            </div>
+            <div className="memory-next">
+              <UiIcon name="check" />
+              <span>The next step: prepare Sam’s briefing.</span>
+            </div>
+          </div>
+        </ProductScene>
       </div>
     </section>
   );

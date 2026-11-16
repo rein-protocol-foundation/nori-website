@@ -1,21 +1,45 @@
-import { useState } from 'react';
-import { CellularScene } from './CellularScene';
-import type { MotionStatus } from './CellularScene';
-import { DISCORD } from './Header';
+import { CellularScene } from "./CellularScene";
+import { DISCORD } from "./Header";
+import "../styles/hero-scene.css";
+
 export function Hero() {
-  const [paused, setPaused] = useState(false);
-  const [status, setStatus] = useState<MotionStatus>('loading');
-  const staticScene = status === 'reduced' || status === 'fallback' || status === 'limited';
-  return <section className="hero" aria-labelledby="hero-title">
-    <CellularScene paused={paused} onStatus={setStatus} />
-    <div className="hero-content">
-      <p className="eyebrow"><span className="seed-mark" aria-hidden="true"><i /><i /><i /><i /></span>An open-source super agent for nonprofits and NGOs.</p>
-      <h1 id="hero-title"><span className="hello">Meet Nori.</span><span>Built to help run</span><span>your <strong>organization.</strong></span></h1>
-      <p className="hero-description">Keep commitments moving, coordinate owners, and preserve the context your next teammate needs—in the tools you already use.</p>
-      <div className="hero-actions"><a className="button-primary" href={DISCORD}>Meet Nori in Discord</a><a className="button-secondary" href={DISCORD}>Join the Discord community</a></div>
-    </div>
-    <div className="scene-caption" aria-hidden="true"><span className="caption-line" /><span>A little life.<br /><strong>A larger possibility.</strong></span></div>
-    <div className="hero-bottom"><p><span className="status-dot" />Built for work that continues.</p><div className="motion-control">{staticScene ? <span className="static-label">{status === 'reduced' ? 'Reduced motion' : 'Still life'}<span aria-hidden="true"> ◇</span></span> : <button type="button" onClick={() => setPaused(value => !value)} aria-pressed={paused} aria-label={paused ? 'Resume animation' : 'Pause animation'}><span>{paused ? 'Resume motion' : 'Pause motion'}</span></button>}</div></div>
-    <span className="sr-only" role="status">{status === 'paused' ? 'Background animation paused.' : staticScene ? 'Static cellular portrait displayed.' : ''}</span>
-  </section>;
+  return (
+    <section className="hero" aria-labelledby="hero-title">
+      <div className="hero-stage">
+        <CellularScene />
+        <div className="hero-content">
+          <p className="eyebrow">
+            <span className="seed-mark" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+              <i />
+            </span>
+            The organizational agent
+          </p>
+          <h1 id="hero-title">
+            <span>Your mission.</span>
+            <span>
+              Nori’s <strong>work.</strong>
+            </span>
+          </h1>
+          <p className="hero-description">
+            One super agent, working across your organization. Nori connects
+            people, tools, and the work that moves your mission forward.
+          </p>
+          <div className="hero-actions">
+            <a className="button-primary" href={DISCORD}>
+              Meet Nori
+            </a>
+            <a className="button-secondary" href="#work">
+              See Nori at work
+            </a>
+          </div>
+          <p className="hero-audience">
+            Built for nonprofits, NGOs, and teams with a mission.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 }
