@@ -73,17 +73,10 @@ Vercel automatically assigned the first deployment to the project's production s
 Its default Vercel authentication protection remains enabled. This is a generated Vercel
 hostname, not the planned public-domain cutover.
 
-The Git connection attempt was blocked by Vercel: “To link a GitHub repository, you need
-to install the GitHub integration first.” An organization administrator must grant the
-[Vercel GitHub app](https://github.com/apps/vercel) access to
-`rein-protocol-foundation/nori-website`. Then run:
-
-```sh
-vercel git connect https://github.com/rein-protocol-foundation/nori-website.git --yes
-```
-
-Verify automatic deployments are enabled, `main` is the production branch, and a branch
-push produces a preview. Native Git deployment needs no Vercel token in GitHub Actions.
+After the user enabled the Vercel GitHub app, the native Git connection succeeded for
+`rein-protocol-foundation/nori-website`. Automatic Git deployments are enabled, with
+`main` as the production branch and other branches producing previews.
+Native Git deployment needs no Vercel token in GitHub Actions.
 GitHub browser checks currently report results independently of Vercel; branch protection
 and Vercel Deployment Checks have not been configured as enforced production gates.
 
