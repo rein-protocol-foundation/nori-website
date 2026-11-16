@@ -308,8 +308,8 @@ export function Team() {
               keep the work moving, with people in charge.
             </p>
             <p id="badge-instructions" className="badge-instructions">
-              Drag a badge. Scroll sideways to meet the team.
-              <span>Keyboard: arrow keys to move · Esc to reset</span>
+              Meet the team. Drag a badge.
+              <span className="badge-keyboard-help">Scroll sideways for more roles. Keyboard: arrow keys to move · Esc to reset</span>
             </p>
           </div>
         </div>

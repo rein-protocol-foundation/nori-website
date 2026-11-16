@@ -633,3 +633,64 @@ h1 strong {
     padding-top: 40px;
   }
 }
+
+/* Distinct reading rhythms: a full thread, an access sequence, then source records. */
+.hero .eyebrow { font-size: 14px; max-width: 440px; line-height: 1.6; }
+.hero-description { font-size: 16px; line-height: 1.7; }
+.hero-content { padding-top: 150px; padding-bottom: 120px; }
+.hero-bottom { justify-content: space-between; }
+.team-showcase.section { padding-top: 64px; padding-bottom: 56px; }
+.work-stories { margin-top: 40px; }
+.work-story + .work-story { margin-top: 56px; padding-top: 48px; }
+#work .app-layout { min-height: 0; }
+.onboarding-deliverables { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 32px; }
+.onboarding-deliverables > div { border-top: 1px solid #aebaab; padding-top: 20px; }
+.onboarding-deliverables h4, .access-states h4, .governance-records h4 { font-size: 20px; margin: 12px 0; letter-spacing: -.03em; }
+.onboarding-deliverables p, .access-story p, .governance-records p, .governance-records dd { font-size: 14px; line-height: 1.7; color: #415044; }
+.access-request { margin: 28px 0 24px; font-size: 18px; }
+.access-request p { margin: 8px 0; }
+.access-states { display: grid; grid-template-columns: repeat(3, 1fr); list-style: none; padding: 0; margin: 0; gap: 32px; }
+.access-states li { border-top: 3px solid #718965; padding-top: 20px; }
+.record-status { color: #3c5140; font-size: 13px; font-weight: 700; }
+.governance-records { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; margin-top: 32px; align-items: start; }
+.board-packet, .expense-record { background: #fffef8; border: 1px solid #bdc9b5; padding: clamp(20px, 3vw, 40px); box-shadow: 0 12px 28px -24px #263d2555; }
+.board-packet dl { margin-bottom: 0; }
+.board-packet dl > div { border-top: 1px solid #d2d9cb; padding: 16px 0; }
+.board-packet dt { font-size: 14px; font-weight: 750; }
+.board-packet dd { margin: 8px 0 0; }
+.decision-record { padding: 24px 0; }
+.decision-record ul { list-style: none; padding: 0; margin: 24px 0 0; }
+.decision-record li { border-top: 1px solid #b7c4ae; padding: 16px 0; font-size: 14px; }
+.decision-record li p { margin-bottom: 0; }
+.record-topline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 13px; color: #46543f; }
+.expense-record h3 { margin: 24px 0 12px; font-size: clamp(28px, 3vw, 40px); }
+.expense-record p, .finance-boundary p { font-size: 15px; line-height: 1.7; }
+.expense-fields { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 24px 0; border-top: 1px solid #c9d1c1; border-bottom: 1px solid #c9d1c1; margin: 24px 0; }
+.expense-fields dt { font-size: 13px; color: #4e5d46; }
+.expense-fields dd { margin: 10px 0 0; font-size: 19px; font-weight: 650; }
+.record-next { max-width: 800px; margin-bottom: 0; }
+.resources-section.section { padding-top: 80px; padding-bottom: 64px; }
+.resources-section .treasury-spread { margin-top: 40px; }
+.resources-section .financial-work, .resources-section .contract-note, .resources-section .fundraising-line { margin-top: 40px; }
+.resources-section .financial-work { padding-top: 32px; }
+.communications-section.section { padding-top: 72px; padding-bottom: 64px; }
+.publishing-rhythm > div > span { font-family: inherit; font-style: normal; font-weight: 650; }
+.example-caption, .treasury-footnote, .service-examples, .rein-example-note { font-size: 13px; line-height: 1.7; }
+.app-message small, .app-layout aside small { font-size: 12px; }
+.app-document p { font-size: 14px; }
+.footer > p, .footer > p > span, .footer nav { font-size: 13px; color: #465342; }
+.team-showcase .badge-identity > p { font-size: 13px; color: #405245; }
+.badge-instructions .badge-keyboard-help { display: block; position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.team-showcase:focus-within .badge-keyboard-help { position: static; width: auto; height: auto; clip-path: none; font-size: 12px; }
+@media (max-width: 700px) {
+  .hero-content { padding-top: 270px; padding-bottom: 120px; }
+  .hero .eyebrow { font-size: 13px; max-width: 280px; }
+  .onboarding-deliverables, .access-states, .governance-records { grid-template-columns: 1fr; gap: 24px; }
+  .expense-fields { grid-template-columns: 1fr 1fr; }
+  .expense-fields dd { font-size: 16px; }
+  .resources-section.section, .communications-section.section { padding-top: 56px; padding-bottom: 48px; }
+  .work-story + .work-story { margin-top: 40px; padding-top: 32px; }
+}
+
+.resources-section .treasury-footnote, .resources-section .service-examples, .rein-section .rein-example-note { font-size: 13px; line-height: 1.7; }
+.resources-section .treasury-layer p { font-size: 13px; }

@@ -362,3 +362,15 @@ Nori brings together ideas from the open-source community to explore what long-t
 五个工牌均为 Nori，不设置不同人名。主标题直接展示具体职位：Chief Operating Officer、Chief People Officer、Chief Financial Officer、Community Lead、Software Engineer。每个职位使用独立服装与配饰，保留统一 Nori 身份。工牌区禁止 example teammates、role concept 等占位式营销文案；不添加虚构人员任职或客户成果。工牌在所有屏宽保持单行横排，空间不足时在区域内横向滚动，不堆为纵列。悬停位移、倾斜、绳索末端与拖拽共用连续运动状态；挂点是卡片旋转中心，避免出现卡动绳不动或突然切换角度。
 
 工牌默认轻微错峰晃动，和拖拽共用同一挂点及弹簧模型。提供暂停按钮，尊重减少动态偏好；页面隐藏或工牌离屏时暂停推进。
+
+### 本轮文案与场景修订
+
+以下取代上文对应旧文案，CTA 仍沿用当前实现；待讨论方案见 [design.md](design.md)。
+
+- Hero eyebrow：`An open-source super agent for nonprofits and NGOs.`
+- Hero supporting copy：`Keep commitments moving, coordinate owners, and preserve the context your next teammate needs—in the tools you already use.`
+- Onboarding：Maya 周五休假、Alex 周一入职，Sam 接续权限检查与入职介绍。清单写明签署文件、IT 负责人及周五期限、已确认的 payroll 起始日期与周一 10:00 的 orientation。Google Docs 写交接背景、Calendar 写时间和议程、GitHub 写账号验证的关闭条件。
+- Tool access：Alex 的 workshop editor seat 申请已记录；Maya 的负责人批准仍待处理；Alex 的登录与编辑验证在批准和配置后进行，不能混写为已获权限。
+- Governance：董事会材料区分待决策的 workshop scope / allocation、待讨论的人员覆盖与已链接的上季度资料；跟进记录明确 Maya 周三补预算审阅、董事会周四待决策及会后的负责人和期限登记。
+- 财务示例：`EXP-014 / Workshop materials / $240 USD`，Maya 为负责人，预算批准待定、付款未释放、收据未收到；周五审阅报价后仍需独立授权。金额、人物、日期、文件和状态均为构造示例，不是实际组织记录或已验证交易。
+- Rein 暂不增加实际成果陈述，保留示意项目计划的标识。

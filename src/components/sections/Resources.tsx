@@ -1,4 +1,3 @@
-import {WorkApp,Message} from './WorkApp';
 import { Check, ExampleLabel, SectionLabel } from "./Section";
 export function Resources() {
   return (
@@ -16,7 +15,7 @@ export function Resources() {
             <h2 id="resources-title">
               Put the organization’s
               <br />
-              resources <strong>to work.</strong>
+              resources to work.
             </h2>
           </div>
           <p className="heading-aside">
@@ -25,7 +24,20 @@ export function Resources() {
             and reserves kept separate.
           </p>
         </div>
-        <div className="finance-flow"><div><img src="/brands/stripe.svg" alt="Stripe"/><b>Incoming support</b><span>Donation & receipt</span></div><i/><div><img src="/brands/ethereum.svg" alt="Ethereum"/><b>Project allocation</b><span>Independent authorization</span></div><i/><div><img src="/brands/ethereum.svg" alt="Ethereum"/><b>Working wallet</b><span>Limited amount & scope</span></div><i/><div><img src="/brands/github.svg" alt="GitHub"/><b>Delivery record</b><span>Evidence & reconciliation</span></div></div><WorkApp channel="project-finance"><Message name="Maya"><p>Can we fund the workshop materials from the project budget?</p></Message><Message name="Nori"><p>I’ve prepared the request and linked the supplier quote. The project allocation needs the authorized owner’s approval; organizational reserves remain under separate control.</p><div className="app-document"><b>Workshop materials · payment preparation</b><p>Quote and project budget linked</p><p>Working-wallet limit checked</p><p>Status: awaiting authorized allocation</p><p>Next: verify delivery, reconcile receipt, update project record</p></div></Message></WorkApp><p className="example-caption">Illustrative financial workflow · Brand examples do not indicate verified integrations or completed transactions</p><div className="treasury-spread">
+        <article className="expense-record" aria-labelledby="expense-title">
+          <div className="record-topline"><span>Project ledger / EXP-014</span><ExampleLabel>Illustrative expense record</ExampleLabel></div>
+          <h3 id="expense-title">Workshop materials</h3>
+          <p>Supplier quote attached · AI safety workshop · Owner: Maya</p>
+          <dl className="expense-fields">
+            <div><dt>Requested</dt><dd>$240 USD</dd></div>
+            <div><dt>Approval</dt><dd>Awaiting budget owner</dd></div>
+            <div><dt>Payment</dt><dd>Not released</dd></div>
+            <div><dt>Receipt</dt><dd>Not yet received</dd></div>
+          </dl>
+          <p className="record-next"><b>Next action:</b> Maya reviews the quote by Friday. Payment stays pending until allocation is authorized; delivery and receipt checks follow.</p>
+        </article>
+        <p className="example-caption">Sample amount and work record · No transaction or integration is represented as verified</p>
+        <div className="treasury-spread">
           <div className="treasury-model">
             <ExampleLabel>Designed treasury model</ExampleLabel>
             <h3>
@@ -77,56 +89,12 @@ export function Resources() {
               authority, or bypass the separation through contract permissions.
             </p>
           </div>
-          <div className="funding-story">
-            <ExampleLabel>A community project, illustrated</ExampleLabel>
-            <h3>
-              From a promising idea
-              <br />
-              to <strong>a resourced project.</strong>
-            </h3>
-            <ol className="funding-notes">
-              <li>
-                <span>01</span>
-                <div>
-                  <h4>Find the support</h4>
-                  <p>
-                    Prepare the donation or grant opportunity, follow
-                    conversations, and connect commitments to the project.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <span>02</span>
-                <div>
-                  <h4>Put a budget behind it</h4>
-                  <p>
-                    Compare the services needed, request project funds, and
-                    arrange procurement within the agreed authority.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <span>03</span>
-                <div>
-                  <h4>Execute within the boundary</h4>
-                  <p>
-                    Use the limited working wallet for permitted payments and
-                    contract interactions. Check the result against the request.
-                  </p>
-                </div>
-              </li>
-              <li>
-                <span>04</span>
-                <div>
-                  <h4>Bring the record back</h4>
-                  <p>
-                    Connect receipts, accounting records, and the project
-                    update. Let supporters know what their support makes
-                    possible.
-                  </p>
-                </div>
-              </li>
-            </ol>
+          <div className="funding-story finance-boundary">
+            <span className="overline">Who can move the money?</span>
+            <h3>Preparation is not authorization.</h3>
+            <p>Nori connects the quote, project budget, and approval request. The authorized owner decides whether to allocate funds.</p>
+            <p>After an authorized payment, the record still needs delivery evidence, a receipt, and reconciliation. An approval alone does not mean the work is complete.</p>
+            <p className="service-examples">Designed workflow; permissions and controls depend on the selected infrastructure.</p>
           </div>
         </div>
         <div className="contract-note">

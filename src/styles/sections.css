@@ -47,7 +47,7 @@ h2 em,
 .section h3 em,
 .specialist-roster h3 em,
 .fundraising-line em {
-  font-family: var(--serif);
+  font-family: inherit;
   font-weight: 400;
   letter-spacing: -0.025em;
   color: #53634b;
@@ -764,7 +764,7 @@ h2 em {
 }
 .contract-seal {
   font-size: 30px;
-  font-family: var(--serif);
+  font-family: inherit;
   color: #768966;
 }
 .contract-note h3 {
@@ -1036,7 +1036,7 @@ h2 em {
   padding-left: 17px;
   border-left: 1px solid #95a481;
   color: #4d6040;
-  font-family: var(--serif);
+  font-family: inherit;
   font-size: 23px;
   line-height: 1.3;
 }
@@ -1141,7 +1141,7 @@ h2 em {
   margin: 45px 0 24px;
 }
 .poster-title em {
-  font-family: var(--serif);
+  font-family: inherit;
   font-size: 1.1em;
   font-weight: 400;
   color: #63744d;
@@ -1242,7 +1242,7 @@ h2 em {
   margin: 0 0 15px;
 }
 .quote-note blockquote em {
-  font-family: var(--serif);
+  font-family: inherit;
   color: #53634b;
 }
 .supporter-email {
@@ -1271,8 +1271,8 @@ h2 em {
 }
 .publishing-rhythm span {
   display: block;
-  font-family: var(--serif);
-  font-style: italic;
+  font-family: inherit;
+  font-style: normal;
   font-size: 27px;
   color: #5f704e;
 }
