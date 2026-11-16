@@ -64,6 +64,23 @@ The landing-page checks verify section navigation, text-only CTA destinations, m
 
 Automated checks do not replace manual visual review, screen-reader testing, or testing real low-end phones. The 2026-11-16 redesign passes the landing checks in Chromium, Firefox, and WebKit. This covers eight viewport widths, keyboard navigation, and desktop/mobile axe scans. The animation and badge interaction suites pass in Chromium. Actual Safari/iOS devices, assistive-technology use, and real low-end phone performance remain unverified. WebKit automation is not a substitute for device testing.
 
+## CI and Vercel
+
+GitHub Actions runs `Website checks` on pushes and pull requests: a locked npm install,
+unit tests, TypeScript/Vite build, and the Chromium animation, landing-page, accessibility,
+and badge suites. Screenshots and reports are retained for seven days. Run the same
+browser suites locally with `npm run build && npm run test:browser`; the runner starts
+and closes its own production preview. Install Chromium first with `npx playwright install chromium`.
+
+The Vercel project is `agi-studio/nori-website`, with Node 22, the Vite preset,
+`npm ci`, `npm test && npm run build`, and output directory `dist`. No deployment token
+is stored in the repository. GitHub integration setup and domain migration status are
+tracked in [setup and handoff](docs/setup-and-handoff.md).
+
+Vercel builds run unit tests and typechecks. GitHub browser checks are separate; they
+do not automatically block Vercel promotion. Require `Website checks` in branch rules
+and configure Vercel Deployment Checks before relying on it as a production gate.
+
 ## Project boundaries
 
 - The authoritative creative brief is [design](docs/design/design.md). Page content is maintained in [content](docs/design/content.md).
