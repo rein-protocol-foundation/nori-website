@@ -1,0 +1,5 @@
+docs/
+artifacts/
+.github/
+.env*
+AGENTS.md

@@ -51,3 +51,34 @@ The earlier “no application scaffold” and “framework undecided” notes de
 
 
 The subsequent authorized landing-page expansion adds all remaining sections from `docs/design/content.md`, responsive section navigation, and a footer. All action buttons now use text without arrows. The design decisions are recorded in `docs/design/design.md`; `npm run check:landing` adds page-wide layout, navigation, and accessibility checks. Product scenarios remain explicitly illustrative. This expands the local UI scope only; hosting and dashboard-migration status are unchanged.
+
+## CI and Vercel connection — 2026-11-16
+
+The user authorized website CI and connecting Vercel deployment. `.github/workflows/ci.yml`
+runs the existing unit tests, typecheck/build, and four Chromium browser suites on pushes,
+pull requests, and manual dispatch. Actions are pinned to release commit hashes, use only
+read access, cancel superseded runs, and retain browser evidence for seven days.
+`npm run test:browser` owns an isolated production preview server and closes it after checks.
+Node 22 is declared in `.nvmrc` and package engines.
+
+Created and locally linked [agi-studio/nori-website](https://vercel.com/agi-studio/nori-website),
+alongside the foundation website. The project uses Node 22, Vite, `npm ci`,
+`npm test && npm run build`, and `dist`. `vercel.json` keeps build settings in source control;
+`.vercelignore` excludes design archives, local evidence, and environment files from uploads.
+The generated `.vercel/` link and `.env.local` remain ignored and must never be committed.
+
+The first deployment is ready at [nori-website-flax.vercel.app](https://nori-website-flax.vercel.app)
+([build details](https://vercel.com/agi-studio/nori-website/8rwQ5fJbCJqw6cFumEq8ipAt8qGq)).
+Vercel automatically assigned the first deployment to the project's production slot.
+Its default Vercel authentication protection remains enabled. This is a generated Vercel
+hostname, not the planned public-domain cutover.
+
+After the user enabled the Vercel GitHub app, the native Git connection succeeded for
+`rein-protocol-foundation/nori-website`. Automatic Git deployments are enabled, with
+`main` as the production branch and other branches producing previews.
+Native Git deployment needs no Vercel token in GitHub Actions.
+GitHub browser checks currently report results independently of Vercel; branch protection
+and Vercel Deployment Checks have not been configured as enforced production gates.
+
+No DNS changes or dashboard migration are included. `nori.rein-protocol.org` retains its
+existing dashboard routing; the migration dependency above still applies.
