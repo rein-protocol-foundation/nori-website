@@ -15,7 +15,7 @@ export function Communications() {
             </SectionLabel>
             <h2 id="communications-title">
               Give the organization
-              <br />a voice that <strong>stays active.</strong>
+              <br />a voice that stays active.
             </h2>
           </div>
           <p className="heading-aside">

@@ -15,9 +15,9 @@ page.on('pageerror', error => errors.push(error.message));
 await page.goto(baseURL);
 await page.locator('.cellular-scene.is-ready').waitFor();
 await page.evaluate(() => document.fonts.ready);
-const time = () => page.locator('canvas').getAttribute('data-time').then(Number);
+const time = () => page.locator('.cellular-scene canvas').getAttribute('data-time').then(Number);
 for (const second of [1, 7, 14, 21, 27.8, 28.2, 30]) {
-  await page.waitForFunction(t => Number(document.querySelector('canvas')?.dataset.time) >= t, second, { timeout: 45000 });
+  await page.waitForFunction(t => Number(document.querySelector('.cellular-scene canvas')?.dataset.time) >= t, second, { timeout: 45000 });
   await page.screenshot({ path: `${output}/desktop-${String(second).replace('.', '-')}.png` });
   results.push({ checkpoint: second, sceneTime: await time() });
 }
@@ -70,7 +70,7 @@ await page.emulateMedia({ reducedMotion: 'no-preference' });
 await page.locator('.cellular-scene.is-ready').waitFor();
 results.push({ check: 'live reduced-motion change disposes renderer; re-enabling restarts', passed: true });
 
-await page.evaluate(() => document.querySelector('canvas').getContext('webgl2').getExtension('WEBGL_lose_context').loseContext());
+await page.evaluate(() => document.querySelector('.cellular-scene canvas').getContext('webgl2').getExtension('WEBGL_lose_context').loseContext());
 await expect(page.locator('.static-label')).toHaveText(/Still life/);
 await expect(page.getByRole('link', { name: 'Meet Nori in Discord', exact: true }).last()).toBeVisible();
 results.push({ check: 'WebGL context loss retains static composition and links', passed: true });
