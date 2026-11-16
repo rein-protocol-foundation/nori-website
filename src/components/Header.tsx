@@ -2,14 +2,38 @@ import { useEffect, useRef, useState } from "react";
 import { GithubMark, NoriMark } from "./Icons";
 export const DISCORD = "https://discord.gg/m8qnWv9XX";
 const navigation = [
-  ["What Nori does", "#work"],
-  ["Meet the team", "#team"],
-  ["See Nori at work", "#rein"],
-  ["Open source", "#open-source"],
+  ["Workflows", "#work"],
+  ["One Nori", "#team"],
+  ["Nori at Rein", "#rein"],
+  ["Build with Nori", "#open-source"],
 ];
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
   const menuButton = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting)
+            setActive(entry.target.id ? "#" + entry.target.id : "");
+        }
+      },
+      { rootMargin: "-15% 0px -55% 0px" },
+    );
+    document
+      .querySelectorAll("main > section")
+      .forEach((section) => observer.observe(section));
+    const desktop = matchMedia("(min-width: 1051px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) setOpen(false);
+    };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => {
+      observer.disconnect();
+      desktop.removeEventListener("change", closeOnDesktop);
+    };
+  }, []);
   useEffect(() => {
     const escape = (event: KeyboardEvent) => {
       if (event.key === "Escape" && open) {
@@ -30,7 +54,11 @@ export function Header() {
       </a>
       <nav className="desktop-navigation" aria-label="Sections">
         {navigation.map(([label, href]) => (
-          <a key={href} href={href}>
+          <a
+            key={href}
+            href={href}
+            aria-current={active === href ? "location" : undefined}
+          >
             {label}
           </a>
         ))}
@@ -42,9 +70,6 @@ export function Header() {
           href="https://github.com/rein-protocol-foundation/nori-agent"
         >
           <GithubMark />
-        </a>
-        <a className="header-cta" href={DISCORD}>
-          Meet Nori<span className="header-cta-extra"> in Discord</span>
         </a>
         <button
           ref={menuButton}
@@ -65,7 +90,18 @@ export function Header() {
           aria-label="Mobile sections"
         >
           {navigation.map(([label, href]) => (
-            <a key={href} href={href} onClick={() => setOpen(false)}>
+            <a
+              key={href}
+              href={href}
+              onClick={() => {
+                setOpen(false);
+                const target = document.querySelector(href);
+                if (target instanceof HTMLElement) {
+                  target.tabIndex = -1;
+                  target.focus({ preventScroll: true });
+                }
+              }}
+            >
               {label}
             </a>
           ))}

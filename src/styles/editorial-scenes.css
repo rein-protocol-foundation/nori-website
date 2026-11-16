@@ -1,0 +1,849 @@
+/* Readable channel-native content and Rein's own public brand palette. */
+.communication-studio.communications-section {
+  background: #f4f5ef;
+}
+.communication-heading {
+  max-width: 940px;
+}
+.communication-heading h2 {
+  font-size: clamp(40px, 4.7vw, 69px);
+  line-height: 1.08;
+}
+.communication-heading > p {
+  max-width: 660px;
+  color: #526154;
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 25px 0 0;
+}
+.communication-source {
+  display: flex;
+  gap: 15px 25px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 22px 0;
+  margin-bottom: 32px;
+  border-top: 1px solid #cbd2c5;
+  border-bottom: 1px solid #cbd2c5;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.communication-source .source-kicker {
+  color: #5b685d;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+}
+.communication-source > strong {
+  font-size: 16px;
+  font-weight: 650;
+}
+.communication-source > span:not(.source-kicker):not(.source-author) {
+  color: #536054;
+}
+.communication-source .source-author {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.communication-source .source-author img {
+  width: 28px;
+  height: 28px;
+}
+.communication-channels {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.78fr) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+.channel-surface {
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #d6dbd2;
+  border-radius: 10px;
+  box-shadow: 0 9px 28px #33432c06;
+  overflow: hidden;
+}
+.channel-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 52px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e7e9e3;
+  font-size: 11px;
+  color: #626861;
+}
+.channel-toolbar > span:first-child {
+  color: #29352c;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 650;
+}
+.channel-toolbar svg {
+  width: 19px;
+  height: 19px;
+}
+.channel-toolbar > span:last-child {
+  font-size: 10px;
+  white-space: nowrap;
+}
+.channel-avatar {
+  object-fit: contain;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  padding: 3px;
+  background: #e9eee1;
+  border-radius: 50%;
+}
+.social-post {
+  padding: 23px 23px 22px;
+}
+.social-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.social-author > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.social-author strong,
+.participant-question strong,
+.nori-reply strong {
+  font-size: 13px;
+}
+.social-author > div > span {
+  color: #68716b;
+  font-size: 11px;
+}
+.social-author > span {
+  margin-left: auto;
+  font-size: 20px;
+  align-self: flex-start;
+}
+.social-post h3 {
+  margin: 23px 0 16px;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  font-size: clamp(20px, 1.8vw, 25px);
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+.social-post > p,
+.social-context p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 15px;
+}
+.social-link {
+  color: #325c68;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.social-context {
+  margin-top: 24px;
+  border: 1px solid #d9ded5;
+  border-radius: 8px;
+  padding: 14px;
+}
+.social-context > span {
+  font-size: 10px;
+  color: #637063;
+}
+.social-context p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.social-reply {
+  border-top: 1px solid #e1e5dc;
+  padding: 22px;
+}
+.participant-question,
+.nori-reply {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.participant-avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: #e9e4db;
+  color: #5e5140;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+.participant-question p,
+.nori-reply p {
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 5px 0 0;
+}
+.nori-reply {
+  margin-top: 18px;
+  position: relative;
+}
+.nori-reply:before {
+  content: "";
+  position: absolute;
+  left: 17px;
+  bottom: calc(100% + 4px);
+  height: 13px;
+  border-left: 1px solid #c7cec2;
+}
+.nori-reply .channel-avatar {
+  width: 34px;
+  height: 34px;
+}
+.nori-reply strong > span {
+  color: #6c756e;
+  font-size: 10px;
+  font-weight: 450;
+  margin-left: 7px;
+}
+.channel-note {
+  padding: 17px 21px;
+  margin: 0;
+  border-top: 1px solid #e7e9e3;
+  background: #fafbf7;
+  color: #59655a;
+  font-size: 12px;
+  line-height: 1.65;
+}
+.channel-reel {
+  background: #fafbf5;
+}
+.reel-viewport {
+  position: relative;
+  background: #e7ecda;
+  aspect-ratio: 9 / 16;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 20px;
+}
+.reel-byline {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.reel-byline .channel-avatar {
+  width: 30px;
+  height: 30px;
+  background: #f3f5e9;
+}
+.reel-byline > span {
+  font-size: 11px;
+  line-height: 1.5;
+  font-weight: 650;
+}
+.reel-byline > span > span {
+  display: block;
+  font-size: 9px;
+  font-weight: 450;
+}
+.reel-byline .reel-duration {
+  margin-left: auto;
+  padding: 4px 7px;
+  border: 1px solid #b7c3aa;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  border-radius: 4px;
+}
+.reel-viewport h3 {
+  margin: 24px 0 0;
+  font-size: clamp(27px, 2.6vw, 40px);
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+  position: relative;
+  z-index: 1;
+}
+.reel-viewport h3 span {
+  color: #9c452b;
+}
+.reel-boundary-art {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 34%;
+  left: 0;
+  z-index: -1;
+}
+.reel-human-label {
+  position: absolute;
+  top: 49%;
+  right: 12px;
+  font-size: 9px;
+  line-height: 1.5;
+  font-weight: 650;
+  background: #eff2e5;
+  padding: 5px 6px;
+  border: 1px solid #b4c0a5;
+}
+.reel-caption {
+  margin: auto 0 20px;
+  padding-top: 32px;
+  font-size: clamp(19px, 1.8vw, 26px);
+  font-weight: 550;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+}
+.reel-progress {
+  display: flex;
+  gap: 5px;
+}
+.reel-progress i {
+  height: 3px;
+  background: #90a180;
+  flex: 1;
+  border-radius: 1px;
+}
+.reel-progress i:first-child {
+  background: #294c36;
+}
+.reel-storyboard {
+  padding: 16px 13px;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 600;
+  color: #40533d;
+  border-top: 1px solid #d9dfce;
+}
+.reel-viewport-active .reel-route-accent {
+  stroke-dasharray: 400;
+  animation: reel-path-draw 3.8s 0.1s ease-out both;
+}
+.reel-viewport-active .reel-review-node {
+  transform-origin: 140px 52px;
+  animation: reel-review-emphasis 1.1s 1.5s ease-in-out 2;
+}
+@keyframes reel-path-draw {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  68%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes reel-review-emphasis {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.18);
+  }
+}
+.mail-compose-title {
+  display: flex;
+  justify-content: space-between;
+  background: #edf1f8;
+  padding: 15px 19px;
+  color: #343c48;
+  font-size: 12px;
+  font-weight: 600;
+}
+.mail-fields {
+  margin: 0;
+  padding: 0 20px;
+}
+.mail-fields > div {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e8e9e8;
+}
+.mail-fields dt {
+  font-size: 11px;
+  color: #646a65;
+  min-width: 38px;
+}
+.mail-fields dd {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.mail-fields > div:last-child dd {
+  font-weight: 650;
+}
+.mail-copy {
+  padding: 20px 22px 6px;
+  color: #323933;
+}
+.mail-copy p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 0 18px;
+}
+.mail-copy .mail-signature {
+  margin-top: 25px;
+  font-weight: 650;
+}
+.mail-signature span {
+  font-size: 11px;
+  font-weight: 400;
+  color: #697168;
+}
+.mail-attachment {
+  margin: 0 21px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #d8dfd4;
+  padding: 13px;
+  border-radius: 5px;
+  background: #fafbf8;
+}
+.mail-attachment > svg {
+  width: 25px;
+  height: 30px;
+  color: #557443;
+  flex-shrink: 0;
+}
+.mail-attachment > span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mail-attachment strong {
+  font-size: 12px;
+}
+.mail-attachment > span > span {
+  font-size: 10px;
+  color: #687564;
+}
+
+.rein-editorial.rein-section {
+  --rein-paper: #f4ecdd;
+  --rein-ink: #1d140e;
+  --rein-soft: #43342c;
+  --rein-faint: #70635a;
+  --rein-line: #b8ac9d;
+  --rein-orange: #ee4217;
+  background: var(--rein-paper);
+  color: var(--rein-ink);
+  padding-top: 50px;
+  padding-bottom: 36px;
+}
+.rein-editorial-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--rein-line);
+}
+.rein-editorial-topline .section-label,
+.rein-editorial-topline .section-label > span {
+  color: var(--rein-soft);
+  margin: 0;
+}
+.rein-official-link {
+  font-size: 12px;
+  color: var(--rein-soft);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #b8ac9d;
+}
+.rein-editorial-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+  padding: 58px 0 65px;
+}
+.rein-official-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 17px;
+  margin-bottom: 45px;
+}
+.rein-official-brand > img {
+  display: block;
+  width: 78px;
+  height: 78px;
+}
+.rein-official-brand > span {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.4;
+}
+.rein-editorial-main h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(46px, 5.3vw, 78px);
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+  text-wrap: pretty;
+}
+.rein-editorial-main h2 > span {
+  color: #a8260a;
+}
+.rein-public-mission {
+  color: var(--rein-ink);
+  font-size: 21px;
+  line-height: 1.55;
+  letter-spacing: -0.025em;
+  max-width: 440px;
+  margin: 29px 0 15px;
+}
+.rein-public-description {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--rein-soft);
+  max-width: 440px;
+  margin: 0;
+}
+.rein-community-invitation {
+  margin-top: 30px;
+}
+.rein-community-invitation .button-primary {
+  background: var(--rein-ink);
+  color: #fbf6ec;
+  border-radius: 5px;
+  padding-left: 23px;
+  padding-right: 23px;
+}
+.rein-community-invitation .button-primary:hover {
+  background: #43342c;
+}
+.rein-community-invitation > p {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--rein-soft);
+}
+.rein-mission-plate {
+  background: #e9dac5;
+  padding: 24px 30px 31px;
+  border: 1px solid #c7b9a6;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.rein-plate-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid #b8ac9d;
+  padding-bottom: 17px;
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--rein-soft);
+}
+.rein-plate-caption > span:first-child {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.rein-principle-art {
+  width: calc(100% + 34px);
+  max-width: none;
+  margin: 25px -17px 16px;
+}
+.rein-plate-statement {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+.rein-orange-dot {
+  flex-shrink: 0;
+  margin-top: 11px;
+  width: 9px;
+  height: 9px;
+  background: var(--rein-orange);
+  border-radius: 50%;
+}
+.rein-plate-statement h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 2.6vw, 37px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  margin: 0;
+  text-wrap: pretty;
+}
+.rein-mission-plate > p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--rein-soft);
+  margin: 22px 0 0 24px;
+}
+.rein-mission-areas {
+  border-top: 1px solid var(--rein-line);
+  padding-top: 25px;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 14px 45px;
+}
+.rein-mission-areas > span {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--rein-soft);
+  margin-right: auto;
+}
+.rein-mission-areas > p {
+  font-size: 15px;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.rein-editorial :focus-visible {
+  outline-color: #a8260a;
+}
+
+@media (min-width: 1500px) {
+  .communication-channels {
+    gap: 28px;
+  }
+  .social-post,
+  .social-reply {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+}
+@media (max-width: 1120px) and (min-width: 761px) {
+  .communication-channels {
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 0.62fr);
+    gap: 24px;
+  }
+  .channel-mail {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+  .channel-mail > .channel-toolbar,
+  .channel-mail > .mail-compose-title,
+  .channel-mail > .mail-fields {
+    grid-column: 1 / -1;
+  }
+  .channel-mail > .mail-copy {
+    grid-row: span 2;
+  }
+  .channel-mail > .mail-attachment {
+    margin-top: 25px;
+    align-self: start;
+  }
+  .channel-mail > .channel-note {
+    background: transparent;
+    border-top: 0;
+    align-self: end;
+    padding-bottom: 30px;
+  }
+  .reel-viewport h3 {
+    font-size: 39px;
+  }
+  .reel-caption {
+    font-size: 27px;
+  }
+  .reel-human-label {
+    font-size: 10px;
+    right: 14px;
+  }
+  .rein-editorial-layout {
+    gap: 35px;
+  }
+  .rein-mission-plate {
+    padding-left: 23px;
+    padding-right: 23px;
+  }
+}
+@media (max-width: 760px) {
+  .communication-heading h2 {
+    font-size: clamp(36px, 8.5vw, 52px);
+  }
+  .communication-heading > p {
+    font-size: 16px;
+    margin-top: 22px;
+  }
+  .communication-source {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 7px;
+    padding: 20px 0;
+    margin-bottom: 26px;
+  }
+  .communication-source .source-author {
+    margin: 7px 0 0;
+  }
+  .communication-channels {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .channel-x,
+  .channel-mail {
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .channel-reel {
+    width: min(100%, 350px);
+    margin: 0 auto;
+  }
+  .social-post {
+    padding: 23px;
+  }
+  .social-post h3 {
+    font-size: 24px;
+  }
+  .social-post > p {
+    font-size: 16px;
+  }
+  .participant-question p,
+  .nori-reply p,
+  .mail-copy p {
+    font-size: 15px;
+  }
+  .reel-viewport {
+    padding: 24px;
+  }
+  .reel-viewport h3 {
+    font-size: 44px;
+    margin-top: 26px;
+  }
+  .reel-byline > span {
+    font-size: 12px;
+  }
+  .reel-byline > span > span {
+    font-size: 10px;
+  }
+  .reel-human-label {
+    font-size: 10px;
+    right: 15px;
+  }
+  .reel-caption {
+    font-size: 30px;
+  }
+  .reel-storyboard {
+    font-size: 11px;
+    padding: 17px;
+  }
+  .channel-note {
+    font-size: 12px;
+  }
+  .rein-editorial-topline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .rein-editorial-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+  .rein-official-brand {
+    margin-bottom: 30px;
+  }
+  .rein-official-brand > img {
+    width: 68px;
+    height: 68px;
+  }
+  .rein-editorial-main h2 {
+    font-size: clamp(44px, 10.6vw, 65px);
+  }
+  .rein-public-mission {
+    font-size: 21px;
+    margin-top: 23px;
+  }
+  .rein-mission-plate {
+    padding: 23px;
+  }
+  .rein-principle-art {
+    max-height: 300px;
+  }
+  .rein-plate-statement h3 {
+    font-size: clamp(26px, 6.4vw, 36px);
+  }
+  .rein-mission-areas {
+    gap: 14px 25px;
+  }
+  .rein-mission-areas > span {
+    flex-basis: 100%;
+  }
+  .rein-mission-areas > p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 370px) {
+  .social-post,
+  .social-reply {
+    padding: 19px;
+  }
+  .reel-viewport {
+    padding: 20px;
+  }
+  .reel-viewport h3 {
+    font-size: 38px;
+  }
+  .reel-human-label {
+    right: 7px;
+    font-size: 9px;
+  }
+  .rein-mission-plate {
+    padding: 18px;
+  }
+  .rein-plate-caption {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reel-viewport-active .reel-route-accent,
+  .reel-viewport-active .reel-review-node {
+    animation: none;
+  }
+}
+@media (forced-colors: active) {
+  .channel-surface,
+  .rein-mission-plate {
+    border: 1px solid CanvasText;
+  }
+  .reel-viewport,
+  .rein-editorial.rein-section,
+  .rein-mission-plate {
+    background: Canvas;
+    color: CanvasText;
+  }
+  .rein-editorial h2 > span,
+  .rein-editorial p,
+  .rein-editorial .section-label,
+  .rein-editorial .section-label > span {
+    color: CanvasText;
+  }
+  .reel-boundary-art,
+  .rein-principle-art {
+    display: none;
+  }
+  .reel-human-label {
+    position: static;
+    margin-top: 25px;
+  }
+  .rein-community-invitation .button-primary {
+    border-color: ButtonText;
+  }
+}

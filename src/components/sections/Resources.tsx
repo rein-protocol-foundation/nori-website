@@ -1,4 +1,5 @@
-import { Check, ExampleLabel, SectionLabel } from "./Section";
+import { SectionLabel } from "./Section";
+import { Avatar, ProductScene, UiIcon } from "./ProductScenes";
 export function Resources() {
   return (
     <section
@@ -9,194 +10,180 @@ export function Resources() {
       <div className="section-inner">
         <div className="section-heading split-heading">
           <div>
-            <SectionLabel number="03">
-              Resources & financial infrastructure
-            </SectionLabel>
+            <SectionLabel number="03">Resources & responsibility</SectionLabel>
             <h2 id="resources-title">
-              Put the organization’s
+              A message becomes
               <br />
-              resources to work.
+              <span className="muted-title">a financial workflow.</span>
             </h2>
           </div>
           <p className="heading-aside">
-            Connect treasury, payments, fundraising, and everyday commerce
-            through established platforms—with limited working funds for Nori
-            and reserves kept separate.
+            Nori prepares the work, connects the records, and brings the right
+            person in at the point of authorization.
           </p>
         </div>
-        <article className="expense-record" aria-labelledby="expense-title">
-          <div className="record-topline"><span>Project ledger / EXP-014</span><ExampleLabel>Illustrative expense record</ExampleLabel></div>
-          <h3 id="expense-title">Workshop materials</h3>
-          <p>Supplier quote attached · AI safety workshop · Owner: Maya</p>
-          <dl className="expense-fields">
-            <div><dt>Requested</dt><dd>$240 USD</dd></div>
-            <div><dt>Approval</dt><dd>Awaiting budget owner</dd></div>
-            <div><dt>Payment</dt><dd>Not released</dd></div>
-            <div><dt>Receipt</dt><dd>Not yet received</dd></div>
-          </dl>
-          <p className="record-next"><b>Next action:</b> Maya reviews the quote by Friday. Payment stays pending until allocation is authorized; delivery and receipt checks follow.</p>
-        </article>
-        <p className="example-caption">Sample amount and work record · No transaction or integration is represented as verified</p>
-        <div className="treasury-spread">
-          <div className="treasury-model">
-            <ExampleLabel>Designed treasury model</ExampleLabel>
-            <h3>
-              Close to the work.
-              <br />
-              <strong>Bounded by design.</strong>
-            </h3>
-            <div className="treasury-layer reserve">
-              <div className="layer-symbol" aria-hidden="true">
-                ▥
-              </div>
-              <div>
-                <h4>Organizational reserves</h4>
-                <p>
-                  Independent custody, cold storage, or multisig. Nori does not
-                  hold the control keys.
-                </p>
-              </div>
-              <span className="layer-tag">Separate control</span>
-            </div>
-            <div className="treasury-layer budget">
-              <div className="layer-symbol" aria-hidden="true">
-                ▤
-              </div>
-              <div>
-                <h4>Project budgets</h4>
-                <p>
-                  Purpose-specific allocations. Funding requests and
-                  replenishment follow independent authority.
-                </p>
-              </div>
-              <span className="layer-tag">Defined purpose</span>
-            </div>
-            <div className="treasury-layer working">
-              <div className="layer-symbol" aria-hidden="true">
-                ▦
-              </div>
-              <div>
-                <h4>Nori’s working funds</h4>
-                <p>
-                  Limited balances, transaction amounts, and spending periods,
-                  enforced by the infrastructure.
-                </p>
-              </div>
-              <span className="layer-tag">Bounded access</span>
-            </div>
-            <p className="treasury-footnote">
-              Nori cannot raise its own limits, replenish funds without
-              authority, or bypass the separation through contract permissions.
-            </p>
+        <ProductScene
+          className="finance-demo"
+          label="Product walkthrough from an iMessage request to a Stripe invoice draft and an approval record"
+        >
+          <div className="finance-path" aria-hidden="true">
+            <svg viewBox="0 0 1200 650" preserveAspectRatio="none">
+              <path
+                className="path-bed"
+                d="M260 260C430 260 350 160 570 160S690 450 900 450"
+              />
+              <path
+                className="path-travel"
+                d="M260 260C430 260 350 160 570 160S690 450 900 450"
+              />
+            </svg>
           </div>
-          <div className="funding-story finance-boundary">
-            <span className="overline">Who can move the money?</span>
-            <h3>Preparation is not authorization.</h3>
-            <p>Nori connects the quote, project budget, and approval request. The authorized owner decides whether to allocate funds.</p>
-            <p>After an authorized payment, the record still needs delivery evidence, a receipt, and reconciliation. An approval alone does not mean the work is complete.</p>
-            <p className="service-examples">Designed workflow; permissions and controls depend on the selected infrastructure.</p>
-          </div>
-        </div>
-        <div className="contract-note">
-          <span className="contract-seal" aria-hidden="true">
-            {"{ }"}
-          </span>
-          <div>
-            <h3>Smart contracts are working infrastructure.</h3>
-            <p>
-              Prepare the interaction, execute within the working wallet’s
-              authority, verify the result, and connect it to the project
-              record. Read contract events to follow commitments; route actions
-              outside the granted scope to the appropriate people.
-            </p>
-          </div>
-          <p className="chain-list">
-            <span>BNB Chain</span>
-            <span>Ethereum</span>
-            <span>Solana</span>
-          </p>
-        </div>
-        <div className="financial-work">
-          <article>
-            <span className="overline">Everyday payments</span>
-            <h3>
-              The right service.
-              <br />
-              The right level of autonomy.
-            </h3>
-            <p>
-              Nori prepares banking work, follows payment status, and brings in
-              the designated person when a bank requires verification, signing,
-              authentication, or release.
-            </p>
-            <p>
-              Agentic payment services can support routine bills,
-              reconciliation, and small service purchases within established
-              permissions and budgets.
-            </p>
-            <p className="service-examples">
-              Ecosystem examples: Chase, Mercury, Stripe, PayPal. Illustrative
-              service ecosystem; supported workflows depend on the selected
-              provider.
-            </p>
-          </article>
-          <article>
-            <span className="overline">Storefront & incoming support</span>
-            <h3>
-              Keep support connected
-              <br />
-              to the mission.
-            </h3>
-            <p>
-              Maintain a storefront for digital products, event tickets, or
-              content. Keep listings and payment links current, follow orders
-              through delivery, and handle receipts and applicable refund
-              follow-up.
-            </p>
-            <p>
-              Donation pages and recurring support get their own records and
-              continuing supporter communication.
-            </p>
-            <div className="commerce-record">
-              <span>Project storefront</span>
-              <strong>Workshop registration</strong>
-              <div>
-                <Check /> Listing, payment link & delivery
-              </div>
-              <span>Illustrative work product</span>
+          <div className="imessage-window">
+            <div className="phone-status" aria-hidden="true">
+              <b>9:41</b>
+              <span>▰ ▰ ▰</span>
             </div>
-          </article>
-          <article>
-            <span className="overline">Records, reporting & protection</span>
+            <header>
+              <span aria-hidden="true">‹</span>
+              <div>
+                <Avatar />
+                <b>Nori</b>
+              </div>
+              <span className="phone-video" aria-hidden="true">
+                ▱
+              </span>
+            </header>
+            <p className="imessage-date">iMessage · Today, 9:41 AM</p>
+            <div className="message-bubble sent">
+              Prepare an invoice for four workshop places, $60 each.
+            </div>
+            <div className="message-bubble received scene-step scene-step-1">
+              The $240 draft is ready. I’ve linked the event and routed it to
+              Maya for review.
+            </div>
+            <div className="phone-attachment scene-step scene-step-2">
+              <UiIcon name="file" />
+              <div>
+                <b>Workshop invoice</b>
+                <span>Draft · $240.00 USD</span>
+              </div>
+            </div>
+            <div className="phone-compose" aria-hidden="true">
+              <span>＋</span>
+              <span>iMessage</span>
+              <span>↑</span>
+            </div>
+            <i className="phone-home" aria-hidden="true" />
+          </div>
+          <div className="finance-desktop">
+            <div className="stripe-window">
+              <header>
+                <img
+                  src="/brands/stripe.svg"
+                  alt="Stripe"
+                  width="50"
+                  height="24"
+                />
+                <span>Billing / Invoices</span>
+                <Avatar />
+              </header>
+              <div className="stripe-body">
+                <aside aria-hidden="true">
+                  <span>Overview</span>
+                  <span>Payments</span>
+                  <b>Billing</b>
+                  <span className="selected">Invoices</span>
+                  <span>Customers</span>
+                  <span>Reports</span>
+                </aside>
+                <div className="invoice-content scene-step scene-step-2">
+                  <div className="invoice-topline">
+                    <span>INV–014</span>
+                    <span className="invoice-draft">Draft</span>
+                  </div>
+                  <h3>Workshop registration</h3>
+                  <div className="invoice-total">
+                    $240.00 <span>USD</span>
+                  </div>
+                  <div className="invoice-customer">
+                    <span>Customer</span>
+                    <b>Workshop attendee</b>
+                  </div>
+                  <table>
+                    <caption className="sr-only">Invoice line items</caption>
+                    <thead>
+                      <tr>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th>Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Workshop place</td>
+                        <td>4</td>
+                        <td>$240.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div className="invoice-sum">
+                    <span>Total</span>
+                    <b>$240.00</b>
+                  </div>
+                  <div className="invoice-approval scene-step scene-step-3">
+                    <span className="approval-seal">
+                      <UiIcon name="lock" />
+                    </span>
+                    <div>
+                      <strong>Ready for owner review</strong>
+                      <p>Maya · Sending is not yet authorized</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="ledger-slip scene-step scene-step-4">
+              <div>
+                <UiIcon name="file" />
+                <b>Project ledger</b>
+                <span>Linked by Nori</span>
+              </div>
+              <p>
+                <span>Workshop / INV–014</span>
+                <b>$240.00</b>
+                <span className="status-pill amber">Awaiting review</span>
+              </p>
+            </div>
+          </div>
+        </ProductScene>
+        <div className="authority-strip">
+          <div className="authority-intro">
+            <span className="overline">Designed authority model</span>
             <h3>
-              The work around
-              <br />
-              every transaction.
+              One scope.
+              <br /> Clear boundaries.
             </h3>
-            <p>
-              Connect budgets, receipts, invoices, and accounting. Arrange
-              appropriate accounting, audit, and tax services, then follow
-              exceptions, deadlines, and results.
-            </p>
-            <p>
-              Source suitable insurance or custody protection, maintain coverage
-              summaries, and track renewals. Coverage depends on the selected
-              provider and policy; it is not assumed.
-            </p>
-          </article>
-        </div>
-        <div className="fundraising-line">
-          <span className="overline">Relationships are a long game</span>
-          <p>
-            First conversation. Thoughtful proposal.
-            <br />
-            <strong>A commitment worth following through.</strong>
-          </p>
-          <div>
-            Find aligned donors, grantmakers, and sponsors. Prepare materials,
-            track commitments and incoming support, and keep people informed.
-            For other organizations, the same continuity can support investor
-            relationships.
+          </div>
+          <div className="authority-layer">
+            <UiIcon name="lock" />
+            <div>
+              <b>Organizational reserves</b>
+              <span>Independent control</span>
+            </div>
+          </div>
+          <div className="authority-layer">
+            <UiIcon name="file" />
+            <div>
+              <b>Project budgets</b>
+              <span>Assigned purpose</span>
+            </div>
+          </div>
+          <div className="authority-layer">
+            <Avatar />
+            <div>
+              <b>Nori’s working allocation</b>
+              <span>Bounded permissions</span>
+            </div>
           </div>
         </div>
       </div>

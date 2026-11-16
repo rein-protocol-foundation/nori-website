@@ -9,43 +9,30 @@ export function OpenSource() {
       aria-labelledby="open-source-title"
     >
       <div className="section-inner">
-        <SectionLabel number="08">An open invitation</SectionLabel>
-        <div className="open-source-content">
-          <h2 id="open-source-title">
-            Open source.
-            <br />
-            Built <strong>with the community.</strong>
-          </h2>
-          <p>
-            Nori brings together ideas from the open-source community to explore
-            what long-term organizational agents can become. Follow the work,
-            contribute your perspective, or help shape Nori in your
-            organization.
-          </p>
-          <div className="closing-actions">
-            <a className="button-primary" href={DISCORD}>
-              Join Nori on Discord
-            </a>
-            <a
-              className="button-outline"
-              href="https://github.com/rein-protocol-foundation/nori-agent"
-            >
-              Explore GitHub
-            </a>
-          </div>
-          <a className="text-link" href={DISCORD}>
-            Or come say hello in Discord.
-          </a>
-        </div>
         <div className="closing-cell-field" aria-hidden="true">
-          {Array.from({ length: 80 }, (_, i) => (
-            <i
-              key={i}
-              className={
-                (i * 13 + Math.floor(i / 10) * 7) % 17 < 10 ? "is-alive" : ""
-              }
-            />
-          ))}
+          <img src="/nori-cells.svg" alt="" width="240" height="240" />
+        </div>
+        <SectionLabel number="08">Built in the open</SectionLabel>
+        <h2 id="open-source-title">
+          The next chapter
+          <br />
+          of working together.
+        </h2>
+        <p>
+          Build the next chapter of Nori, together.
+          <br className="desktop-break" /> Follow the code. Join the
+          conversation. Help shape what comes next.
+        </p>
+        <div className="closing-actions">
+          <a className="button-primary" href={DISCORD}>
+            Join Nori on Discord
+          </a>
+          <a
+            className="button-outline"
+            href="https://github.com/rein-protocol-foundation/nori-agent"
+          >
+            Explore GitHub
+          </a>
         </div>
       </div>
     </section>
@@ -54,24 +41,26 @@ export function OpenSource() {
 export function Footer() {
   return (
     <footer className="footer">
-      <a href="#main" className="wordmark" aria-label="Nori home">
-        <NoriMark />
-        <span>
-          nori<span className="wordmark-dot">.</span>
-        </span>
-      </a>
-      <p>
-        A little life. A larger possibility.
-        <br />
-        <span>Built for your organization.</span>
-      </p>
-      <nav aria-label="Footer navigation">
-        <a href="https://github.com/rein-protocol-foundation/nori-agent">
-          GitHub
+      <div className="footer-main">
+        <a href="#main" className="wordmark" aria-label="Nori home">
+          <NoriMark />
+          <span>
+            nori<span className="wordmark-dot">.</span>
+          </span>
         </a>
-        <a href={DISCORD}>Discord</a>
-        <a href="#main">Back to top</a>
-      </nav>
+        <p>Your mission. Nori’s work.</p>
+        <nav aria-label="Footer navigation">
+          <a href="https://github.com/rein-protocol-foundation/nori-agent">
+            GitHub
+          </a>
+          <a href={DISCORD}>Discord</a>
+          <a href="#main">Back to top</a>
+        </nav>
+      </div>
+      <div className="footer-bottom">
+        <span>One super agent. Work, everywhere.</span>
+        <span>Product walkthroughs use sample data.</span>
+      </div>
     </footer>
   );
 }

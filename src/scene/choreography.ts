@@ -1,21 +1,29 @@
-export const CYCLE_SECONDS = 28;
-export const RECURSION = 8;
-// Follow a face cell in the next portrait. At 8×, the parent maps exactly to the child.
-export const NEST_CELL = { x: -.5, y: 6.5 };
-export function sceneAt(seconds: number) {
-  const phase = ((seconds % CYCLE_SECONDS) + CYCLE_SECONDS) % CYCLE_SECONDS / CYCLE_SECONDS;
-  const scale = RECURSION ** phase;
-  // The fine simulation evolves only while resolved. The revealed parent is freshly seeded.
-  const generation = Math.min(18, Math.max(0, (seconds % CYCLE_SECONDS - 1.8) / 1.1));
-  return { phase, scale, generation, offsetX: NEST_CELL.x * RECURSION * (scale - 1) / (RECURSION - 1), offsetY: NEST_CELL.y * RECURSION * (scale - 1) / (RECURSION - 1) };
+/** Scroll is the scene clock: no autonomous loop, timeouts, or accumulated time. */
+export const clamp = (value: number, min = 0, max = 1) =>
+  Math.min(max, Math.max(min, value));
+export const smooth = (value: number) => {
+  const t = clamp(value);
+  return t * t * (3 - 2 * t);
+};
+export function sceneAt(progress: number) {
+  const phase = clamp(progress);
+  return {
+    phase,
+    // The first few scroll pixels let the four small portraits be read.
+    assembly: smooth((phase - 0.06) / 0.82),
+    generation: clamp(phase / 0.92) * 18,
+  };
 }
-/** Active time only. Pauses never catch up and a background tab cannot jump the camera. */
-export class SceneClock {
-  elapsed = 0;
-  private previous: number | null = null;
-  tick(now: number, running: boolean) {
-    if (running && this.previous !== null) this.elapsed += Math.min((now - this.previous) / 1000, .08);
-    this.previous = running ? now : null;
-    return this.elapsed;
-  }
+/** Each source cell keeps its own address in a 2×2 tile of the final portrait. */
+export function cellAt(x: number, y: number, source: number, progress: number) {
+  const state = sceneAt(progress);
+  // The assembly moves from the center out; all paths share exact start/end states.
+  const distance = Math.hypot(x - 15.5, y - 17) / 23;
+  const delay = distance * 0.12 + source * 0.025;
+  const travel = smooth((state.assembly - delay) / (1 - delay));
+  return {
+    travel,
+    targetX: x * 2 + (source % 2),
+    targetY: y * 2 + Math.floor(source / 2),
+  };
 }
