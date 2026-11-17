@@ -38,7 +38,7 @@ Hero 为全幅元胞场景，文字与按钮使用 HTML 叠加；不采用左右
 
 ## Rein 独立品牌章节
 
-Rein 仅在具名组织章节出现，不成为工牌雇主、通用示例工作区或页尾署名。采用官方标记 [rein-logo.png](../../public/brands/rein-logo.png)，从 https://rein-protocol.org/brand/rein-mark-footer.png 原样取得；192×192 PNG，不重绘。官方页同时使用 `/brand/rein-mark-header.png`；标志旁的 Rein Protocol／Foundation 有明确字级。
+Rein 品牌展示限于具名组织章节；Hero 的 Discord 入口下方另以一句文字明确社区归属。这处说明不改变 Nori 的独立身份，Rein 不成为工牌雇主、通用示例工作区或页尾品牌署名；Footer 可保留官网资源链接及图片来源归属。采用官方标记 [rein-logo.png](../../public/brands/rein-logo.png)，从 https://rein-protocol.org/brand/rein-mark-footer.png 原样取得；192×192 PNG，不重绘。官方页同时使用 `/brand/rein-mark-header.png`；标志旁的 Rein Protocol／Foundation 有明确字级。
 
 公开首页 https://www.rein-protocol.org 的实际 CSS（https://rein-protocol.org/_next/static/immutable/chunks/3p2itxezsoxq6.css ）给出以下参考值：paper `#f4ecdd`、paper-deep `#e9dac5`、paper-light `#fbf6ec`、ink `#1d140e`、ink-soft `#43342c`、ink-faint `#70635a`、line `#b8ac9d`、line-dark `#4d3f37`、accent `#ee4217`、accent-dark `#a8260a`、focus `#d12e00`。其 display 为 Newsreader，body 为 Manrope；这是观察到的网站实现，不是独立发布的 brand manual。Nori 全站正体约束继续适用，Rein 章节借用纸色、棕黑、橙红与官方 R，不复制斜体。
 

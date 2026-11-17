@@ -64,16 +64,34 @@ try {
   await page
     .locator("#team")
     .screenshot({ path: "artifacts/badges-five-mobile.png" });
+  // The Discord destination must name its host community without branding
+  // Nori’s badges or generic product examples as Rein workspaces.
+  const communityNote = page.locator(".hero .hero-community-note");
+  await expect(communityNote).toHaveCount(1);
+  await expect(communityNote).toHaveText(
+    "Meet Nori in the Rein Protocol Foundation community.",
+  );
+  const reinFooterLinks = page.locator(
+    'footer a[href="https://rein-protocol.org/"]',
+  );
+  await expect(reinFooterLinks).toHaveText([
+    "Rein Protocol Foundation",
+    "Rein Protocol",
+  ]);
   const outside = await page.locator("body").evaluate((e) => {
     const clone = e.cloneNode(true);
     clone.querySelector("#rein")?.remove();
+    clone.querySelector(".hero .hero-community-note")?.remove();
+    clone
+      .querySelectorAll('footer a[href="https://rein-protocol.org/"]')
+      .forEach((link) => link.remove());
     return clone.textContent;
   });
   expect(outside).not.toMatch(
     /rein protocol|rein foundation|search rein|rein —/i,
   );
   console.log(
-    "PASS: five unique names, hover moves rope, single horizontal row at five widths, last badge reachable on mobile, Rein branding confined to customer section.",
+    "PASS: five unique names, hover moves rope, single horizontal row at five widths, last badge reachable on mobile, Rein branding confined to its section and explicit community/resource/credit attribution.",
   );
 } finally {
   await browser.close();

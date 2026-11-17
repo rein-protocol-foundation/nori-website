@@ -34,7 +34,16 @@ try {
   await expect(page.locator(".context-cite")).toHaveText(["01", "02", "03"]);
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
   await expect(page.locator(".context-flow")).not.toHaveClass(/is-flowing/);
+  // CSS pauses commit on the animation timeline after the class changes.
+  // Wait for pending pause operations before measuring a frozen interval.
+  await page.locator(".context-flow").evaluate(async (el) => {
+    const animations = el.getAnimations({ subtree: true });
+    await Promise.all(animations.map((animation) => animation.ready));
+  });
   const paused = await samples();
+  expect(
+    paused.animations.every((animation) => animation.state === "paused"),
+  ).toBe(true);
   await page.waitForTimeout(350);
   const frozen = await samples();
   expect(frozen.animations).toEqual(paused.animations);
