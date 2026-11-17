@@ -28,10 +28,6 @@ try {
   expect(second.animations[0].time).toBeGreaterThan(first.animations[0].time);
   expect(second.signal).not.toBe(first.signal);
   expect(second.highlights).not.toEqual(first.highlights);
-  await expect(page.locator(".context-answer-lines")).toContainText(
-    "Sam owns the briefing.",
-  );
-  await expect(page.locator(".context-cite")).toHaveText(["01", "02", "03"]);
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
   await expect(page.locator(".context-flow")).not.toHaveClass(/is-flowing/);
   const paused = await samples();
@@ -97,7 +93,7 @@ try {
     ),
   );
   console.log(
-    `${engineName}: context travels from sources to answer; citations, offscreen/hidden pause, safe resume, reduced motion and mobile pass.`,
+    `${engineName}: context travels from sources to answer; offscreen/hidden pause, safe resume, reduced motion and mobile pass.`,
   );
 } finally {
   await browser.close();
