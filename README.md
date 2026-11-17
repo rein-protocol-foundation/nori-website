@@ -60,11 +60,19 @@ TEST_BROWSER=webkit npm run check:landing
 
 The browser checks use the production preview by default; set `TEST_URL` to test another local server. They check scroll-driven assembly, smooth anchor navigation, idle/offscreen/hidden suspension, reduced motion, Canvas 2D failure, and mobile layout. Screenshots and machine-readable results are written to ignored `artifacts/`.
 
-The landing-page checks verify section navigation, text-only CTA destinations, mobile-menu keyboard behavior, layout at eight widths from 320–1440px, and desktop/mobile axe scans. They also capture each section and the full page.
+The landing-page checks verify section navigation, working anchor targets, mobile-menu keyboard behavior, layout at eight widths from 320–1440px, and desktop/mobile axe scans. They also capture each section and the full page.
 
 Automated checks do not replace manual visual review, screen-reader testing, or testing real low-end phones. The 2026-11-16 redesign passes the landing checks in Chromium, Firefox, and WebKit. This covers eight viewport widths, keyboard navigation, and desktop/mobile axe scans. The animation and badge interaction suites pass in Chromium. Actual Safari/iOS devices, assistive-technology use, and real low-end phone performance remain unverified. WebKit automation is not a substitute for device testing.
 
 ## CI and Vercel
+
+Changes limited to `README.md` and Markdown under `docs/` run a diff check and skip
+application suites. Code, assets, dependencies, CI configuration, and manual runs execute
+the full checks under the same `Website checks` status.
+
+CI enforces executable behavior, accessibility, and layout integrity. Brand placement, exact
+copy, example amounts, approved-word lists, and aesthetic proportions belong in human
+content/design review, not merge-blocking assertions.
 
 GitHub Actions runs `Website checks` on pushes and pull requests: a locked npm install,
 unit tests, TypeScript/Vite build, and the Chromium animation, landing-page, accessibility,

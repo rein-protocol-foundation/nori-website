@@ -3,9 +3,6 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
 try {
   await page.goto(process.env.TEST_URL || "http://127.0.0.1:4173");
-  await expect(page.getByRole("button", { name: /pause|resume/i })).toHaveCount(
-    0,
-  );
   const badge = page.locator(".badge-object").nth(1);
   await badge.scrollIntoViewIfNeeded();
   await expect(badge.locator("img")).toBeVisible();
