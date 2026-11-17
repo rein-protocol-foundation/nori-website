@@ -82,3 +82,47 @@ and Vercel Deployment Checks have not been configured as enforced production gat
 
 No DNS changes or dashboard migration are included. `nori.rein-protocol.org` retains its
 existing dashboard routing; the migration dependency above still applies.
+
+## Official domain and dashboard migration — 2026-11-16
+
+This later, user-authorized cutover supersedes the hosting/migration limitations above.
+The user selected `nori.rein-protocol.org` for the product incubated by Rein Protocol,
+and explicitly selected `nori-admin.rein-protocol.org` for the restricted dashboard.
+
+Cloudflare hosts authoritative DNS. The public site's former A record to `170.9.8.26`
+was replaced with a DNS-only CNAME to Vercel's project recommendation,
+`3dba79e10b6b159f.vercel-dns-017.com`, with a 300-second TTL. The new dashboard uses a
+DNS-only A record to `170.9.8.26`, also with a 300-second TTL. The public domain is attached
+to `agi-studio/nori-website`; no apex or foundation-website records were changed.
+
+On OCI, Caddy now serves the dashboard and `/hooks/github` at the new admin hostname.
+The dashboard hostname, Slack/Discord gateway allowed origins, and updater health-probe
+forwarded hosts were migrated together. Existing login credentials and private state
+were preserved. Dashboard sessions are host-only, so administrators sign in again at
+the new address. The old OCI virtual host retains its webhook route and temporarily
+redirects dashboard traffic to the admin hostname for clients with cached old DNS.
+
+The existing `nori-agent` GitHub webhook (ID `704449982`) now targets
+`https://nori-admin.rein-protocol.org/hooks/github`, with JSON payloads, TLS verification,
+the original signing secret, and the existing `pull_request` subscription. A GitHub ping
+returned HTTP 200. This checks the new endpoint, not a new application release or a
+real-chat acceptance test. No deployment notification was deliberately sent.
+
+Root-only rollback copies of Caddy, dashboard, gateway, and updater configuration are
+on OCI under `/var/backups/nori-domain-20261116`. To roll back the website routing,
+restore the former public A record. To roll back the dashboard migration, acquire the
+updater lock, restore the saved configurations with their permissions, restore the
+GitHub webhook URL with its existing JSON/signature settings, restart the affected
+dashboard/gateway services, reload validated Caddy configuration, and verify access.
+Keep the new admin hostname available until clients and callbacks have been checked.
+
+Verification: Vercel reports the domain configured correctly; its HTTPS certificate
+was issued successfully. The public hostname serves the expected website without
+authentication at the Vercel edge. The new admin HTTPS login works with the existing
+key, unauthenticated app requests require login, and authenticated Slack/Discord pages
+return HTTP 200. The verification session was logged out. OCI services and deployment
+watchers are healthy, with no pending deployment transaction or queue warnings.
+Resolvers retaining the former A record may temporarily reach the old host until
+their DNS cache expires. Browser/device regression suites were not rerun for this
+infrastructure-only cutover; authenticated gateway WebSocket interaction and a new
+merge-triggered agent release were not exercised.
