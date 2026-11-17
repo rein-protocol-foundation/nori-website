@@ -72,6 +72,8 @@ try {
       [
         "#work",
         "https://discord.gg/m8qnWv9XX",
+        "https://rein-protocol.org/",
+        "mailto:nori-contact@rein-protocol.org",
         "https://github.com/rein-protocol-foundation/nori-agent",
       ].includes(href),
     ),
@@ -191,12 +193,28 @@ try {
   await expect(page.locator("#rein")).not.toContainText(
     "The work of AI safety",
   );
-  await expect(page.locator("a.community-button")).toHaveCount(3);
-  for (const cta of await page.locator("a.community-button").all()) {
-    await expect(cta.locator("span")).toHaveText("Meet Nori on Discord");
-    await expect(cta.locator("small")).toHaveText(
-      "in Rein Protocol Foundation Community",
-    );
+  await expect(
+    page.locator('a[href="https://discord.gg/m8qnWv9XX"]'),
+  ).toHaveCount(1);
+  await expect(page.locator(".hero-community-note")).toContainText(
+    "Rein Protocol Foundation",
+  );
+  for (const width of [320, 390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 960 });
+    for (const selector of [".hero-actions", ".closing-actions"]) {
+      const buttons = await page
+        .locator(selector + " > a")
+        .evaluateAll((nodes) =>
+          nodes.map((n) => ({
+            width: n.getBoundingClientRect().width,
+            height: n.getBoundingClientRect().height,
+            font: parseFloat(getComputedStyle(n).fontSize),
+          })),
+        );
+      expect(Math.abs(buttons[0].height - buttons[1].height)).toBeLessThan(1);
+      expect(Math.abs(buttons[0].width - buttons[1].width)).toBeLessThan(1);
+      expect(buttons.every((b) => b.font >= 14)).toBe(true);
+    }
   }
   await expect(
     page.locator('.footer a[href="mailto:nori-contact@rein-protocol.org"]'),

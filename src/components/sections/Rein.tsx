@@ -1,4 +1,3 @@
-import { DISCORD } from "../Header";
 import { SectionLabel } from "./Section";
 import "../../styles/editorial-scenes.css";
 import "../../styles/foundation-continuity.css";
@@ -40,9 +39,8 @@ export function Rein() {
               Making AI agents safe for people and society, through community,
               research, and open-source projects.
             </p>
-            <a className="button-primary community-button" href={DISCORD}>
-              <span>Meet Nori on Discord</span>
-              <small>in Rein Protocol Foundation Community</small>
+            <a className="button-primary" href="https://rein-protocol.org/">
+              Explore Rein Protocol
             </a>
           </div>
           <div className="rein-landmark-art">

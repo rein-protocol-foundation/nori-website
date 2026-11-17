@@ -252,13 +252,13 @@
   height: 31px;
   border-radius: 50%;
 }
-.fin-review-person b,
-.fin-review-person span {
+.fin-review-person > div > b,
+.fin-review-person > div > span {
   display: block;
   font-size: 12px;
   line-height: 1.6;
 }
-.fin-review-person span {
+.fin-review-person > div > span {
   font-size: 10px;
   color: #6b6651;
 }
@@ -629,8 +629,8 @@
 }
 .fin-infrastructure {
   border-top: 1px solid #cbd6c3;
-  padding-top: 43px;
-  margin-top: 64px;
+  padding-top: 32px;
+  margin-top: 36px;
 }
 .fin-infra-intro {
   display: flex;
@@ -1547,5 +1547,57 @@
   .fin-collections-ledger {
     gap: 10px;
     flex-wrap: wrap;
+  }
+}
+
+/* Keep the two handoff records on one baseline below their native surfaces. */
+.fin-review-person > .scene-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  line-height: 1;
+  font-size: 13px;
+  color: #594563;
+}
+.fin-review-person > div > span {
+  font-size: 12px;
+}
+.fin-review-heading,
+.fin-ledger-heading {
+  min-height: 30px;
+  padding-bottom: 12px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.fin-ledger-heading b {
+  font-weight: 500;
+}
+.fin-ledger-record {
+  margin-top: 0;
+  border-top: 1px solid #d6dece;
+  padding-top: 15px;
+  min-height: 52px;
+  font-size: 12px;
+}
+.fin-project-ledger {
+  border-bottom: 0;
+}
+@media (min-width: 1101px) {
+  .resources-section .finance-native {
+    align-items: stretch;
+  }
+  .fin-request-column,
+  .fin-invoice-column {
+    display: flex;
+    flex-direction: column;
+  }
+  .fin-owner-review,
+  .fin-project-ledger {
+    margin-top: auto;
+    padding: 24px 0 12px;
+    min-height: 128px;
+    flex-shrink: 0;
   }
 }

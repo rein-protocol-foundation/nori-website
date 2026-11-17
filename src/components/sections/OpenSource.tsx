@@ -1,4 +1,3 @@
-import { DISCORD } from "../Header";
 import { NoriMark } from "../Icons";
 import { SectionLabel } from "./Section";
 export function OpenSource() {
@@ -24,15 +23,17 @@ export function OpenSource() {
           conversation. Help shape what comes next.
         </p>
         <div className="closing-actions">
-          <a className="button-primary community-button" href={DISCORD}>
-            <span>Meet Nori on Discord</span>
-            <small>in Rein Protocol Foundation Community</small>
-          </a>
           <a
-            className="button-outline"
+            className="button-primary"
             href="https://github.com/rein-protocol-foundation/nori-agent"
           >
             Explore GitHub
+          </a>
+          <a
+            className="button-outline"
+            href="mailto:nori-contact@rein-protocol.org"
+          >
+            Contact us
           </a>
         </div>
       </div>
@@ -73,7 +74,6 @@ export function Footer() {
           >
             nori-contact@rein-protocol.org
           </a>
-          <a href={DISCORD}>Meet Nori in Rein’s Discord</a>
         </nav>
       </div>
       <div className="footer-bottom">

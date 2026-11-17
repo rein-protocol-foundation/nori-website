@@ -14,7 +14,7 @@ Nori 公共仓库 README 当前说明许可证尚未选择。因此用 `super ag
 
 定位与使命 → 持续执行价值 → 五个职责 → Work → Finance → Community / software → Outreach → Rein → Continuity → Public code / participation。核心场景直接展开，不依赖 Tab 或折叠。
 
-Header 保留品牌、章节锚点和 GitHub 图标，不放 Discord CTA；锚点平滑滚动并尊重减少动态。Hero、Rein 章节及页尾主按钮统一使用 `Meet Nori on Discord` → https://discord.gg/m8qnWv9XX ，按钮第二行为 `in Rein Protocol Foundation Community`，明确这是 Rein 的社区，不是 Nori 自己的讨论社区。Hero 次按钮 `See Nori at work` → `#work`。GitHub → https://github.com/rein-protocol-foundation/nori-agent 。不创建试点申请表或虚假提交结果。
+Header 保留品牌、章节锚点和 GitHub 图标，不放 Discord CTA；锚点平滑滚动并尊重减少动态。Hero 保留全页唯一的 `Meet Nori on Discord` 入口（https://discord.gg/m8qnWv9XX），与 `See Nori at work` 使用相同宽度、56px 最小高度、8px 圆角和至少14px字号。社区归属移到按钮下方，以14px文字说明 Rein Protocol Foundation community。Rein 章节链接其官网；结尾使用同尺寸的 Explore GitHub 与 Contact us（nori-contact@rein-protocol.org）。Footer 不重复 Discord 入口，社交账号继续隐藏。
 
 ## Hero 与价值
 
@@ -22,7 +22,7 @@ Header 保留品牌、章节锚点和 GitHub 图标，不放 Discord CTA；锚�
 - 标题：`Your mission. Nori’s work.`
 - 说明：`One super agent, working across your organization. Nori connects people, tools, and the work that moves your mission forward.`
 - 受众：`Built for nonprofits, NGOs, and teams with a mission.`
-- 主行动：`Meet Nori on Discord`，第二行 `in Rein Protocol Foundation Community`；次行动：`See Nori at work` → `#work`。
+- 主行动：`Meet Nori on Discord`，社区归属在按钮下方以可读字号说明；次行动：`See Nori at work` → `#work`。
 - 价值桥段：`The ambition is yours. The follow-through is shared.`
 
 全幅元胞场景持续自动缩远：小 Nori 组成大 Nori，再进入下一层相同构图，循环表达一个身份的多种体现。循环不依赖滚动；镜头与递归轮廓为人为编排，局部真实 Conway 演化独立进行，不宣称自然自复制或已实现递归自我改进。Hero 不插入独立工作线程主画面。
@@ -103,7 +103,7 @@ Discord 使用 server／channel／member 结构，GitHub 使用 issue／PR／che
 
 说明：`Build the next chapter of Nori, together. Follow the code. Join the conversation. Help shape what comes next.`
 
-提供双行 `Meet Nori on Discord / in Rein Protocol Foundation Community` 与 `Explore GitHub` 入口；不列无依据的伙伴 logo 墙或宣称许可证已授予。Footer 分为 Explore Nori、Build with us、Get in touch，提供章节导航、GitHub、Rein 官网、社区与用户确认的 **nori-contact@rein-protocol.org** 邮箱。社交账号暂未提供，按用户要求隐藏，不创建占位账号或空链接。全页仅在页尾出现一次：`Product walkthroughs use sample data.`。保留必要的 image credits、draft、pending review、planned 状态，删除重复说明。
+提供同尺寸的 `Explore GitHub` 与 `Contact us` 入口；不列无依据的伙伴 logo 墙或宣称许可证已授予。Footer 分为 Explore Nori、Build with us、Get in touch，提供章节导航、GitHub、Rein 官网与用户确认的 **nori-contact@rein-protocol.org** 邮箱。社交账号暂未提供，按用户要求隐藏，不创建占位账号或空链接。全页仅在页尾出现一次：`Product walkthroughs use sample data.`。保留必要的 image credits、draft、pending review、planned 状态，删除重复说明。
 
 ## 来源与验证边界
 

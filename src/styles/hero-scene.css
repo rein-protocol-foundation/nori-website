@@ -26,6 +26,18 @@
   max-width: 430px;
   line-height: 1.75;
 }
+.hero h1 {
+  letter-spacing: -0.045em;
+  line-height: 1.06;
+}
+.hero-name {
+  white-space: nowrap;
+  letter-spacing: -0.04em;
+}
+.hero-possessive {
+  letter-spacing: -0.015em;
+  margin-left: 0.025em;
+}
 .hero .scene-atmosphere {
   background:
     linear-gradient(

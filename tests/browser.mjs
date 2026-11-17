@@ -96,11 +96,11 @@ try {
       ".hero button, .hero .motion-control, .hero .scene-caption, .hero .static-label",
     ),
   ).toHaveCount(0);
-  await expect(page.locator(".hero .button-primary > span")).toHaveText(
+  await expect(page.locator(".hero .button-primary")).toHaveText(
     "Meet Nori on Discord",
   );
-  await expect(page.locator(".hero .button-primary > small")).toHaveText(
-    "in Rein Protocol Foundation Community",
+  await expect(page.locator(".hero .hero-community-note")).toHaveText(
+    "Meet Nori in the Rein Protocol Foundation community.",
   );
   await expect(page.locator(".hero .button-secondary")).toHaveText(
     "See Nori at work",
