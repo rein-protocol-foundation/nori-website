@@ -10,7 +10,9 @@ Nori 是一个 super agent，以多个数字分身或下属 subagents 承担职�
 
 ## Header 与 Hero
 
-Header 保留 Nori 标识、章节平滑锚点和 GitHub 图标，不放 Discord CTA。页面顶部保留浮动胶囊；滚动达到 64px 后收为 桌面 56px／手机 54px 高、top: 0 的通栏导航，去掉气泡圆角和外侧留白。回到顶部恢复；手机菜单、键盘焦点与减少动态继续有效。Hero、Rein 与页尾按钮统一为 `Meet Nori on Discord`，第二行 `in Rein Protocol Foundation Community`，链接 https://discord.gg/m8qnWv9XX 。Hero 次按钮 `See Nori at work` → `#work`。Footer 增加清晰的导航、项目、联系分组；邮箱使用用户确认的 nori-contact@rein-protocol.org，社交账号暂时隐藏。
+Hero 标题保留 `Your mission. Nori’s work.`，字距使用 -0.045em、行高 1.06；`Nori` 与所有格 `’s` 分别控制字距，并为撇号保留 0.025em 左间距，避免大字号下 i、撇号与 s 粘连。所有格与品牌名保持同字号、同基线，不做上标或缩小。
+
+Header 保留 Nori 标识、章节平滑锚点和 GitHub 图标，不放 Discord CTA。页面顶部保留浮动胶囊；滚动达到 64px 后收为 桌面 56px／手机 54px 高、top: 0 的通栏导航，去掉气泡圆角和外侧留白。回到顶部恢复；手机菜单、键盘焦点与减少动态继续有效。Hero 保留全页唯一的 `Meet Nori on Discord` 入口（https://discord.gg/m8qnWv9XX），与 `See Nori at work` 使用相同宽度、56px 最小高度、8px 圆角和至少14px字号。社区归属移到按钮下方，以14px文字说明 Rein Protocol Foundation community。Rein 章节链接其官网；结尾使用同尺寸的 Explore GitHub 与 Contact us（nori-contact@rein-protocol.org）。Footer 不重复 Discord 入口，社交账号继续隐藏。
 
 Hero 为全幅元胞场景，文字与按钮使用 HTML 叠加；不采用左右插画卡。镜头自动持续拉远，小 Nori 逐渐显现为更大 Nori 的元胞，再进入下一层相同构图。每层使用 32×32 身份网格，20 秒完成 32 倍缩远，以递归固定点衔接下一层；不跳回首帧、不倒放、不等待用户滚动。页面正常滚动，Hero 不再占据额外的滚动拼装距离。手机将画面放在正文上方。
 
@@ -36,13 +38,15 @@ Hero 为全幅元胞场景，文字与按钮使用 HTML 叠加；不采用左右
 
 ## Rein 独立品牌章节
 
-Rein 仅在具名组织章节出现，不成为工牌雇主、通用示例工作区或页尾署名。采用官方标记 [rein-logo.png](../../public/brands/rein-logo.png)，从 https://rein-protocol.org/brand/rein-mark-footer.png 原样取得；192×192 PNG，不重绘。官方页同时使用 `/brand/rein-mark-header.png`；标志旁的 Rein Protocol／Foundation 有明确字级。
+Rein 品牌展示限于具名组织章节；Hero 的 Discord 入口下方另以一句文字明确社区归属。这处说明不改变 Nori 的独立身份，Rein 不成为工牌雇主、通用示例工作区或页尾品牌署名；Footer 可保留官网资源链接及图片来源归属。采用官方标记 [rein-logo.png](../../public/brands/rein-logo.png)，从 https://rein-protocol.org/brand/rein-mark-footer.png 原样取得；192×192 PNG，不重绘。官方页同时使用 `/brand/rein-mark-header.png`；标志旁的 Rein Protocol／Foundation 有明确字级。
 
 公开首页 https://www.rein-protocol.org 的实际 CSS（https://rein-protocol.org/_next/static/immutable/chunks/3p2itxezsoxq6.css ）给出以下参考值：paper `#f4ecdd`、paper-deep `#e9dac5`、paper-light `#fbf6ec`、ink `#1d140e`、ink-soft `#43342c`、ink-faint `#70635a`、line `#b8ac9d`、line-dark `#4d3f37`、accent `#ee4217`、accent-dark `#a8260a`、focus `#d12e00`。其 display 为 Newsreader，body 为 Manrope；这是观察到的网站实现，不是独立发布的 brand manual。Nori 全站正体约束继续适用，Rein 章节借用纸色、棕黑、橙红与官方 R，不复制斜体。
 
 本轮按用户要求原样复用官网建筑拼贴 [rein-stanford.webp](../../public/brands/rein-stanford.webp)，来源 https://rein-protocol.org/_next/static/immutable/media/stanford.10fq65dahi31b.webp 。图片直接铺入右侧版面，无卡片外框；手机以建筑主体裁切呈现。删除旧右侧原则卡片、重复使命小字与底部分类行。官网标注的来源为 Hoover Tower — © BrokenSphere, CC BY-SA，原图 https://commons.wikimedia.org/wiki/File:Hoover_Tower_west_face.JPG ；页尾可展开 Image credits 保留归属。
 
 公开使命为使 AI agents 对人和社会安全，通过社区、开源项目与研究推进 transparency、observability、policy controls。可说明人设定边界、审阅重大决定并承担责任；不增加融资、合作、成果或规模声明。
+
+金融主场景桌面端的 Owner review 与 Project ledger 在两列底部对齐，采用一致标题与记录间距；头像字母保持居中，状态正文不影响头像布局。后续案例入口减少重复留白，手机继续按请求、草稿、审核、账本顺序展示。
 
 ## 原始 UI 参考
 
