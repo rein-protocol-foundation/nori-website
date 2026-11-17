@@ -21,21 +21,53 @@ jobs:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+          fetch-depth: 0
+      - name: Classify changes
+        id: changes
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          python3 - <<'PYTHON'
+          import os, subprocess
+          from pathlib import PurePosixPath
+          base = os.environ.get("BASE_SHA", "")
+          if not base or set(base) == {"0"}:
+              base = subprocess.check_output(["git", "merge-base", "HEAD", "origin/main"], text=True).strip()
+          subprocess.run(["git", "diff", "--check", base, "HEAD"], check=True)
+          names = subprocess.check_output(["git", "diff", "--name-only", "-z", base, "HEAD"]).decode().split("\0")
+          names = [name for name in names if name]
+          docs_only = bool(names) and all(
+              name == "README.md" or (name.startswith("docs/") and PurePosixPath(name).suffix == ".md")
+              for name in names
+          )
+          # Manual runs always exercise the application, even for a documentation commit.
+          docs_only = docs_only and os.environ["GITHUB_EVENT_NAME"] != "workflow_dispatch"
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              print(f"application={str(not docs_only).lower()}", file=output)
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
+              summary.write("Documentation-only change: diff check passed; application suites skipped.\n" if docs_only else "Application or CI changes: running full checks.\n")
+          PYTHON
+      - if: steps.changes.outputs.application == 'true'
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm ci
+      - if: steps.changes.outputs.application == 'true'
+        run: npm ci
       - name: Unit tests
+        if: steps.changes.outputs.application == 'true'
         run: npm test
       - name: Typecheck and production build
+        if: steps.changes.outputs.application == 'true'
         run: npm run build
       - name: Install Chromium and system dependencies
+        if: steps.changes.outputs.application == 'true'
         run: npx playwright install --with-deps chromium
       - name: Browser, accessibility, and badge checks
+        if: steps.changes.outputs.application == 'true'
         run: npm run test:browser
       - name: Save browser evidence
-        if: always()
+        if: always() && steps.changes.outputs.application == 'true'
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: browser-evidence
