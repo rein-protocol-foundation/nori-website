@@ -36,6 +36,20 @@ try {
   );
   await expect(page.locator("body")).not.toContainText(/illustrative/i);
   await expect(page.locator("header.header a[href*=discord]")).toHaveCount(0);
+  const header = page.locator("header.header");
+  const initialHeader = await header.boundingBox();
+  await page.evaluate(() => window.scrollTo({ top: 80, behavior: "instant" }));
+  await expect(header).toHaveClass(/is-condensed/);
+  const compactHeader = await header.boundingBox();
+  expect(compactHeader.y).toBe(0);
+  expect(compactHeader.height).toBeLessThan(initialHeader.height);
+  expect(compactHeader.height).toBeLessThanOrEqual(56);
+  expect(compactHeader.width).toBe(1440);
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  await expect(header).not.toHaveClass(/is-condensed/);
+  checks.push(
+    "Header shrinks to a top-attached bar on scroll and restores at the top.",
+  );
   for (const id of sections) {
     await expect(page.locator(`main #${id} h2`)).toHaveCount(1);
   }
@@ -98,6 +112,102 @@ try {
     expect(clipped, `text outside viewport at ${width}px`).toEqual([]);
   }
   checks.push("No page or text overflow at eight widths, 320–1440px.");
+  // Full desktop applications stay recognizable without being flattened into strips.
+  for (const width of [1050, 1200, 1440]) {
+    await page.setViewportSize({ width, height: 960 });
+    const frames = await page
+      .locator(
+        ".slack-demo, .discord-demo, .native-lark, .native-docs, .github-demo, .fin-stripe, .outreach-app",
+      )
+      .evaluateAll((nodes) =>
+        nodes.map((node) => {
+          const rect = node.getBoundingClientRect();
+          return { name: node.className, ratio: rect.width / rect.height };
+        }),
+      );
+    const prOverflow = await page
+      .locator(".github-demo")
+      .evaluate((node) => node.scrollHeight - node.clientHeight);
+    expect(
+      prOverflow,
+      `GitHub timeline clipped at ${width}px`,
+    ).toBeLessThanOrEqual(2);
+    for (const frame of frames) {
+      expect(frame.ratio, `${frame.name} at ${width}px`).toBeGreaterThanOrEqual(
+        0.99,
+      );
+      expect(frame.ratio, `${frame.name} at ${width}px`).toBeLessThanOrEqual(
+        16 / 9 + 0.01,
+      );
+    }
+  }
+  await expect(page.locator(".fin-safe-artifact")).toContainText("300");
+  await expect(page.locator(".fin-safe-artifact")).toContainText("USDC");
+  await expect(page.locator(".fin-safe-artifact")).toContainText(
+    "2 of 3 signers required",
+  );
+  await expect(page.locator(".fin-bank-artifact")).toContainText("$480.00");
+  await expect(page.locator(".fin-bank-artifact")).toContainText("$600.00");
+  await expect(page.locator(".fin-bank-artifact")).toContainText("$120.00");
+  await expect(page.locator(".fin-collections-artifact")).toContainText(
+    "Stripe",
+  );
+  await expect(page.locator(".fin-collections-artifact")).toContainText(
+    "PayPal",
+  );
+  await expect(page.locator(".fin-stripe-draft-note")).toContainText(
+    "Draft saved",
+  );
+  checks.push(
+    "Full desktop applications keep 1:1–16:9 proportions; concrete Safe, ACH and Stripe/PayPal workflows retain draft or review states.",
+  );
+  for (const width of [320, 390, 699, 768, 1050, 1440]) {
+    await page.setViewportSize({ width, height: 960 });
+    const screen = await page.locator(".fin-imessage").boundingBox();
+    expect(Math.abs(screen.width / screen.height - 1206 / 2622)).toBeLessThan(
+      0.001,
+    );
+    const compose = await page
+      .locator(".outreach-gmail-compose, .outreach-compose-copy")
+      .evaluateAll((nodes) =>
+        nodes.map((node) => ({
+          name: node.className,
+          overflow: node.scrollHeight - node.clientHeight,
+        })),
+      );
+    for (const surface of compose)
+      expect(
+        surface.overflow,
+        `${surface.name} at ${width}`,
+      ).toBeLessThanOrEqual(1);
+  }
+  await expect(page.locator(".outreach-instagram")).not.toContainText(
+    /preview|demo|concept/i,
+  );
+  await expect(page.locator("#rein .rein-landmark-art img")).toHaveAttribute(
+    "src",
+    "/brands/rein-stanford.webp",
+  );
+  await expect(page.locator("#rein")).not.toContainText(
+    "The work of AI safety",
+  );
+  await expect(page.locator("a.community-button")).toHaveCount(3);
+  for (const cta of await page.locator("a.community-button").all()) {
+    await expect(cta.locator("span")).toHaveText("Meet Nori on Discord");
+    await expect(cta.locator("small")).toHaveText(
+      "in Rein Protocol Foundation Community",
+    );
+  }
+  await expect(
+    page.locator('.footer a[href="mailto:nori-contact@rein-protocol.org"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator('.footer a[href*="instagram.com"], .footer a[href*="x.com"]'),
+  ).toHaveCount(0);
+  checks.push(
+    "iMessage retains iPhone screen ratio; Gmail has no inner scroller; finished Instagram, original Rein art, community CTA and confirmed contact are present.",
+  );
+  await page.setViewportSize({ width: 1440, height: 960 });
   await expect(
     page.getByText("The right access. Already in reach.", {
       exact: true,

@@ -10,7 +10,24 @@ const navigation = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  const [condensed, setCondensed] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      setCondensed(window.scrollY >= 64);
+    };
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.cancelAnimationFrame(frame);
+    };
+  }, []);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -45,7 +62,7 @@ export function Header() {
     return () => document.removeEventListener("keydown", escape);
   }, [open]);
   return (
-    <header className="header">
+    <header className={`header${condensed ? " is-condensed" : ""}`}>
       <a className="wordmark" href="#main" aria-label="Nori home">
         <NoriMark />
         <span>

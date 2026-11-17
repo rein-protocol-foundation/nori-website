@@ -1,0 +1,1116 @@
+/* Channel-specific desktop views. Every mock is scoped to Outreach. */
+.outreach-section.communications-section {
+  background: #f4f5ef;
+}
+.outreach-heading {
+  max-width: 960px;
+}
+.outreach-heading h2 {
+  font-size: clamp(40px, 4.7vw, 69px);
+  line-height: 1.08;
+}
+.outreach-heading > p {
+  max-width: 660px;
+  color: #526154;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-top: 25px;
+}
+.outreach-source {
+  display: flex;
+  align-items: center;
+  gap: 16px 26px;
+  flex-wrap: wrap;
+  padding: 24px 0;
+  border-block: 1px solid #cbd2c5;
+  font-size: 13px;
+}
+.outreach-source > span:first-child {
+  color: #5b685d;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+}
+.outreach-source > strong {
+  font-size: 16px;
+}
+.outreach-source > p {
+  color: #536054;
+  margin: 0;
+}
+.outreach-source-author {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+}
+.outreach-section .outreach-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #edf4eb;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.outreach-source .outreach-avatar {
+  width: 28px;
+  height: 28px;
+}
+.outreach-crop-label {
+  display: none;
+}
+.outreach-app :focus-visible {
+  outline: 2px solid #0b57d0;
+  outline-offset: -3px;
+}
+.outreach-scene {
+  padding-top: 72px;
+}
+.outreach-scene + .outreach-scene {
+  margin-top: 28px;
+}
+.outreach-scene-intro {
+  display: grid;
+  grid-template-columns: 190px 1.2fr 1fr;
+  align-items: start;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+.outreach-scene-index {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  padding-top: 9px;
+  color: #526154;
+}
+.outreach-scene-intro h3 {
+  font-size: clamp(26px, 2.5vw, 37px);
+  line-height: 1.17;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+}
+.outreach-scene-intro p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #526154;
+  max-width: 310px;
+  margin: 4px 0 0 auto;
+}
+.outreach-app {
+  overflow: hidden;
+  border: 1px solid #cbd0c9;
+  border-radius: 10px;
+  box-shadow: 0 18px 60px -35px #223c3540;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #0f1419;
+  background: #fff;
+}
+.outreach-app svg {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+}
+.outreach-app p {
+  margin: 0;
+}
+.outreach-app small {
+  font-size: 11px;
+}
+.outreach-app b {
+  font-weight: 700;
+}
+.outreach-x {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  width: min(100%, 1000px);
+  margin-left: auto;
+  aspect-ratio: 1.55;
+}
+.outreach-x-rail {
+  display: flex;
+  flex-direction: column;
+  padding: 21px 24px;
+  border-right: 1px solid #eff1f2;
+  gap: 22px;
+}
+.outreach-x-rail > svg {
+  width: 27px;
+  height: 27px;
+  margin: 0 0 5px 9px;
+}
+.outreach-x-rail > div:not(.outreach-x-account) {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 18px;
+  padding-left: 9px;
+}
+.outreach-x-rail > div > svg {
+  width: 25px;
+  height: 25px;
+}
+.outreach-x-post-button {
+  border-radius: 30px;
+  padding: 12px;
+  text-align: center;
+  color: white;
+  background: #0f1419;
+  font-size: 16px;
+  font-weight: 700;
+}
+.outreach-x-rail .outreach-x-account {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: auto;
+}
+.outreach-x-account span {
+  display: flex;
+  flex-direction: column;
+}
+.outreach-x-account small {
+  color: #536471;
+}
+.outreach-x-account > svg {
+  width: 20px;
+  margin-left: auto;
+}
+.outreach-x-conversation {
+  min-width: 0;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.outreach-x-topbar {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eff1f2;
+}
+.outreach-x-topbar > b {
+  font-size: 19px;
+}
+.outreach-x-topbar > span {
+  margin-left: auto;
+  font-size: 11px;
+  color: #536471;
+}
+.outreach-x-original {
+  padding: 15px 24px 0;
+  border-bottom: 1px solid #eff1f2;
+}
+.outreach-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.outreach-author > div {
+  display: flex;
+  flex-direction: column;
+}
+.outreach-author b {
+  font-size: 14px;
+}
+.outreach-author small {
+  color: #536471;
+}
+.outreach-author > svg {
+  margin-left: auto;
+  width: 18px;
+}
+.outreach-x-original > p {
+  font-size: 17px;
+  line-height: 1.45;
+  margin-bottom: 12px;
+  max-width: 620px;
+}
+.outreach-x-link {
+  background: #e9efe5;
+  padding: 18px 20px;
+  border-radius: 13px;
+  margin: 18px 0 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  border: 1px solid #d9e0d5;
+}
+.outreach-x-link > span {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #526154;
+}
+.outreach-x-link > b {
+  font-size: 20px;
+  font-weight: 500;
+  color: #274835;
+}
+.outreach-x-link > small {
+  color: #526154;
+}
+.outreach-x-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 0;
+  color: #536471;
+}
+.outreach-x-actions span {
+  display: flex;
+}
+.outreach-x-actions svg {
+  width: 17px;
+  height: 17px;
+}
+.outreach-x-reply {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  padding: 17px 24px 0;
+  border-bottom: 1px solid #eff1f2;
+}
+.outreach-x-reply > div {
+  flex: 1;
+  min-width: 0;
+}
+.outreach-jordan {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ded7cb;
+  color: #443e34;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.outreach-reply-byline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.outreach-reply-byline > span {
+  color: #536471;
+  font-size: 11px;
+}
+.outreach-reply-byline > svg {
+  margin-left: auto;
+  width: 16px;
+}
+.outreach-x-reply p {
+  font-size: 13px;
+  line-height: 1.45;
+}
+.outreach-x-reply small {
+  display: block;
+  margin-bottom: 5px;
+  color: #536471;
+}
+.outreach-x-reply small span {
+  color: #0969a8;
+}
+.outreach-x-reply .outreach-x-actions {
+  padding: 10px 0;
+}
+.outreach-x-reply .outreach-x-actions svg {
+  width: 15px;
+  height: 15px;
+}
+.outreach-instagram {
+  display: grid;
+  grid-template-columns: 205px 1fr;
+  width: min(100%, 1060px);
+  aspect-ratio: 1.6;
+  color: #f5f5f5;
+  background: #000;
+}
+.outreach-ig-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  padding: 31px 23px 22px;
+  border-right: 1px solid #262626;
+}
+.outreach-ig-wordmark {
+  font-size: 25px;
+  letter-spacing: -1.4px;
+  margin-bottom: 18px;
+  font-weight: 600 !important;
+}
+.outreach-ig-rail > div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+}
+.outreach-ig-rail .is-current {
+  font-weight: 700;
+}
+.outreach-ig-rail svg {
+  width: 24px;
+  height: 24px;
+}
+.outreach-ig-rail .outreach-avatar {
+  width: 23px;
+  height: 23px;
+}
+.outreach-ig-more {
+  margin-top: auto;
+}
+.outreach-ig-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: 18px 20px 12px;
+}
+.outreach-ig-tabs {
+  display: flex;
+  gap: 25px;
+  font-size: 13px;
+  padding-bottom: 15px;
+}
+.outreach-ig-tabs span {
+  color: #a8a8a8;
+}
+.outreach-ig-tabs b {
+  position: relative;
+}
+.outreach-ig-tabs b:after {
+  content: "";
+  position: absolute;
+  width: 19px;
+  height: 2px;
+  background: #fff;
+  left: 50%;
+  bottom: -7px;
+  transform: translateX(-50%);
+}
+.outreach-ig-player {
+  min-height: 0;
+  align-items: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 19px;
+  width: 100%;
+}
+.outreach-reel-art {
+  aspect-ratio: 9 / 16;
+  height: 100%;
+  max-height: 560px;
+  position: relative;
+  background: #edf0d9;
+  color: #274835;
+  border-radius: 4px;
+  overflow: hidden;
+  container-type: inline-size;
+}
+.outreach-reel-kicker {
+  position: absolute;
+  top: 7%;
+  left: 8%;
+  font-size: 3cqw;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+.outreach-reel-question {
+  padding: 21% 8% 0;
+  font-size: 11cqw;
+  line-height: 1.08;
+  letter-spacing: -0.06em;
+  font-weight: 500;
+}
+.outreach-reel-question strong {
+  color: #a8402b;
+  font-weight: 500;
+}
+.outreach-reel-art .outreach-reel-diagram {
+  width: 86%;
+  height: auto;
+  margin: -2% 7% -3%;
+}
+.outreach-reel-message {
+  text-align: center;
+  font-size: 4cqw;
+  font-weight: 600;
+}
+.outreach-reel-bottom {
+  position: absolute;
+  bottom: 4%;
+  left: 7%;
+  right: 7%;
+  font-size: 4cqw;
+}
+.outreach-reel-bottom > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.outreach-reel-bottom .outreach-avatar {
+  width: 8cqw;
+  height: 8cqw;
+}
+.outreach-reel-bottom > div > span {
+  font-size: 3cqw;
+  border: 1px solid #8b977b;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.outreach-reel-bottom p {
+  font-size: 3.5cqw;
+  margin-bottom: 5px;
+}
+.outreach-reel-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #ccd2bb;
+}
+.outreach-reel-progress:after {
+  content: "";
+  display: block;
+  width: 32%;
+  height: 100%;
+  background: #526143;
+}
+.outreach-ig-actions {
+  height: 100%;
+  max-height: 560px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  padding-bottom: 15px;
+  gap: 26px;
+}
+.outreach-ig-actions svg {
+  width: 24px;
+  height: 24px;
+}
+.outreach-gmail {
+  width: 100%;
+  aspect-ratio: 1.65;
+  background: #f6f8fc;
+  font-size: 12px;
+  color: #202124;
+}
+.outreach-gmail-topbar {
+  height: 66px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 0 23px;
+}
+.outreach-gmail-wordmark {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 23px;
+  color: #5f6368;
+  min-width: 132px;
+}
+.outreach-gmail-wordmark svg {
+  width: 29px;
+  height: 25px;
+}
+.outreach-gmail-search {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #eaf1fb;
+  border-radius: 28px;
+  height: 44px;
+  width: 51%;
+  padding: 0 16px;
+  color: #494d52;
+  font-size: 14px;
+}
+.outreach-gmail-search > span:last-child {
+  margin-left: auto;
+}
+.outreach-gmail-top-icons {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-left: auto;
+}
+.outreach-gmail-top-icons .outreach-avatar {
+  width: 31px;
+  height: 31px;
+}
+.outreach-gmail-main {
+  position: relative;
+  display: grid;
+  grid-template-columns: 205px 1fr;
+  height: calc(100% - 66px);
+}
+.outreach-gmail-rail {
+  padding: 0 13px 16px 0;
+}
+.outreach-compose-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 17px 22px;
+  margin: 5px 0 19px 9px;
+  background: #c2e7ff;
+  border-radius: 16px;
+}
+.outreach-gmail-rail > div {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  height: 34px;
+  padding: 0 18px 0 25px;
+}
+.outreach-gmail-rail > div > svg {
+  width: 17px;
+  height: 17px;
+}
+.outreach-gmail-rail > div > b {
+  margin-left: auto;
+  font-size: 11px;
+}
+.outreach-gmail-rail .is-current {
+  background: #d3e3fd;
+  border-radius: 0 22px 22px 0;
+  font-weight: 700;
+}
+.outreach-gmail-rail > small {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 18px 12px 25px;
+  font-size: 13px;
+}
+.outreach-label-dot {
+  width: 12px;
+  height: 10px;
+  background: #a4c2a2;
+  border-radius: 2px;
+}
+.outreach-gmail-inbox {
+  background: white;
+  border-radius: 16px 0 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.outreach-inbox-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px;
+  font-size: 12px;
+  color: #5f6368;
+}
+.outreach-inbox-tabs {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  border-bottom: 1px solid #e9eaed;
+  color: #5f6368;
+}
+.outreach-inbox-tabs > * {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 30%;
+  height: 100%;
+  padding-left: 19px;
+}
+.outreach-inbox-tabs b {
+  border-bottom: 3px solid #0b57d0;
+  color: #0b57d0;
+}
+.outreach-inbox-tabs svg {
+  width: 18px;
+  height: 18px;
+}
+.outreach-inbox-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  white-space: nowrap;
+  height: 41px;
+  border-bottom: 1px solid #e4e7ec;
+  padding: 0 15px;
+  background: #f2f6fc;
+}
+.outreach-inbox-row > b {
+  min-width: 65px;
+}
+.outreach-inbox-row > span:nth-last-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.outreach-inbox-row > small {
+  flex-shrink: 0;
+  margin-left: auto;
+  font-size: 10px;
+}
+.outreach-inbox-row:last-child > b {
+  color: #b3261e;
+}
+.outreach-gmail-compose {
+  position: absolute;
+  bottom: 0;
+  right: 25px;
+  width: 64%;
+  max-width: 690px;
+  height: min(83%, 460px);
+  min-height: 430px;
+  background: #fff;
+  box-shadow: 0 2px 20px #24354c38;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.outreach-compose-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 17px;
+  background: #f2f6fc;
+  font-size: 12px;
+}
+.outreach-compose-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eceff1;
+  margin: 0 17px;
+  color: #5f6368;
+}
+.outreach-compose-field > b {
+  font-weight: 400;
+  border: 1px solid #dadce0;
+  border-radius: 15px;
+  padding: 2px 9px;
+  color: #202124;
+}
+.outreach-compose-field > small {
+  margin-left: auto;
+}
+.outreach-compose-subject {
+  padding: 10px 0;
+  margin: 0 17px;
+  border-bottom: 1px solid #eceff1;
+}
+.outreach-compose-copy {
+  padding: 17px;
+  flex: 1;
+}
+.outreach-compose-copy > p {
+  margin-bottom: 13px;
+  line-height: 1.55;
+  font-size: 13px;
+}
+.outreach-compose-copy .outreach-mail-signature {
+  margin-bottom: 16px;
+}
+.outreach-mail-attachment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: #f1f3f4;
+  border: 1px solid #e1e3e6;
+  max-width: 275px;
+  color: #1967d2;
+}
+.outreach-mail-attachment svg {
+  width: 17px;
+  height: 17px;
+  color: #a14231;
+}
+.outreach-mail-attachment small {
+  margin-left: auto;
+  color: #5f6368;
+}
+.outreach-compose-footer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 17px;
+}
+.outreach-send-control {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 25px;
+  background: #0b57d0;
+  color: white;
+  padding: 10px 16px;
+  font-size: 13px;
+}
+.outreach-send-control > span {
+  border-left: 1px solid #6b96dc;
+  padding-left: 11px;
+}
+.outreach-format-control {
+  font-size: 19px;
+}
+.outreach-compose-footer > svg {
+  width: 18px;
+  height: 18px;
+}
+.outreach-draft-saved {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  font-size: 10px;
+  color: #5f6368;
+}
+.outreach-draft-saved svg {
+  width: 14px;
+  height: 14px;
+}
+@media (max-width: 1050px) {
+  .outreach-scene-intro {
+    grid-template-columns: 140px 1fr 1fr;
+    gap: 22px;
+  }
+  .outreach-x {
+    grid-template-columns: 190px 1fr;
+    aspect-ratio: 1.25;
+  }
+  .outreach-x-rail {
+    padding-inline: 15px;
+    gap: 24px;
+  }
+  .outreach-x-rail > div:not(.outreach-x-account) {
+    font-size: 15px;
+  }
+  .outreach-x-original > p {
+    font-size: 15px;
+  }
+  .outreach-x-link > b {
+    font-size: 17px;
+  }
+  .outreach-instagram {
+    grid-template-columns: 160px 1fr;
+    aspect-ratio: 1.35;
+  }
+  .outreach-ig-rail {
+    padding-inline: 18px;
+    gap: 24px;
+  }
+  .outreach-ig-wordmark {
+    font-size: 23px;
+  }
+  .outreach-ig-rail > div {
+    font-size: 12px;
+    gap: 13px;
+  }
+  .outreach-gmail {
+    aspect-ratio: 1.2;
+  }
+  .outreach-gmail-wordmark {
+    min-width: 101px;
+    font-size: 21px;
+  }
+  .outreach-gmail-main {
+    grid-template-columns: 175px 1fr;
+  }
+  .outreach-gmail-compose {
+    width: 69%;
+    right: 15px;
+    height: min(calc(100% - 14px), 460px);
+  }
+}
+@media (max-width: 700px) {
+  .outreach-heading > p {
+    font-size: 15px;
+  }
+  .outreach-source {
+    gap: 10px 16px;
+  }
+  .outreach-source > span:first-child {
+    width: 100%;
+  }
+  .outreach-source > strong {
+    font-size: 15px;
+  }
+  .outreach-source > p {
+    width: 100%;
+  }
+  .outreach-source-author {
+    margin: 5px 0 0;
+  }
+  .outreach-scene {
+    padding-top: 50px;
+  }
+  .outreach-scene + .outreach-scene {
+    margin-top: 12px;
+  }
+  .outreach-scene-intro {
+    grid-template-columns: 1fr;
+    gap: 13px;
+    margin-bottom: 23px;
+  }
+  .outreach-scene-intro h3 {
+    font-size: 31px;
+  }
+  .outreach-scene-intro p {
+    font-size: 13px;
+    max-width: 360px;
+    margin: 0;
+  }
+  .outreach-crop-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #526154;
+    font-size: 10px;
+    letter-spacing: 0.03em;
+  }
+  .outreach-app {
+    border-radius: 6px;
+  }
+  .outreach-x {
+    grid-template-columns: 58px 1fr;
+    aspect-ratio: 1;
+  }
+  .outreach-x-rail {
+    gap: 21px;
+    align-items: center;
+    padding: 15px 10px;
+  }
+  .outreach-x-rail > svg {
+    width: 23px;
+    height: 23px;
+    margin: 0 0 4px;
+  }
+  .outreach-x-rail > div:not(.outreach-x-account) {
+    padding: 0;
+  }
+  .outreach-x-rail > div > svg {
+    width: 23px;
+    height: 23px;
+  }
+  .outreach-x-rail > div > span,
+  .outreach-x-rail > div:nth-child(n + 5),
+  .outreach-x-post-button,
+  .outreach-x-account {
+    display: none !important;
+  }
+  .outreach-x-topbar {
+    gap: 15px;
+    padding: 12px;
+  }
+  .outreach-x-topbar > b {
+    font-size: 16px;
+  }
+  .outreach-x-topbar > span {
+    font-size: 9px;
+  }
+  .outreach-x-original {
+    padding: 13px 14px 0;
+  }
+  .outreach-x-original > p {
+    font-size: 13px;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+  .outreach-x-link {
+    padding: 12px;
+    margin-top: 13px;
+  }
+  .outreach-x-link > b {
+    font-size: 16px;
+  }
+  .outreach-x-link > small {
+    font-size: 10px;
+  }
+  .outreach-x-reply {
+    padding: 13px 14px 0;
+    gap: 8px;
+  }
+  .outreach-x-reply p {
+    font-size: 12px;
+  }
+  .outreach-reply-byline {
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+  .outreach-reply-byline > span {
+    font-size: 9px;
+  }
+  .outreach-reply-byline > svg {
+    display: none;
+  }
+  .outreach-x-reply .outreach-avatar,
+  .outreach-jordan {
+    width: 30px;
+    height: 30px;
+  }
+  .outreach-instagram {
+    grid-template-columns: 58px 1fr;
+    aspect-ratio: 1;
+  }
+  .outreach-ig-rail {
+    padding: 17px 0;
+    gap: 24px;
+    align-items: center;
+  }
+  .outreach-ig-wordmark {
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    font-size: 0;
+    margin-bottom: 5px;
+    border: 2px solid;
+    border-radius: 7px;
+    position: relative;
+  }
+  .outreach-ig-wordmark:after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border: 2px solid;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+  .outreach-ig-rail > div > span,
+  .outreach-ig-rail > div:nth-child(n + 6) {
+    display: none;
+  }
+  .outreach-ig-stage {
+    padding: 12px 10px 8px;
+  }
+  .outreach-ig-tabs {
+    padding-bottom: 13px;
+    font-size: 10px;
+    gap: 19px;
+  }
+  .outreach-ig-player {
+    gap: 10px;
+  }
+  .outreach-ig-actions {
+    gap: 20px;
+    padding-bottom: 8px;
+  }
+  .outreach-ig-actions svg {
+    width: 19px;
+    height: 19px;
+  }
+  .outreach-gmail {
+    aspect-ratio: auto;
+  }
+  .outreach-gmail-topbar {
+    height: 49px;
+    gap: 13px;
+    padding: 0 13px;
+  }
+  .outreach-gmail-topbar > svg {
+    width: 18px;
+  }
+  .outreach-gmail-wordmark {
+    min-width: 0;
+    gap: 7px;
+    font-size: 19px;
+  }
+  .outreach-gmail-wordmark svg {
+    width: 23px;
+    height: 21px;
+  }
+  .outreach-gmail-search {
+    margin-left: auto;
+    width: 31px;
+    height: 31px;
+    padding: 6px;
+    background: transparent;
+  }
+  .outreach-gmail-search > span,
+  .outreach-gmail-top-icons > svg {
+    display: none;
+  }
+  .outreach-gmail-top-icons {
+    margin-left: 0;
+  }
+  .outreach-gmail-top-icons .outreach-avatar {
+    width: 26px;
+    height: 26px;
+  }
+  .outreach-gmail-main {
+    height: auto;
+    display: block;
+  }
+  .outreach-gmail-rail,
+  .outreach-gmail-inbox {
+    display: none;
+  }
+  .outreach-gmail-compose {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    right: auto;
+    bottom: auto;
+    box-shadow: none;
+    border-radius: 0;
+    border-top: 1px solid #e4e7ec;
+  }
+  .outreach-compose-title {
+    padding: 10px 13px;
+    font-size: 11px;
+  }
+  .outreach-compose-field {
+    padding: 8px 0;
+    margin-inline: 13px;
+    font-size: 11px;
+  }
+  .outreach-compose-field > small {
+    font-size: 9px;
+  }
+  .outreach-compose-subject {
+    padding: 9px 0;
+    margin-inline: 13px;
+    font-size: 12px;
+  }
+  .outreach-compose-copy {
+    padding: 15px 13px;
+    flex: none;
+  }
+  .outreach-compose-copy > p {
+    font-size: 12px;
+    margin-bottom: 11px;
+  }
+  .outreach-compose-footer {
+    gap: 11px;
+    padding: 10px 13px;
+  }
+  .outreach-send-control {
+    font-size: 11px;
+    padding: 8px 11px;
+    gap: 10px;
+  }
+  .outreach-draft-saved {
+    font-size: 9px;
+    gap: 3px;
+  }
+  .outreach-compose-footer > svg {
+    width: 15px;
+    height: 15px;
+  }
+  .outreach-compose-footer > svg:nth-of-type(2),
+  .outreach-format-control {
+    display: none;
+  }
+}
+@media (forced-colors: active) {
+  .outreach-app,
+  .outreach-gmail-compose {
+    border: 1px solid CanvasText;
+  }
+}

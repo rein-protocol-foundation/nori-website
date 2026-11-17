@@ -1,6 +1,7 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import { GithubMark } from "../Icons";
 import "../../styles/product-scenes.css";
+import "../../styles/native-workspaces.css";
 
 export function ProductScene({
   children,
@@ -81,6 +82,34 @@ export function UiIcon({
     clock: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm0-15v6l4 2",
     volume: "M3 9h4l5-5v16l-5-5H3V9Zm13-2c4 3 4 7 0 10",
     issue: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm0-16v8m0 3v1",
+    menu: "M4 6h16M4 12h16M4 18h16",
+    chevron: "m9 5 7 7-7 7",
+    down: "m6 9 6 6 6-6",
+    back: "m14 5-7 7 7 7M7 12h14",
+    video: "M3 5h12v14H3V5Zm12 5 6-4v12l-6-4",
+    settings:
+      "M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM9 3h6l1 3 3 1 2 5-2 5-3 1-1 3H9l-1-3-3-1-2-5 2-5 3-1 1-3Z",
+    more: "M4 12h1m6 0h1m6 0h1",
+    plus: "M12 4v16M4 12h16",
+    star: "m12 3 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6Z",
+    folder: "M3 6h7l2 2h9v12H3V6Z",
+    cloud:
+      "M6 18a5 5 0 1 1 0-10 7 7 0 0 1 13 1 4.5 4.5 0 0 1-1 9H6Zm3-5 2 2 5-5",
+    undo: "M8 4 3 9l5 5M3 9h12a5 5 0 0 1 0 10h-3",
+    redo: "m16 4 5 5-5 5m5-5H9a5 5 0 0 0 0 10h3",
+    print: "M6 8V3h12v5M6 17H3V8h18v9h-3M6 14h12v7H6v-7Z",
+    link: "m10 8 3-3a4 4 0 1 1 6 6l-3 3m-2 2-3 3a4 4 0 0 1-6-6l3-3m1 5 6-6",
+    image: "M3 3h18v18H3V3Zm0 14 6-6 7 10m-3-4 4-5 4 5M16 7h.01",
+    align: "M3 5h18M3 10h13M3 15h18M3 20h13",
+    list: "M9 5h12M9 12h12M9 19h12M3 5h1m-1 7h1m-1 7h1",
+    smile:
+      "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM7 14c2 5 8 5 10 0M8 8h.01M16 8h.01",
+    send: "m3 3 18 9-18 9 4-9-4-9Zm4 9h14",
+    code: "m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18",
+    shield: "m12 2 9 4v6c0 5-9 10-9 10S3 17 3 12V6l9-4Zm0 5v6m0 3v1",
+    play: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM9 7l8 5-8 5V7Z",
+    heart: "M12 21 3 12a6 6 0 0 1 9-8 6 6 0 0 1 9 8l-9 9Z",
+    bookmark: "M6 3h12v18l-6-4-6 4V3Z",
   };
   return (
     <svg
@@ -290,77 +319,225 @@ export function SlackScene() {
 export function LarkScene() {
   return (
     <ProductScene
-      className="lark-demo"
-      label="Lark approval walkthrough for a design-tool seat"
+      className="lark-demo native-lark"
+      label="Lark Messenger: a design-tool access request with owner approval pending"
     >
-      <header className="lark-topbar">
-        <span className="lark-logo" aria-hidden="true">
-          ◢
-        </span>
-        <b>Lark</b>
-        <span>Approvals</span>
-        <UiIcon name="search" />
-        <Avatar />
-      </header>
-      <div className="lark-layout">
-        <aside className="lark-rail" aria-hidden="true">
-          <UiIcon name="chat" />
-          <UiIcon name="calendar" />
-          <UiIcon name="file" />
-          <span className="active">
-            <UiIcon name="check" />
+      <div className="lark-native-shell">
+        <aside className="lark-apps" aria-hidden="true">
+          <span className="window-dots">
+            <i />
+            <i />
+            <i />
+          </span>
+          <Avatar name="Maya" />
+          <UiIcon name="search" />
+          <UiIcon name="plus" />
+          <span className="is-active">
+            <UiIcon name="chat" />
+            <small>Messenger</small>
+          </span>
+          <span>
+            <UiIcon name="file" />
+            <small>Docs</small>
+          </span>
+          <span>
+            <UiIcon name="folder" />
+            <small>Base</small>
+          </span>
+          <span>
+            <UiIcon name="video" />
+            <small>Meetings</small>
+          </span>
+          <span>
+            <UiIcon name="calendar" />
+            <small>Calendar</small>
+          </span>
+          <span className="lark-apps-more">
+            <UiIcon name="more" />
+            <small>More</small>
           </span>
         </aside>
-        <div className="lark-request">
-          <div className="lark-request-title">
-            <span className="lark-approval-icon">
-              <UiIcon name="lock" />
+        <aside className="lark-filters" aria-label="Lark message filters">
+          <b>
+            <UiIcon name="list" /> Filter <UiIcon name="settings" />
+          </b>
+          <span className="is-active">
+            <UiIcon name="chat" />
+            Chats
+          </span>
+          <span>
+            <UiIcon name="bell" />
+            Unread
+          </span>
+          <span>
+            <UiIcon name="bookmark" />
+            Flagged
+          </span>
+          <span>
+            <span className="at-sign">@</span>Mentions
+          </span>
+          <span>
+            <UiIcon name="down" />
+            Labels
+          </span>
+          <span>
+            <UiIcon name="members" />
+            Groups
+          </span>
+          <span>
+            <UiIcon name="file" />
+            Docs
+          </span>
+          <span>
+            <UiIcon name="check" />
+            Done
+          </span>
+        </aside>
+        <aside className="lark-chats" aria-label="Lark chats">
+          <header>
+            <b>Chats</b>
+            <UiIcon name="plus" />
+          </header>
+          <div className="lark-pinned">
+            <span>
+              <Avatar name="Alex" />
+              <small>Alex</small>
+            </span>
+            <span>
+              <Avatar name="Sam" />
+              <small>Sam</small>
+            </span>
+            <span>
+              <Avatar />
+              <small>Nori</small>
+            </span>
+          </div>
+          <div className="lark-chat-row is-active">
+            <Avatar />
+            <div>
+              <b>
+                Nori <small>BOT</small>
+              </b>
+              <p>Approval requested from Maya</p>
+            </div>
+            <time>9:42</time>
+          </div>
+          <div className="lark-chat-row">
+            <Avatar name="Alex" />
+            <div>
+              <b>Alex</b>
+              <p>Design-tool access</p>
+            </div>
+            <time>9:41</time>
+          </div>
+          <div className="lark-chat-row">
+            <span className="lark-group">
+              <UiIcon name="members" />
             </span>
             <div>
-              <h4>Design-tool access</h4>
-              <p>Alex · Editor seat · Workshop project</p>
+              <b>Operations</b>
+              <p>Workshop planning</p>
+            </div>
+            <time>Yesterday</time>
+          </div>
+          <div className="lark-chat-row">
+            <Avatar name="Sam" />
+            <div>
+              <b>Sam</b>
+              <p>Monday orientation</p>
             </div>
           </div>
-          <div className="lark-found">
+        </aside>
+        <div className="lark-conversation">
+          <header className="lark-conversation-head">
             <Avatar />
-            <p>
-              <b>Nori found an available seat.</b>
-              <br />
-              Reassign the existing license.
-            </p>
-            <span className="saving-tag">No new purchase</span>
-          </div>
-          <dl className="lark-fields">
             <div>
-              <dt>Workspace</dt>
-              <dd>Design studio</dd>
+              <b>
+                Nori <span>Nori Bot</span>
+                <small>BOT</small>
+              </b>
+              <p>
+                <span>Chat</span>
+                <span>Files</span>
+                <UiIcon name="plus" />
+              </p>
             </div>
-            <div>
-              <dt>Access level</dt>
-              <dd>Editor</dd>
-            </div>
-            <div>
-              <dt>Requested by</dt>
-              <dd>Alex</dd>
-            </div>
-          </dl>
-          <div className="approval-track">
-            <div className="approval-person">
+            <UiIcon name="search" />
+            <UiIcon name="more" />
+          </header>
+          <div className="lark-chat-content">
+            <span className="lark-date">Today</span>
+            <div className="lark-chat-message">
               <Avatar name="Alex" />
-              <span>Request sent</span>
-              <small>Complete</small>
+              <div>
+                <span className="lark-sender">
+                  Alex <time>9:41 AM</time>
+                </span>
+                <p className="lark-blue-bubble">
+                  Could I get an editor seat in the design tool for the
+                  workshop?
+                </p>
+              </div>
             </div>
-            <i />
-            <div className="approval-person current">
-              <Avatar name="Maya" />
-              <span>Owner approval</span>
-              <small>Awaiting Maya</small>
-            </div>
-            <i />
-            <div className="approval-person">
+            <div className="lark-chat-message">
               <Avatar />
-              <span>Access check</span>
-              <small>After approval</small>
+              <div>
+                <span className="lark-sender">
+                  Nori <small>BOT</small>
+                  <time>9:42 AM</time>
+                </span>
+                <p className="lark-white-bubble">
+                  There’s an available license. I’ve requested Maya’s approval
+                  to reassign it—no new purchase needed.
+                </p>
+                <div className="lark-native-approval scene-step scene-step-1">
+                  <header>
+                    <span>
+                      <UiIcon name="check" />
+                    </span>
+                    <b>Design-tool access</b>
+                    <small>Approval</small>
+                  </header>
+                  <dl>
+                    <div>
+                      <dt>Requested by</dt>
+                      <dd>Alex</dd>
+                    </div>
+                    <div>
+                      <dt>Workspace</dt>
+                      <dd>Design studio</dd>
+                    </div>
+                    <div>
+                      <dt>Access level</dt>
+                      <dd>Editor · Existing license</dd>
+                    </div>
+                    <div>
+                      <dt>Approver</dt>
+                      <dd>Maya</dd>
+                    </div>
+                  </dl>
+                  <div className="lark-approval-status">
+                    <span />
+                    Awaiting owner approval
+                  </div>
+                  <footer>
+                    View request <UiIcon name="chevron" />
+                  </footer>
+                </div>
+                <p className="lark-next-check">
+                  Next: verify sign-in and editing after approval.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="lark-native-composer" aria-hidden="true">
+            <span>Message Nori</span>
+            <div>
+              <span>Aa</span>
+              <UiIcon name="smile" />
+              <span>@</span>
+              <UiIcon name="plus" />
+              <UiIcon name="send" />
             </div>
           </div>
         </div>
@@ -372,69 +549,156 @@ export function LarkScene() {
 export function BoardScene() {
   return (
     <ProductScene
-      className="board-demo"
-      label="Google Docs and Calendar board-review walkthrough"
+      className="board-demo native-docs"
+      label="Google Docs board packet with a scheduled review and a comment from Nori"
     >
-      <div className="docs-toolbar">
-        <span className="google-doc-icon">
+      <header className="docs-native-header">
+        <span className="docs-file-logo" aria-hidden="true">
           <UiIcon name="file" />
         </span>
-        <div>
-          <b>Quarterly board review</b>
-          <span>File &nbsp; Edit &nbsp; View &nbsp; Insert</span>
+        <div className="docs-title-menus">
+          <div>
+            <b>Quarterly board review</b>
+            <UiIcon name="star" />
+            <UiIcon name="folder" />
+            <UiIcon name="cloud" />
+          </div>
+          <nav aria-label="Google Docs menu">
+            <span>File</span>
+            <span>Edit</span>
+            <span>View</span>
+            <span>Insert</span>
+            <span>Format</span>
+            <span>Tools</span>
+            <span>Extensions</span>
+            <span>Help</span>
+          </nav>
         </div>
-        <span className="docs-share">
-          <UiIcon name="lock" />
-          Share
-        </span>
+        <div className="docs-header-actions" aria-hidden="true">
+          <UiIcon name="clock" />
+          <UiIcon name="chat" />
+          <UiIcon name="video" />
+          <span className="docs-native-share">
+            <UiIcon name="lock" />
+            Share
+            <UiIcon name="down" />
+          </span>
+          <Avatar name="Maya" />
+        </div>
+      </header>
+      <div className="docs-formatbar" aria-hidden="true">
+        <UiIcon name="search" />
+        <UiIcon name="undo" />
+        <UiIcon name="redo" />
+        <UiIcon name="print" />
+        <span>100%⌄</span>
+        <i />
+        <span>Normal text⌄</span>
+        <i />
+        <span>Arial⌄</span>
+        <i />
+        <span>−</span>
+        <span className="docs-font-size">11</span>
+        <span>＋</span>
+        <b>B</b>
+        <span className="docs-italic-icon">I</span>
+        <span className="docs-underline">U</span>
+        <span className="docs-text-color">A</span>
+        <i />
+        <UiIcon name="link" />
+        <UiIcon name="chat" />
+        <UiIcon name="image" />
+        <i />
+        <UiIcon name="align" />
+        <UiIcon name="list" />
+        <UiIcon name="more" />
       </div>
-      <div className="board-layout">
-        <article className="board-document">
-          <span className="document-kicker">BOARD PACKET / Q4</span>
-          <h4>
-            Decisions ready.
-            <br />
-            Context attached.
-          </h4>
-          <div className="agenda-row">
-            <span>01</span>
-            <div>
-              <b>Workshop scope</b>
-              <p>Budget review attached for decision.</p>
-            </div>
-            <span className="status-pill amber">For decision</span>
+      <div className="docs-ruler" aria-hidden="true">
+        <span>1</span>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+      </div>
+      <div className="docs-native-workspace">
+        <aside className="docs-outline" aria-label="Document outline">
+          <UiIcon name="back" />
+          <b>
+            Document tabs <span>＋</span>
+          </b>
+          <div className="docs-tab-selected">
+            <UiIcon name="file" />
+            Board packet <UiIcon name="more" />
           </div>
-          <div className="agenda-row">
-            <span>02</span>
-            <div>
-              <b>Contributor coverage</b>
-              <p>Owners, availability, and open work.</p>
-            </div>
-          </div>
-          <div className="agenda-row">
-            <span>03</span>
-            <div>
-              <b>Previous commitments</b>
-              <p>Last quarter’s record, linked.</p>
-            </div>
-          </div>
-        </article>
-        <aside className="board-comment">
-          <div className="calendar-mini">
+          <span>Quarterly board review</span>
+          <span>Decisions for this meeting</span>
+          <span>Owners & next steps</span>
+        </aside>
+        <article className="docs-paper">
+          <p className="docs-document-eyebrow">Q4 · BOARD PACKET</p>
+          <h4>Quarterly board review</h4>
+          <p className="docs-document-subtitle">
+            A shared record of decisions and next steps.
+          </p>
+          <div className="docs-meeting-chip">
             <UiIcon name="calendar" />
-            <b>Quarterly review</b>
-            <span>Thursday · 2:00 PM</span>
+            <span>Quarterly review · Thursday, 2:00 PM</span>
           </div>
-          <SceneMessage time="Just now">
+          <h5>Decisions for this meeting</h5>
+          <div className="docs-agenda-item">
+            <b>1. Workshop scope</b>
             <p>
-              After the decision, I’ll connect the outcome to its owner and next
-              deadline.
+              <mark>Budget review attached for decision.</mark> Confirm the
+              scope before committing project funds.
             </p>
-          </SceneMessage>
-          <div className="followup-marker">
-            <UiIcon name="branch" />
-            Decision → delivery task
+            <span>Owner: Maya · Decision pending</span>
           </div>
+          <div className="docs-agenda-item">
+            <b>2. Contributor coverage</b>
+            <p>
+              Review availability, open work, and the proposed owners for the
+              next workshop.
+            </p>
+          </div>
+          <div className="docs-agenda-item">
+            <b>3. Previous commitments</b>
+            <p>
+              Carry forward unresolved items from the last quarterly review.
+            </p>
+          </div>
+          <h5>Owners & next steps</h5>
+          <p className="docs-followup-copy">
+            Record each decision with its owner and next deadline. Nori will
+            connect the agreed follow-up to a delivery task.
+          </p>
+        </article>
+        <aside className="docs-comments" aria-label="Document comment">
+          <div className="docs-comment-card">
+            <header>
+              <Avatar />
+              <div>
+                <b>Nori</b>
+                <time>9:42 AM</time>
+              </div>
+              <UiIcon name="check" />
+              <UiIcon name="more" />
+            </header>
+            <p>
+              Budget context is attached. After the decision, I’ll connect the
+              outcome to its owner and next deadline.
+            </p>
+            <span>Reply or add others</span>
+          </div>
+        </aside>
+        <aside className="docs-side-apps" aria-hidden="true">
+          <span className="docs-calendar-icon">31</span>
+          <span className="docs-keep-icon">♧</span>
+          <UiIcon name="check" />
+          <UiIcon name="members" />
+          <i />
+          <UiIcon name="plus" />
         </aside>
       </div>
     </ProductScene>

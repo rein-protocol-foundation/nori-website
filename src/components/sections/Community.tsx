@@ -25,6 +25,9 @@ export function Community() {
           </p>
         </div>
         <div className="contribution-flow">
+          <p className="native-crop-label">
+            Discord · Feedback conversation excerpt
+          </p>
           <ProductScene
             className="discord-demo"
             label="Discord feedback conversation with a qualified contributor and Nori"
@@ -125,26 +128,60 @@ export function Community() {
               <UiIcon name="branch" />A reviewable change
             </span>
           </div>
+          <p className="native-crop-label">
+            GitHub · Pull request conversation excerpt
+          </p>
           <ProductScene
             className="github-demo"
             label="GitHub development walkthrough from issue to pull request, independent review and release monitoring"
           >
             <div className="github-topbar">
+              <span className="github-menu-box" aria-hidden="true">
+                <UiIcon name="menu" />
+              </span>
               <GithubMark />
               <b>
                 your-organization <span>/ community-tools</span>
               </b>
-              <span className="github-public">Public</span>
+              <span className="github-search-native" aria-hidden="true">
+                <UiIcon name="search" />
+                Type <kbd>/</kbd> to search
+              </span>
+              <span className="github-top-action" aria-hidden="true">
+                <UiIcon name="plus" />
+              </span>
+              <span className="github-top-action" aria-hidden="true">
+                <UiIcon name="issue" />
+              </span>
+              <span className="github-top-action" aria-hidden="true">
+                <UiIcon name="branch" />
+              </span>
             </div>
             <div className="github-repo-tabs">
-              <span>〈〉 Code</span>
-              <span>◉ Issues</span>
+              <span>
+                <UiIcon name="code" />
+                Code
+              </span>
+              <span>
+                <UiIcon name="issue" />
+                Issues
+              </span>
               <span className="selected">
                 <UiIcon name="branch" />
                 Pull requests
               </span>
-              <span>Actions</span>
-              <span>Security</span>
+              <span>
+                <UiIcon name="play" />
+                Actions
+              </span>
+              <span>
+                <UiIcon name="shield" />
+                Security
+              </span>
+              <span>
+                <UiIcon name="settings" />
+                Settings
+              </span>
             </div>
             <div className="github-pr">
               <div className="github-pr-title">
@@ -156,24 +193,39 @@ export function Community() {
                     <UiIcon name="branch" />
                     Merged
                   </span>
-                  <b>Nori</b> merged <b>1 commit</b> into <code>main</code>
+                  <b>Nori</b> merged <b>1 commit</b> into <code>main</code> from{" "}
+                  <code>fix/duplicate-events</code>
                 </p>
               </div>
               <div className="github-pr-tabs">
                 <b>
-                  Conversation <span>3</span>
+                  <UiIcon name="chat" />
+                  Conversation <span className="pr-count">3</span>
                 </b>
-                <span>Commits 1</span>
-                <span>Checks 4</span>
-                <span>Files changed 2</span>
+                <span>
+                  <UiIcon name="branch" />
+                  Commits <span className="pr-count">1</span>
+                </span>
+                <span>
+                  <UiIcon name="check" />
+                  Checks <span className="pr-count">4</span>
+                </span>
+                <span>
+                  <UiIcon name="file" />
+                  Files changed <span className="pr-count">2</span>
+                </span>
               </div>
               <div className="github-pr-layout">
-                <div>
+                <div className="github-conversation-thread">
+                  <span className="github-thread-avatar">
+                    <Avatar />
+                  </span>
                   <div className="github-comment">
                     <header>
-                      <Avatar />
                       <b>Nori</b>
-                      <span>opened this pull request</span>
+                      <span>commented 20 minutes ago</span>
+                      <span className="comment-author-tag">Author</span>
+                      <UiIcon name="more" />
                     </header>
                     <div>
                       <h4>One event. One confirmation.</h4>
@@ -181,18 +233,16 @@ export function Community() {
                         Deduplicate repeated events before sending. Add the
                         retry fixture and regression coverage.
                       </p>
-                      <div className="code-diff">
-                        <div className="diff-removed">
-                          − await sendConfirmation(event);
-                        </div>
-                        <div className="diff-added">
-                          + if (await claimEvent(event.id)) {"{"}
-                        </div>
-                        <div className="diff-added">
-                          + &nbsp; await sendConfirmation(event);
-                        </div>
-                        <div className="diff-added">+ {"}"}</div>
-                      </div>
+                      <ul className="github-summary-list">
+                        <li>
+                          Claim <code>event.id</code> before sending the
+                          confirmation.
+                        </li>
+                        <li>
+                          Cover a repeated checkout event with a regression
+                          test.
+                        </li>
+                      </ul>
                       <span className="closes-issue">Closes #142</span>
                     </div>
                   </div>
@@ -215,17 +265,34 @@ export function Community() {
                         <b>All checks passed</b>
                         <p>Unit tests · Retry fixture · Build · Security</p>
                       </div>
-                      <span className="checks-count">4 / 4</span>
+                      <span className="checks-count">4 successful checks</span>
+                    </div>
+                    <div className="github-merge-event">
+                      <span className="timeline-node">
+                        <UiIcon name="branch" />
+                      </span>
+                      <p>
+                        <b>Nori merged this pull request</b>
+                        <span>
+                          Commit added to main · linked issue #142 closed
+                        </span>
+                      </p>
                     </div>
                   </div>
                 </div>
                 <aside className="github-meta">
-                  <span>Reviewers</span>
+                  <span className="github-meta-heading">
+                    Reviewers
+                    <UiIcon name="settings" />
+                  </span>
                   <p>
                     <Avatar name="Alex" />
                     Alex <b>✓</b>
                   </p>
-                  <span>Assignees</span>
+                  <span className="github-meta-heading">
+                    Assignees
+                    <UiIcon name="settings" />
+                  </span>
                   <p>
                     <Avatar />
                     Nori
@@ -239,38 +306,38 @@ export function Community() {
                   <p>#142 Duplicate confirmations</p>
                 </aside>
               </div>
-              <div className="release-followthrough">
-                <div>
-                  <UiIcon name="branch" />
-                  <span>
-                    <b>Develop</b>
-                    <small>Nori · Fix + test</small>
-                  </span>
-                </div>
-                <div>
-                  <UiIcon name="check" />
-                  <span>
-                    <b>Accept</b>
-                    <small>Maintainer · Review</small>
-                  </span>
-                </div>
-                <div>
-                  <UiIcon name="chat" />
-                  <span>
-                    <b>Report</b>
-                    <small>Nori · Update the thread</small>
-                  </span>
-                </div>
-                <div>
-                  <UiIcon name="globe" />
-                  <span>
-                    <b>Monitor</b>
-                    <small>Nori · Watch for recurrence</small>
-                  </span>
-                </div>
-              </div>
             </div>
           </ProductScene>
+          <div className="release-followthrough">
+            <div>
+              <UiIcon name="branch" />
+              <span>
+                <b>Develop</b>
+                <small>Nori · Fix + test</small>
+              </span>
+            </div>
+            <div>
+              <UiIcon name="check" />
+              <span>
+                <b>Accept</b>
+                <small>Maintainer · Review</small>
+              </span>
+            </div>
+            <div>
+              <UiIcon name="chat" />
+              <span>
+                <b>Report</b>
+                <small>Nori · Update the thread</small>
+              </span>
+            </div>
+            <div>
+              <UiIcon name="globe" />
+              <span>
+                <b>Monitor</b>
+                <small>Nori · Watch for recurrence</small>
+              </span>
+            </div>
+          </div>
         </div>
         <p className="community-principle">
           Built for around-the-clock contribution. Qualified contributors guide

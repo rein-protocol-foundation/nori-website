@@ -1,6 +1,7 @@
 import { chromium, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { mkdir, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 
 const baseURL = process.env.TEST_URL || "http://127.0.0.1:4173";
 const output = "artifacts";
@@ -17,23 +18,49 @@ const stateFor = (page) =>
   canvasFor(page).evaluate((canvas) => ({
     phase: Number(canvas.dataset.phase),
     generation: Number(canvas.dataset.generation),
-    assembly: Number(canvas.dataset.assembly),
+    cycle: Number(canvas.dataset.cycle),
     paints: Number(canvas.dataset.paints),
   }));
-async function scrollScene(page, progress) {
-  await page.evaluate((value) => {
-    const hero = document.querySelector(".hero");
-    const stage = document.querySelector(".hero-stage");
-    const range = hero.offsetHeight - stage.clientHeight;
-    window.scrollTo({
-      top: hero.offsetTop + range * value,
-      behavior: "instant",
-    });
-  }, progress);
-  await expect
-    .poll(async () => (await stateFor(page)).phase)
-    .toBeCloseTo(progress, 2);
+const elapsedFor = (state) => (state.cycle + state.phase) * 20;
+async function returnToHero(page) {
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  await expect(page.locator(".hero h1")).toBeInViewport();
 }
+async function frameFor(page, screenshotPath) {
+  const frame = await canvasFor(page).evaluate((canvas) => {
+    const context = canvas.getContext("2d");
+    const { width, height } = canvas;
+    const pixels = context.getImageData(0, 0, width, height).data;
+    const sample = [];
+    // Sample the actual rendered artwork, avoiding the left-hand reading area.
+    for (let y = 0; y < 64; y++) {
+      for (let x = 0; x < 64; x++) {
+        const px = Math.floor(width * (0.42 + (x / 64) * 0.56));
+        const py = Math.floor(height * (0.03 + (y / 64) * 0.94));
+        const index = (py * width + px) * 4;
+        sample.push(pixels[index], pixels[index + 1], pixels[index + 2]);
+      }
+    }
+    return {
+      phase: Number(canvas.dataset.phase),
+      cycle: Number(canvas.dataset.cycle),
+      generation: Number(canvas.dataset.generation),
+      paints: Number(canvas.dataset.paints),
+      image: canvas.toDataURL(),
+      sample,
+    };
+  });
+  const { image, ...state } = frame;
+  if (screenshotPath)
+    await writeFile(screenshotPath, Buffer.from(image.split(",")[1], "base64"));
+  return { ...state, hash: createHash("sha256").update(image).digest("hex") };
+}
+const pixelDelta = (before, after) =>
+  before.sample.reduce(
+    (total, value, index) => total + Math.abs(value - after.sample[index]),
+    0,
+  ) / before.sample.length;
+const frameEvidence = ({ sample, ...state }) => state;
 async function expectStatic(page) {
   await expect(page.locator(".cellular-scene")).not.toHaveClass(/is-ready/);
   await expect(page.locator(".scene-fallback img")).toBeVisible();
@@ -69,7 +96,12 @@ try {
       ".hero button, .hero .motion-control, .hero .scene-caption, .hero .static-label",
     ),
   ).toHaveCount(0);
-  await expect(page.locator(".hero .button-primary")).toHaveText("Meet Nori");
+  await expect(page.locator(".hero .button-primary > span")).toHaveText(
+    "Meet Nori on Discord",
+  );
+  await expect(page.locator(".hero .button-primary > small")).toHaveText(
+    "in Rein Protocol Foundation Community",
+  );
   await expect(page.locator(".hero .button-secondary")).toHaveText(
     "See Nori at work",
   );
@@ -77,29 +109,91 @@ try {
     "href",
     "#work",
   );
-  for (const [name, progress] of [
-    ["start", 0],
-    ["middle", 0.5],
-    ["end", 1],
-  ]) {
-    await scrollScene(page, progress);
-    const state = await stateFor(page);
-    if (progress === 0) expect(state.assembly).toBe(0);
-    if (progress === 0.5) {
-      expect(state.assembly).toBeGreaterThan(0.4);
-      expect(state.assembly).toBeLessThan(0.7);
-    }
-    if (progress === 1) {
-      expect(state.assembly).toBe(1);
-      expect(state.generation).toBe(18);
-    }
-    await page.screenshot({ path: `${output}/hero-${name}.png` });
-    results.push({ check: `scroll ${name}`, ...state });
-  }
-  const idle = await stateFor(page);
-  await page.waitForTimeout(200);
-  expect((await stateFor(page)).paints).toBe(idle.paints);
-  results.push({ check: "idle scene stops painting", passed: true });
+  const layout = await page.locator(".hero").evaluate((hero) => ({
+    height: hero.getBoundingClientRect().height,
+    viewport: innerHeight,
+    stagePosition: getComputedStyle(hero.querySelector(".hero-stage")).position,
+  }));
+  expect(layout.height).toBeLessThanOrEqual(Math.max(800, layout.viewport) + 2);
+  expect(layout.stagePosition).not.toBe("sticky");
+  const initial = await frameFor(page);
+  await page.screenshot({ path: `${output}/hero-start.png` });
+  await page.waitForTimeout(800);
+  const animated = await frameFor(page);
+  expect(await page.evaluate(() => scrollY)).toBe(0);
+  expect(elapsedFor(animated)).toBeGreaterThan(elapsedFor(initial));
+  expect(animated.paints).toBeGreaterThan(initial.paints);
+  expect(animated.generation).not.toBe(initial.generation);
+  expect(
+    animated.hash,
+    "Autoplay must change real canvas pixels without scrolling",
+  ).not.toBe(initial.hash);
+  results.push({
+    check:
+      "autoplay changes timeline, Conway generation, and canvas pixels without scrolling",
+    initial: frameEvidence(initial),
+    animated: frameEvidence(animated),
+  });
+
+  const beforeScroll = await stateFor(page);
+  const scrollStarted = Date.now();
+  await page.evaluate(() => window.scrollTo({ top: 140, behavior: "instant" }));
+  await page.waitForTimeout(80);
+  await returnToHero(page);
+  const afterScroll = await stateFor(page);
+  const wallSeconds = (Date.now() - scrollStarted) / 1000;
+  expect(elapsedFor(afterScroll)).toBeGreaterThanOrEqual(
+    elapsedFor(beforeScroll),
+  );
+  expect(elapsedFor(afterScroll) - elapsedFor(beforeScroll)).toBeLessThan(
+    wallSeconds + 0.15,
+  );
+  results.push({
+    check: "scrolling does not seek or reset the autoplay timeline",
+    timelineSeconds: elapsedFor(afterScroll) - elapsedFor(beforeScroll),
+    wallSeconds,
+  });
+
+  // Wait through a real 20-second cycle. Capture both sides of its actual wrap,
+  // then compare canvas pixels as well as public timeline diagnostics.
+  const beforeLoopWait = await stateFor(page);
+  const targetCycle =
+    beforeLoopWait.cycle + (beforeLoopWait.phase >= 0.995 ? 1 : 0);
+  const untilSeam =
+    (targetCycle + 0.995 - beforeLoopWait.cycle - beforeLoopWait.phase) *
+    20_000;
+  await page.waitForTimeout(Math.max(0, untilSeam));
+  const seamBefore = await frameFor(page, `${output}/hero-loop-before.png`);
+  expect(seamBefore.phase).toBeGreaterThan(0.97);
+  await expect
+    .poll(async () => (await stateFor(page)).cycle, {
+      timeout: 2000,
+      intervals: [10],
+    })
+    .toBeGreaterThan(seamBefore.cycle);
+  const seamAfter = await frameFor(page, `${output}/hero-loop-after.png`);
+  expect(seamAfter.cycle).toBe(seamBefore.cycle + 1);
+  expect(seamAfter.phase).toBeLessThan(0.04);
+  expect(seamAfter.hash).not.toBe(seamBefore.hash);
+  const seamDelta = pixelDelta(seamBefore, seamAfter);
+  expect(
+    seamDelta,
+    "loop boundary should preserve the recursive composition without a hard visual reset",
+  ).toBeLessThan(12);
+  const remainingCycleTime = 20 - (elapsedFor(seamAfter) - elapsedFor(initial));
+  if (remainingCycleTime > 0)
+    await page.waitForTimeout(remainingCycleTime * 1000 + 80);
+  const completedLoop = await stateFor(page);
+  expect(
+    elapsedFor(completedLoop) - elapsedFor(initial),
+  ).toBeGreaterThanOrEqual(20);
+  results.push({
+    check: "20-second autoplay cycle wraps with continuous canvas composition",
+    before: frameEvidence(seamBefore),
+    after: frameEvidence(seamAfter),
+    meanChannelDeltaAtSeam: seamDelta,
+    elapsedVisibleSeconds: elapsedFor(completedLoop) - elapsedFor(initial),
+  });
 
   await page.evaluate(() =>
     window.scrollTo({
@@ -114,44 +208,55 @@ try {
         .evaluate((element) => element.getBoundingClientRect().bottom < 0),
     )
     .toBe(true);
-  await page.waitForTimeout(80);
-  const offscreen = (await stateFor(page)).paints;
-  await page.evaluate(() => {
-    window.scrollBy({ top: 100, behavior: "instant" });
-    window.dispatchEvent(new Event("scroll"));
-  });
-  await page.waitForTimeout(150);
-  expect((await stateFor(page)).paints).toBe(offscreen);
-  await scrollScene(page, 0);
+  await page.waitForTimeout(100);
+  const offscreen = await frameFor(page);
+  await page.waitForTimeout(1600);
+  const stillOffscreen = await frameFor(page);
+  expect(stillOffscreen.paints).toBe(offscreen.paints);
+  expect(elapsedFor(stillOffscreen)).toBe(elapsedFor(offscreen));
+  expect(stillOffscreen.hash).toBe(offscreen.hash);
+  await returnToHero(page);
+  await expect
+    .poll(async () => (await stateFor(page)).paints)
+    .toBeGreaterThan(offscreen.paints);
+  const resumed = await stateFor(page);
+  expect(elapsedFor(resumed) - elapsedFor(offscreen)).toBeLessThan(0.5);
+  await page.waitForTimeout(250);
+  expect(elapsedFor(await stateFor(page))).toBeGreaterThan(elapsedFor(resumed));
   results.push({
-    check: "offscreen scroll does not paint; returning updates composition",
-    passed: true,
+    check:
+      "offscreen timeline and pixels freeze; returning resumes without counting hidden time",
+    frozen: frameEvidence(offscreen),
+    resumed,
   });
 
-  const visible = (await stateFor(page)).paints;
   await page.evaluate(() => {
     Object.defineProperty(document, "visibilityState", {
       configurable: true,
       get: () => "hidden",
     });
     document.dispatchEvent(new Event("visibilitychange"));
-    window.scrollBy({ top: 100, behavior: "instant" });
-    window.dispatchEvent(new Event("scroll"));
   });
-  await page.waitForTimeout(150);
-  expect((await stateFor(page)).paints).toBe(visible);
+  const hidden = await frameFor(page);
+  await page.waitForTimeout(1600);
+  const stillHidden = await frameFor(page);
+  expect(stillHidden.paints).toBe(hidden.paints);
+  expect(elapsedFor(stillHidden)).toBe(elapsedFor(hidden));
+  expect(stillHidden.hash).toBe(hidden.hash);
   await page.evaluate(() => {
     delete document.visibilityState;
     document.dispatchEvent(new Event("visibilitychange"));
   });
   await expect
     .poll(async () => (await stateFor(page)).paints)
-    .toBeGreaterThan(visible);
-  await scrollScene(page, 0);
+    .toBeGreaterThan(hidden.paints);
+  const visibleAgain = await stateFor(page);
+  expect(elapsedFor(visibleAgain) - elapsedFor(hidden)).toBeLessThan(0.5);
   results.push({
     check:
-      "hidden document suppresses painting and resumes on visibility change",
-    passed: true,
+      "visibilitychange suspends timeline and pixels, then resumes without a time jump",
+    frozen: frameEvidence(hidden),
+    resumed: visibleAgain,
   });
 
   // Sample actual scroll events: an anchor must travel through intermediate positions.
@@ -199,7 +304,7 @@ try {
     intermediate: intermediate.length,
   });
 
-  await scrollScene(page, 0);
+  await returnToHero(page);
   const axe = await new AxeBuilder({ page })
     .include(".hero")
     .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
@@ -211,7 +316,9 @@ try {
   await page.screenshot({ path: `${output}/hero-reduced-motion.png` });
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.locator(".cellular-scene.is-ready").waitFor();
-  await scrollScene(page, 0.5);
+  const recreated = await frameFor(page);
+  await page.waitForTimeout(350);
+  expect((await frameFor(page)).hash).not.toBe(recreated.hash);
   results.push({
     check:
       "live reduced-motion switch shows static portrait and safely recreates renderer",
@@ -230,11 +337,14 @@ try {
   await phone.goto(baseURL);
   await phone.locator(".cellular-scene.is-ready").waitFor();
   await phone.evaluate(() => document.fonts.ready);
-  await scrollScene(phone, 0);
+  await returnToHero(phone);
+  const mobileStart = await frameFor(phone);
   await phone.screenshot({ path: `${output}/hero-mobile.png` });
-  await scrollScene(phone, 1);
-  expect((await stateFor(phone)).assembly).toBe(1);
-  await phone.screenshot({ path: `${output}/hero-mobile-assembled.png` });
+  await phone.waitForTimeout(650);
+  const mobileAnimated = await frameFor(phone);
+  expect(mobileAnimated.hash).not.toBe(mobileStart.hash);
+  expect(elapsedFor(mobileAnimated)).toBeGreaterThan(elapsedFor(mobileStart));
+  await phone.screenshot({ path: `${output}/hero-mobile-animated.png` });
   for (const width of [320, 390, 699, 768]) {
     await phone.setViewportSize({ width, height: 844 });
     expect(
@@ -245,14 +355,14 @@ try {
     ).toBe(true);
   }
   await phone.setViewportSize({ width: 390, height: 844 });
-  await scrollScene(phone, 0);
+  await returnToHero(phone);
   const mobileAxe = await new AxeBuilder({ page: phone })
     .include(".hero")
     .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
     .analyze();
   expect(mobileAxe.violations).toHaveLength(0);
   results.push({
-    check: "mobile assembly, 320/390/699/768px overflow, and Hero axe",
+    check: "mobile autoplay pixels, 320/390/699/768px overflow, and Hero axe",
     violations: mobileAxe.violations,
   });
   await mobile.close();

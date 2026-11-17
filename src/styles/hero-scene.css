@@ -1,12 +1,12 @@
-/* This scene is a scroll composition. The section supplies travel; the stage stays put. */
+/* The recursive cellular camera runs on time; the page scrolls normally. */
 .hero {
   display: block;
-  min-height: 185svh;
+  min-height: 100svh;
   overflow: visible;
   background: var(--paper);
 }
 .hero-stage {
-  position: sticky;
+  position: relative;
   top: 0;
   height: 100svh;
   min-height: 680px;
@@ -43,9 +43,9 @@
   background-size: 28px 28px;
 }
 .hero .scene-fallback img {
-  width: min(57vw, 91svh, 850px);
-  left: 79%;
-  top: 52%;
+  width: min(49vw, 82svh, 790px);
+  left: 74%;
+  top: 53%;
 }
 .hero .hero-actions {
   gap: 26px;
@@ -72,7 +72,7 @@
 }
 @media (max-width: 700px) {
   .hero {
-    min-height: calc(800px + 65svh);
+    min-height: 800px;
   }
   .hero-stage {
     height: 100svh;
@@ -107,9 +107,9 @@
     );
   }
   .hero .scene-fallback img {
-    width: min(86vw, 350px);
-    left: 68%;
-    top: 210px;
+    width: min(80vw, 315px);
+    left: 58%;
+    top: 207px;
   }
 }
 @media (max-width: 370px) {

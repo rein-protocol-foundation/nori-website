@@ -38,6 +38,9 @@ export function Operations() {
                 Slack · Google Calendar · GitHub
               </span>
             </div>
+            <p className="native-crop-label">
+              Slack · Channel & thread excerpt
+            </p>
             <SlackScene />
           </article>
           <article
@@ -53,6 +56,9 @@ export function Operations() {
               </div>
               <span className="ecosystem-caption">Lark · Approvals</span>
             </div>
+            <p className="native-crop-label">
+              Lark · Conversation & approval excerpt
+            </p>
             <LarkScene />
           </article>
           <article
@@ -68,6 +74,9 @@ export function Operations() {
               </div>
               <span className="ecosystem-caption">Google Docs · Calendar</span>
             </div>
+            <p className="native-crop-label">
+              Google Docs · Document & comment excerpt
+            </p>
             <BoardScene />
           </article>
         </div>

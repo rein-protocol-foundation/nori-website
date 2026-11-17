@@ -9,13 +9,14 @@ export function CellularScene() {
   useEffect(() => {
     const element = host.current!,
       surface = canvas.current!;
-    const hero = element.closest<HTMLElement>(".hero")!;
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
     let disposed = false,
       request = 0,
       visible = true,
       blocked = false,
       version = 0;
+    let elapsed = 0;
+    let lastFrame: number | undefined;
     let scene:
       | Awaited<ReturnType<typeof import("../scene/renderer").createScene>>
       | undefined;
@@ -24,11 +25,12 @@ export function CellularScene() {
       blocked = true;
       cancelAnimationFrame(request);
       request = 0;
+      lastFrame = undefined;
       scene?.dispose();
       scene = undefined;
       if (!disposed) setReady(false);
     }
-    function paint() {
+    function paint(now: number) {
       request = 0;
       if (
         disposed ||
@@ -38,11 +40,12 @@ export function CellularScene() {
         !scene
       )
         return;
-      const rect = hero.getBoundingClientRect();
-      const range = Math.max(1, hero.offsetHeight - element.clientHeight);
-      const progress = Math.min(1, Math.max(0, -rect.top / range));
+      if (lastFrame !== undefined)
+        elapsed += Math.min((now - lastFrame) / 1000, 0.08);
+      lastFrame = now;
       try {
-        scene.render(progress);
+        scene.render(elapsed);
+        schedule();
       } catch {
         stop();
       }
@@ -66,7 +69,9 @@ export function CellularScene() {
         if (disposed || reduced.matches || token !== version) return;
         scene = createScene(surface);
         scene.resize(element.clientWidth, element.clientHeight);
-        // Set a fully composed first frame before removing the SVG fallback.
+        elapsed = 0;
+        lastFrame = undefined;
+        // Start at a readable recursive level before removing the static fallback.
         scene.render(0);
         setReady(true);
         schedule();
@@ -87,6 +92,7 @@ export function CellularScene() {
         else {
           cancelAnimationFrame(request);
           request = 0;
+          lastFrame = undefined;
         }
       },
       { threshold: 0.01 },
@@ -101,9 +107,9 @@ export function CellularScene() {
       else {
         cancelAnimationFrame(request);
         request = 0;
+        lastFrame = undefined;
       }
     };
-    window.addEventListener("scroll", schedule, { passive: true });
     document.addEventListener("visibilitychange", visibilityChanged);
     reduced.addEventListener("change", changeMotion);
     void start();
@@ -112,7 +118,6 @@ export function CellularScene() {
       stop();
       resize.disconnect();
       intersection.disconnect();
-      window.removeEventListener("scroll", schedule);
       document.removeEventListener("visibilitychange", visibilityChanged);
       reduced.removeEventListener("change", changeMotion);
     };
