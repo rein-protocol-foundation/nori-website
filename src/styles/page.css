@@ -50,6 +50,35 @@
   box-shadow: 0 4px 24px #233e2c08;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  transition:
+    top 220ms var(--ease-out),
+    left 220ms var(--ease-out),
+    right 220ms var(--ease-out),
+    height 220ms var(--ease-out),
+    padding 220ms var(--ease-out),
+    border-radius 220ms var(--ease-out),
+    box-shadow 220ms var(--ease-out);
+}
+.header.is-condensed {
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  height: 56px;
+  padding: 0 max(32px, calc((100vw - 1464px) / 2));
+  border-radius: 0;
+  border-width: 0 0 1px;
+  box-shadow: 0 2px 12px #233e2c06;
+}
+.header.is-condensed .wordmark {
+  font-size: 29px;
+}
+.header.is-condensed .wordmark svg {
+  width: 29px;
+  height: 29px;
+}
+.header.is-condensed .mobile-navigation {
+  right: 16px;
 }
 .wordmark {
   display: inline-flex;
@@ -479,6 +508,17 @@ h1 strong {
     padding: 0 9px 0 17px;
     gap: 8px;
   }
+  .header.is-condensed {
+    height: 54px;
+    padding: 0 16px;
+  }
+  .header.is-condensed .wordmark {
+    font-size: 27px;
+  }
+  .header.is-condensed .wordmark svg {
+    width: 26px;
+    height: 26px;
+  }
   .wordmark {
     font-size: 29px;
     gap: 6px;
@@ -608,5 +648,12 @@ h1 strong {
   .header-cta,
   .button-outline {
     border: 1px solid ButtonText;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .header .desktop-navigation a:after,
+  .header .menu-toggle span {
+    transition: none;
   }
 }

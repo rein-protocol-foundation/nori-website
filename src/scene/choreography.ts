@@ -1,29 +1,26 @@
-/** Scroll is the scene clock: no autonomous loop, timeouts, or accumulated time. */
+/** Time drives a self-similar camera. Scroll never changes the composition. */
+export const LOOP_SECONDS = 20;
+export const TILE_COUNT = 32;
+export const ANCHOR_CELL = { x: 15, y: 16 };
 export const clamp = (value: number, min = 0, max = 1) =>
   Math.min(max, Math.max(min, value));
 export const smooth = (value: number) => {
   const t = clamp(value);
   return t * t * (3 - 2 * t);
 };
-export function sceneAt(progress: number) {
-  const phase = clamp(progress);
-  return {
-    phase,
-    // The first few scroll pixels let the four small portraits be read.
-    assembly: smooth((phase - 0.06) / 0.82),
-    generation: clamp(phase / 0.92) * 18,
-  };
+export function sceneAt(elapsedSeconds: number) {
+  const elapsed = Number.isFinite(elapsedSeconds)
+    ? Math.max(0, elapsedSeconds)
+    : 0;
+  const cycle = Math.floor(elapsed / LOOP_SECONDS);
+  const phase = (elapsed % LOOP_SECONDS) / LOOP_SECONDS;
+  return { phase, cycle, zoom: TILE_COUNT ** (1 - phase) };
 }
-/** Each source cell keeps its own address in a 2×2 tile of the final portrait. */
-export function cellAt(x: number, y: number, source: number, progress: number) {
-  const state = sceneAt(progress);
-  // The assembly moves from the center out; all paths share exact start/end states.
-  const distance = Math.hypot(x - 15.5, y - 17) / 23;
-  const delay = distance * 0.12 + source * 0.025;
-  const travel = smooth((state.assembly - delay) / (1 - delay));
+/** Fixed point of the chosen child tile: the next level occupies the same frame. */
+export function rootAt(size: number, anchorX: number, anchorY: number) {
   return {
-    travel,
-    targetX: x * 2 + (source % 2),
-    targetY: y * 2 + Math.floor(source / 2),
+    x: anchorX - (ANCHOR_CELL.x / (TILE_COUNT - 1)) * size,
+    y: anchorY - (ANCHOR_CELL.y / (TILE_COUNT - 1)) * size,
+    size,
   };
 }

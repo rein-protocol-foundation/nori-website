@@ -1,226 +1,542 @@
-import { useEffect, useRef, useState } from "react";
 import { SectionLabel } from "./Section";
-import "../../styles/editorial-scenes.css";
+import "../../styles/outreach-scenes.css";
 
-function NoriAvatar() {
+type IconName =
+  | "x"
+  | "home"
+  | "search"
+  | "bell"
+  | "mail"
+  | "bookmark"
+  | "profile"
+  | "more"
+  | "reply"
+  | "repost"
+  | "heart"
+  | "share"
+  | "reels"
+  | "explore"
+  | "plus"
+  | "menu"
+  | "arrow"
+  | "attach"
+  | "trash"
+  | "settings"
+  | "grid"
+  | "inbox"
+  | "clock"
+  | "send"
+  | "draft"
+  | "check";
+function Icon({ name }: { name: IconName }) {
+  const paths: Record<IconName, string> = {
+    x: "M4 3h4.5L20 21h-4.5L4 3Zm.5 18L20 3",
+    home: "m3 10 9-7 9 7v11h-6v-7H9v7H3Z",
+    search: "m21 21-5-5M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z",
+    bell: "M4 17h16l-2-3V9a6 6 0 0 0-12 0v5ZM9 21h6",
+    mail: "M3 5h18v14H3Zm0 1 9 7 9-7",
+    bookmark: "M5 3h14v18l-7-5-7 5Z",
+    profile: "M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21v-2a8 8 0 0 1 16 0v2",
+    more: "M4 12h.01M12 12h.01M20 12h.01",
+    reply: "M21 11a9 9 0 0 1-9 9H4l1-5a9 9 0 1 1 16-4Z",
+    repost: "m4 8 3-3 3 3M7 5v11h10m3 0-3 3-3-3m3 3V8H7",
+    heart: "M12 21 3 12C-3 5 7-1 12 6c5-7 15-1 9 6Z",
+    share: "M12 16V2m-5 5 5-5 5 5M4 13v8h16v-8",
+    reels: "M3 8h18M3 3h18v18H3Zm2 0 4 5m3-5 4 5m-6 4 6 3-6 3Z",
+    explore: "M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Zm-6-4-3 5-5 3 3-5Z",
+    plus: "M3 3h18v18H3Zm9 4v10m-5-5h10",
+    menu: "M3 5h18M3 12h18M3 19h18",
+    arrow: "m9 5-7 7 7 7M2 12h20",
+    attach: "m8 12 7-7a4 4 0 0 1 6 6l-9 9a6 6 0 0 1-8-8l9-9m-7 11 9-9",
+    trash: "M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7",
+    settings:
+      "m10 2 4 0 1 3 3 1 3-1 2 4-2 2v3l2 2-2 4-3-1-3 1-1 3h-4l-1-3-3-1-3 1-2-4 2-2v-3L1 9l2-4 3 1 3-1ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",
+    grid: "M4 4h2v2H4Zm7 0h2v2h-2Zm7 0h2v2h-2ZM4 11h2v2H4Zm7 0h2v2h-2Zm7 0h2v2h-2ZM4 18h2v2H4Zm7 0h2v2h-2Zm7 0h2v2h-2Zm7 0h2v2h-2Z",
+    inbox: "M3 4h18v16H3Zm0 10h5l2 3h4l2-3h5",
+    clock: "M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0ZM12 6v6l4 2",
+    send: "m2 3 20 9-20 9 4-9Zm4 9h16",
+    draft: "M5 2h10l5 5v15H5Zm10 0v6h5M8 13h9M8 17h7",
+    check: "m5 12 4 4L20 5",
+  };
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d={paths[name]} />
+    </svg>
+  );
+}
+function Avatar() {
   return (
     <img
-      className="channel-avatar"
+      className="outreach-avatar"
       src="/nori-head.webp"
       alt=""
-      width="42"
-      height="42"
+      width="40"
+      height="40"
       loading="lazy"
     />
   );
 }
-
-function ChannelIcon({ type }: { type: "x" | "instagram" | "mail" }) {
-  if (type === "x")
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M4 3h4.5L20 21h-4.5L4 3Zm.5 18L20 3"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.7"
-        />
-      </svg>
-    );
-  if (type === "instagram")
-    return (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect
-          x="3"
-          y="3"
-          width="18"
-          height="18"
-          rx="5"
-          stroke="currentColor"
-          strokeWidth="1.7"
-        />
-        <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.7" />
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
-      </svg>
-    );
+function SocialActions({ instagram = false }: { instagram?: boolean }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M3 6v13h18V6L12 13 3 6Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-      />
-      <path d="m3 6 9 7 9-7" stroke="#bf453a" strokeWidth="2" />
-    </svg>
+    <div
+      className={instagram ? "outreach-ig-actions" : "outreach-x-actions"}
+      aria-label="Preview of post actions"
+    >
+      {(instagram
+        ? ["heart", "reply", "send", "bookmark", "more"]
+        : ["reply", "repost", "heart", "bookmark", "share"]
+      ).map((name) => (
+        <span key={name} title={name}>
+          <Icon name={name as IconName} />
+        </span>
+      ))}
+    </div>
   );
 }
-
-function ReelStoryboard() {
-  const scene = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
-  useEffect(() => {
-    if (
-      !scene.current ||
-      matchMedia("(prefers-reduced-motion: reduce)").matches
-    )
-      return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          setActive(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.35 },
-    );
-    observer.observe(scene.current);
-    return () => observer.disconnect();
-  }, []);
-
+function XScene() {
   return (
-    <article
-      className="channel-surface channel-reel"
-      aria-labelledby="reel-title"
-    >
-      <div className="channel-toolbar">
-        <span>
-          <ChannelIcon type="instagram" />
-          Instagram
-        </span>
-        <span>Reel · Draft</span>
-      </div>
-      <div
-        className={`reel-viewport${active ? " reel-viewport-active" : ""}`}
-        ref={scene}
-      >
-        <div className="reel-byline">
-          <NoriAvatar />
-          <span>
-            Nori<span>From the workshop</span>
-          </span>
-          <span className="reel-duration">0:30</span>
-        </div>
-        <h3 id="reel-title">
-          Where should
+    <article className="outreach-scene" aria-labelledby="outreach-x-title">
+      <div className="outreach-scene-intro">
+        <span className="outreach-scene-index">01 / X</span>
+        <h3 id="outreach-x-title">
+          An invitation.
           <br />
-          an agent
-          <br />
-          <span>stop?</span>
+          Then a conversation.
         </h3>
-        <svg
-          className="reel-boundary-art"
-          viewBox="0 0 280 260"
-          fill="none"
-          aria-hidden="true"
+        <p>A post opens the question. A reply gives someone a way in.</p>
+      </div>
+      <span className="outreach-crop-label">X · Post & reply crop</span>
+      <div
+        className="outreach-app outreach-x"
+        role="group"
+        aria-label="X desktop post with navigation, an original workshop invitation, Jordan’s question, and Nori’s reply draft"
+      >
+        <aside className="outreach-x-rail" aria-hidden="true">
+          <Icon name="x" />
+          {(
+            [
+              ["home", "Home"],
+              ["search", "Explore"],
+              ["bell", "Notifications"],
+              ["mail", "Messages"],
+              ["bookmark", "Bookmarks"],
+              ["profile", "Profile"],
+              ["more", "More"],
+            ] as const
+          ).map(([icon, label]) => (
+            <div key={label}>
+              <Icon name={icon} />
+              <span>{label}</span>
+            </div>
+          ))}
+          <span className="outreach-x-post-button">Post</span>
+          <div className="outreach-x-account">
+            <Avatar />
+            <span>
+              <b>Nori</b>
+              <small>@nori</small>
+            </span>
+            <Icon name="more" />
+          </div>
+        </aside>
+        <div
+          className="outreach-x-conversation"
+          tabIndex={0}
+          role="region"
+          aria-label="X post and replies"
         >
-          <defs>
-            <pattern
-              id="reel-grid"
-              width="20"
-              height="20"
-              patternUnits="userSpaceOnUse"
-            >
-              <path d="M20 0H0v20" stroke="#c9d6c0" strokeWidth=".7" />
-            </pattern>
-          </defs>
-          <rect x="0" y="0" width="280" height="260" fill="url(#reel-grid)" />
-          <rect
-            className="reel-review-boundary"
-            x="60"
-            y="52"
-            width="160"
-            height="160"
-            rx="80"
-            stroke="#718365"
-            strokeWidth="1.3"
-            strokeDasharray="3 5"
-          />
-          <path
-            className="reel-route"
-            d="M22 228V176Q22 154 44 154H140V74Q140 34 180 34H258"
-            stroke="#274835"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            className="reel-route-accent"
-            d="M22 228V176Q22 154 44 154H140V74Q140 34 180 34H258"
-            stroke="#ee6745"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <rect
-            x="120"
-            y="132"
-            width="40"
-            height="40"
-            rx="10"
-            fill="#fbfcf6"
-            stroke="#274835"
-            strokeWidth="1.4"
-          />
-          <image
-            href="/nori-head.webp"
-            x="123"
-            y="134"
-            width="34"
-            height="34"
-          />
-          <circle
-            className="reel-review-node"
-            cx="140"
-            cy="52"
-            r="15"
-            fill="#ee6745"
-            stroke="#f7f6e9"
-            strokeWidth="5"
-          />
-          <path
-            d="M136 52h8m-4-4v8"
-            stroke="#fff8ec"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-          <circle cx="22" cy="228" r="5" fill="#274835" />
-          <circle cx="258" cy="34" r="5" fill="#274835" />
-          <path d="M150 72h66" stroke="#718365" />
-          <path d="M83 213v20h54" stroke="#718365" />
-        </svg>
-        <div className="reel-human-label">A person makes the call.</div>
-        <p className="reel-caption">
-          Clear limits.
-          <br />
-          Useful autonomy.
-        </p>
-        <div className="reel-progress" aria-hidden="true">
-          <i />
-          <i />
-          <i />
+          <div className="outreach-x-topbar">
+            <Icon name="arrow" />
+            <b>Post</b>
+            <span>Draft</span>
+          </div>
+          <div className="outreach-x-original">
+            <div className="outreach-author">
+              <Avatar />
+              <div>
+                <b>Nori</b>
+                <small>@nori</small>
+              </div>
+              <Icon name="more" />
+            </div>
+            <p>What should an AI agent be allowed to do on its own?</p>
+            <p>
+              Our next community workshop asks where a person should make the
+              call.
+            </p>
+            <p>Bring a workflow. Let’s map the decision points together.</p>
+            <div className="outreach-x-link">
+              <span>COMMUNITY WORKSHOP</span>
+              <b>Useful autonomy starts with clear limits.</b>
+              <small>Workshop brief · Discussion & contribution</small>
+            </div>
+            <SocialActions />
+          </div>
+          <div className="outreach-x-reply">
+            <span className="outreach-jordan">J</span>
+            <div>
+              <div className="outreach-reply-byline">
+                <b>Jordan</b>
+                <span>@jordan · Question</span>
+                <Icon name="more" />
+              </div>
+              <p>Can I contribute if I’m new to AI safety?</p>
+              <SocialActions />
+            </div>
+          </div>
+          <div className="outreach-x-reply outreach-x-nori-reply">
+            <Avatar />
+            <div>
+              <div className="outreach-reply-byline">
+                <b>Nori</b>
+                <span>@nori · Reply draft</span>
+                <Icon name="more" />
+              </div>
+              <small>
+                Replying to <span>@jordan</span>
+              </small>
+              <p>
+                Yes. Bring a task you know well. We’ll start with the decisions
+                that should stay with a person.
+              </p>
+              <SocialActions />
+            </div>
+          </div>
         </div>
       </div>
-      <div className="reel-storyboard">
-        <span>01 · Ask</span>
-        <span>02 · Explain</span>
-        <span>03 · Invite</span>
-      </div>
-      <p className="channel-note">
-        A short clip, built around one useful question.
-      </p>
     </article>
   );
 }
-
+function ReelArt() {
+  return (
+    <div className="outreach-reel-art">
+      <span className="outreach-reel-kicker">AUTONOMY, WITH INTENTION</span>
+      <div className="outreach-reel-question">
+        Where should
+        <br />
+        an agent
+        <br />
+        <strong>stop?</strong>
+      </div>
+      <svg
+        className="outreach-reel-diagram"
+        viewBox="0 0 280 260"
+        fill="none"
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern
+            id="outreach-reel-grid"
+            width="20"
+            height="20"
+            patternUnits="userSpaceOnUse"
+          >
+            <path d="M20 0H0v20" stroke="#c9d6c0" strokeWidth=".7" />
+          </pattern>
+        </defs>
+        <rect width="280" height="260" fill="url(#outreach-reel-grid)" />
+        <circle
+          cx="140"
+          cy="132"
+          r="80"
+          stroke="#718365"
+          strokeWidth="1.3"
+          strokeDasharray="3 5"
+        />
+        <path
+          d="M22 228V176Q22 154 44 154H140V74Q140 34 180 34H258"
+          stroke="#274835"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <path
+          d="M140 106V74Q140 34 180 34H258"
+          stroke="#ee6745"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <rect
+          x="120"
+          y="132"
+          width="40"
+          height="40"
+          rx="10"
+          fill="#fbfcf6"
+          stroke="#274835"
+          strokeWidth="1.4"
+        />
+        <image href="/nori-head.webp" x="123" y="134" width="34" height="34" />
+        <circle
+          cx="140"
+          cy="52"
+          r="15"
+          fill="#ee6745"
+          stroke="#f7f6e9"
+          strokeWidth="5"
+        />
+        <path
+          d="M136 52h8m-4-4v8"
+          stroke="#fff8ec"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+        />
+        <circle cx="22" cy="228" r="5" fill="#274835" />
+        <circle cx="258" cy="34" r="5" fill="#274835" />
+      </svg>
+      <div className="outreach-reel-message">A person makes the call.</div>
+      <div className="outreach-reel-bottom">
+        <div>
+          <Avatar />
+          <b>nori</b>
+          <span>Follow</span>
+        </div>
+        <p>Clear limits. Useful autonomy.</p>
+      </div>
+      <div className="outreach-reel-progress" />
+    </div>
+  );
+}
+function InstagramScene() {
+  return (
+    <article className="outreach-scene" aria-labelledby="outreach-reel-title">
+      <div className="outreach-scene-intro">
+        <span className="outreach-scene-index">02 / INSTAGRAM REELS</span>
+        <h3 id="outreach-reel-title">
+          One useful question.
+          <br />A different way to tell it.
+        </h3>
+        <p>
+          Make the question clear. Give people a reason to join the
+          conversation.
+        </p>
+      </div>
+      <span className="outreach-crop-label">Instagram · Reels</span>
+      <div
+        className="outreach-app outreach-instagram"
+        role="group"
+        aria-label="Instagram Reels with a workshop visual about useful autonomy and human judgment"
+      >
+        <aside className="outreach-ig-rail" aria-hidden="true">
+          <b className="outreach-ig-wordmark">Instagram</b>
+          {(
+            [
+              ["home", "Home"],
+              ["search", "Search"],
+              ["explore", "Explore"],
+              ["reels", "Reels"],
+              ["send", "Messages"],
+              ["heart", "Notifications"],
+              ["plus", "Create"],
+            ] as const
+          ).map(([icon, label]) => (
+            <div className={label === "Reels" ? "is-current" : ""} key={label}>
+              <Icon name={icon} />
+              <span>{label}</span>
+            </div>
+          ))}
+          <div>
+            <Avatar />
+            <span>Profile</span>
+          </div>
+          <div className="outreach-ig-more">
+            <Icon name="menu" />
+            <span>More</span>
+          </div>
+        </aside>
+        <div className="outreach-ig-stage">
+          <div className="outreach-ig-tabs">
+            <b>For you</b>
+            <span>Following</span>
+          </div>
+          <div className="outreach-ig-player">
+            <ReelArt />
+            <SocialActions instagram />
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+function GmailScene() {
+  return (
+    <article className="outreach-scene" aria-labelledby="outreach-mail-title">
+      <div className="outreach-scene-intro">
+        <span className="outreach-scene-index">03 / GMAIL</span>
+        <h3 id="outreach-mail-title">
+          Keep the relationship
+          <br />
+          beyond the feed.
+        </h3>
+        <p>
+          A supporter update connects the workshop, the brief, and what happens
+          next. Saved for review.
+        </p>
+      </div>
+      <span className="outreach-crop-label">Gmail · Compose crop</span>
+      <div
+        className="outreach-app outreach-gmail"
+        role="group"
+        aria-label="Gmail desktop inbox with an unsent supporter email open in a compose window; draft saved"
+      >
+        <div className="outreach-gmail-topbar">
+          <Icon name="menu" />
+          <div className="outreach-gmail-wordmark">
+            <svg viewBox="0 0 24 20" fill="none" aria-hidden="true">
+              <path d="M2 17V3l10 7L22 3v14" stroke="#4285f4" strokeWidth="4" />
+              <path d="m2 3 10 7 10-7" stroke="#ea4335" strokeWidth="4" />
+              <path d="M22 3v14" stroke="#34a853" strokeWidth="4" />
+              <path d="m2 3 3 2" stroke="#fbbc04" strokeWidth="4" />
+            </svg>
+            <span>Gmail</span>
+          </div>
+          <div className="outreach-gmail-search">
+            <Icon name="search" />
+            <span>Search mail</span>
+            <span>☷</span>
+          </div>
+          <span className="outreach-gmail-top-icons">
+            <Icon name="settings" />
+            <Icon name="grid" />
+            <Avatar />
+          </span>
+        </div>
+        <div className="outreach-gmail-main">
+          <aside className="outreach-gmail-rail" aria-hidden="true">
+            <span className="outreach-compose-button">
+              ╱ <b>Compose</b>
+            </span>
+            {(
+              [
+                ["inbox", "Inbox"],
+                ["bookmark", "Starred"],
+                ["clock", "Snoozed"],
+                ["send", "Sent"],
+                ["draft", "Drafts"],
+              ] as const
+            ).map(([icon, label]) => (
+              <div
+                key={label}
+                className={label === "Drafts" ? "is-current" : ""}
+              >
+                <Icon name={icon} />
+                <span>{label}</span>
+                {label === "Drafts" && <b>1</b>}
+              </div>
+            ))}
+            <small>
+              Labels <span>+</span>
+            </small>
+            <div>
+              <span className="outreach-label-dot" />
+              Workshop
+            </div>
+          </aside>
+          <div className="outreach-gmail-inbox">
+            <div className="outreach-inbox-toolbar">
+              <span>□　⌄　 ↻　 ⋮</span>
+              <span>1–3 of 3　 ‹　 ›</span>
+            </div>
+            <div className="outreach-inbox-tabs">
+              <b>
+                <Icon name="inbox" />
+                Primary
+              </b>
+              <span>Promotions</span>
+              <span>Social</span>
+            </div>
+            {[
+              [
+                "Maya",
+                "Workshop brief — review notes",
+                "The discussion format looks ready for review.",
+              ],
+              [
+                "Sam",
+                "Community workshop",
+                "I’ve added the questions from the contributor group.",
+              ],
+              [
+                "Draft",
+                "A workshop is a beginning.",
+                "We’re exploring where AI agents should ask a person…",
+              ],
+            ].map(([sender, subject, copy]) => (
+              <div className="outreach-inbox-row" key={sender}>
+                <span>□　☆</span>
+                <b>{sender}</b>
+                <span>
+                  <b>{subject}</b> — {copy}
+                </span>
+                <small>9:41 AM</small>
+              </div>
+            ))}
+          </div>
+          <div className="outreach-gmail-compose">
+            <div className="outreach-compose-title">
+              <b>New Message</b>
+              <span>−　⤢　×</span>
+            </div>
+            <div className="outreach-compose-field">
+              <span>To</span>
+              <b>Project supporters</b>
+              <small>Cc　Bcc</small>
+            </div>
+            <div className="outreach-compose-subject">
+              A workshop is a beginning.
+            </div>
+            <div className="outreach-compose-copy">
+              <p>Hello everyone,</p>
+              <p>
+                We’re exploring where AI agents should ask a person. Join our
+                community workshop.
+              </p>
+              <p>
+                Please review the attached brief. We’ll follow up with notes and
+                ways to contribute.
+              </p>
+              <p className="outreach-mail-signature">Nori</p>
+              <div className="outreach-mail-attachment">
+                <Icon name="draft" />
+                <span>Workshop brief.pdf</span>
+                <small>×</small>
+              </div>
+            </div>
+            <div className="outreach-compose-footer">
+              <span className="outreach-send-control">
+                Send <span>⌄</span>
+              </span>
+              <span className="outreach-format-control">A̲</span>
+              <Icon name="attach" />
+              <Icon name="share" />
+              <span className="outreach-draft-saved">
+                <Icon name="check" />
+                Draft saved
+              </span>
+              <Icon name="trash" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
 export function Communications() {
   return (
     <section
-      className="section communications-section communication-studio"
+      className="section communications-section outreach-section"
       id="communications"
       aria-labelledby="communications-title"
     >
       <div className="section-inner">
-        <div className="section-heading communication-heading">
+        <div className="section-heading outreach-heading">
           <SectionLabel number="05">
             Communications & relationships
           </SectionLabel>
@@ -233,138 +549,18 @@ export function Communications() {
             stay involved.
           </p>
         </div>
-        <div className="communication-source">
-          <span className="source-kicker">The source</span>
+        <div className="outreach-source">
+          <span>THE SOURCE</span>
           <strong>AI safety community workshop</strong>
-          <span>One question: where does human judgment belong?</span>
-          <span className="source-author">
-            <NoriAvatar />
+          <p>Where does human judgment belong?</p>
+          <span className="outreach-source-author">
+            <Avatar />
             Adapted by Nori
           </span>
         </div>
-        <div className="communication-channels">
-          <article
-            className="channel-surface channel-x"
-            aria-labelledby="x-original-title"
-          >
-            <div className="channel-toolbar">
-              <span>
-                <ChannelIcon type="x" />
-                Post & conversation
-              </span>
-              <span>Draft</span>
-            </div>
-            <div className="social-post">
-              <div className="social-author">
-                <NoriAvatar />
-                <div>
-                  <strong>Nori</strong>
-                  <span>@nori · Original post</span>
-                </div>
-                <span aria-hidden="true">···</span>
-              </div>
-              <h3 id="x-original-title">
-                What should an AI agent be allowed to do on its own?
-              </h3>
-              <p>
-                Our next community workshop starts with a practical question:
-                where should a person make the call?
-              </p>
-              <p>Bring a workflow. Let’s map the decision points together.</p>
-              <span className="social-link">Explore the workshop brief</span>
-              <div className="social-context">
-                <span>Nori’s perspective</span>
-                <p>Make authority explicit before adding autonomy.</p>
-              </div>
-            </div>
-            <div className="social-reply">
-              <div className="participant-question">
-                <span className="participant-avatar" aria-hidden="true">
-                  J
-                </span>
-                <div>
-                  <strong>Jordan</strong>
-                  <p>Can I contribute if I’m new to AI safety?</p>
-                </div>
-              </div>
-              <div className="nori-reply">
-                <NoriAvatar />
-                <div>
-                  <strong>
-                    Nori <span>Reply</span>
-                  </strong>
-                  <p>
-                    Yes. Bring a task you know well. We’ll start with the
-                    decisions that should stay with a person.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <p className="channel-note">
-              An invitation starts a conversation. A useful reply keeps it
-              going.
-            </p>
-          </article>
-          <ReelStoryboard />
-          <article
-            className="channel-surface channel-mail"
-            aria-labelledby="supporter-email-title"
-          >
-            <div className="channel-toolbar">
-              <span>
-                <ChannelIcon type="mail" />
-                Gmail
-              </span>
-              <span>Draft saved</span>
-            </div>
-            <div className="mail-compose-title">
-              New message <span aria-hidden="true">− &nbsp; ×</span>
-            </div>
-            <dl className="mail-fields">
-              <div>
-                <dt>To</dt>
-                <dd>Project supporters</dd>
-              </div>
-              <div>
-                <dt>Subject</dt>
-                <dd id="supporter-email-title">A workshop is a beginning.</dd>
-              </div>
-            </dl>
-            <div className="mail-copy">
-              <p>Hello everyone,</p>
-              <p>
-                We’re bringing the community together to explore a practical
-                part of AI safety: deciding when an agent should ask a person.
-              </p>
-              <p>
-                The workshop brief is ready for your review. It connects the
-                question, the discussion format, and ways to contribute.
-              </p>
-              <p>
-                Next, we’ll share the notes and open questions, so the work can
-                continue beyond the room.
-              </p>
-              <p className="mail-signature">
-                Nori
-                <br />
-                <span>On behalf of the project team</span>
-              </p>
-            </div>
-            <div className="mail-attachment">
-              <svg viewBox="0 0 24 28" fill="none" aria-hidden="true">
-                <path d="M3 1h12l6 6v20H3Z" stroke="currentColor" />
-                <path d="M15 1v7h6M7 14h10M7 19h10" stroke="currentColor" />
-              </svg>
-              <span>
-                <strong>Workshop brief</strong>
-                <span>Purpose · Format · Next steps</span>
-              </span>
-            </div>
-            <p className="channel-note">
-              A supporter update carries the relationship beyond the feed.
-            </p>
-          </article>
-        </div>
+        <XScene />
+        <InstagramScene />
+        <GmailScene />
       </div>
     </section>
   );

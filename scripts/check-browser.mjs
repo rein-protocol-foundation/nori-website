@@ -11,7 +11,13 @@ try {
   await mkdir("artifacts", { recursive: true });
   const address = server.httpServer.address();
   const url = `http://127.0.0.1:${address.port}`;
-  for (const file of ["browser", "landing", "badges", "badge-layout"]) {
+  for (const file of [
+    "browser",
+    "landing",
+    "continuity",
+    "badges",
+    "badge-layout",
+  ]) {
     console.log(`\nRunning ${file} checks against ${url}`);
     await new Promise((resolve, reject) => {
       const child = spawn(process.execPath, [`tests/${file}.mjs`], {
@@ -27,7 +33,7 @@ try {
   }
 } finally {
   await new Promise((resolve, reject) => {
-    server.httpServer.close((error) => error ? reject(error) : resolve());
+    server.httpServer.close((error) => (error ? reject(error) : resolve()));
     server.httpServer.closeAllConnections();
   });
 }

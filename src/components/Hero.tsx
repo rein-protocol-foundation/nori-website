@@ -28,8 +28,9 @@ export function Hero() {
             people, tools, and the work that moves your mission forward.
           </p>
           <div className="hero-actions">
-            <a className="button-primary" href={DISCORD}>
-              Meet Nori
+            <a className="button-primary community-button" href={DISCORD}>
+              <span>Meet Nori on Discord</span>
+              <small>in Rein Protocol Foundation Community</small>
             </a>
             <a className="button-secondary" href="#work">
               See Nori at work

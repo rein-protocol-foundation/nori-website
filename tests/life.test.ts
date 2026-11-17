@@ -6,7 +6,13 @@ import {
   precomputeLife,
   stepLife,
 } from "../src/scene/life";
-import { cellAt, sceneAt } from "../src/scene/choreography";
+import {
+  ANCHOR_CELL,
+  LOOP_SECONDS,
+  rootAt,
+  sceneAt,
+  TILE_COUNT,
+} from "../src/scene/choreography";
 
 test("all 512 center-neighborhood configurations obey B3/S23", () => {
   for (let bits = 0; bits < 512; bits++) {
@@ -40,31 +46,34 @@ test("dead boundaries do not wrap and seed visibly evolves", () => {
   assert.ok(seed.filter((v, i) => v !== evolved[i]).length > 500);
   assert.deepEqual(precomputeLife()[2], stepLife(evolved, LIFE_SIZE));
 });
-test("scroll choreography clamps, settles, and has no autonomous time source", () => {
+test("the camera repeats continuously on elapsed time with a constant logarithmic speed", () => {
   assert.deepEqual(sceneAt(-1), sceneAt(0));
-  assert.deepEqual(sceneAt(2), sceneAt(1));
-  assert.equal(sceneAt(0).assembly, 0);
-  assert.equal(sceneAt(1).assembly, 1);
-  assert.equal(sceneAt(1).generation, 18);
-  for (let step = 1; step <= 100; step++) {
+  assert.deepEqual(sceneAt(Number.NaN), sceneAt(0));
+  assert.equal(sceneAt(0).zoom, TILE_COUNT);
+  assert.equal(sceneAt(LOOP_SECONDS).cycle, 1);
+  assert.equal(sceneAt(LOOP_SECONDS).phase, 0);
+  const ratio = sceneAt(1).zoom / sceneAt(0).zoom;
+  for (let second = 2; second < LOOP_SECONDS; second++) {
     assert.ok(
-      sceneAt(step / 100).assembly >= sceneAt((step - 1) / 100).assembly,
+      Math.abs(sceneAt(second).zoom / sceneAt(second - 1).zoom - ratio) < 1e-10,
+    );
+  }
+  for (const seconds of [0, 1.25, 8.4, 19.99]) {
+    assert.ok(
+      Math.abs(sceneAt(seconds).zoom - sceneAt(seconds + LOOP_SECONDS).zoom) <
+        1e-10,
     );
   }
 });
-test("every source cell has a distinct final 64×64 address and a continuous path", () => {
-  const addresses = new Set<string>();
-  for (let source = 0; source < 4; source++)
-    for (let y = 0; y < 32; y++)
-      for (let x = 0; x < 32; x++) {
-        const start = cellAt(x, y, source, 0),
-          end = cellAt(x, y, source, 1);
-        assert.equal(start.travel, 0);
-        assert.equal(end.travel, 1);
-        addresses.add(`${end.targetX},${end.targetY}`);
-        const before = cellAt(x, y, source, 0.4999).travel;
-        const after = cellAt(x, y, source, 0.5001).travel;
-        assert.ok(after >= before && after - before < 0.002);
-      }
-  assert.equal(addresses.size, 64 * 64);
+test("the selected child exactly matches the next parent at the loop boundary", () => {
+  assert.ok(ANCHOR_CELL.x > 0 && ANCHOR_CELL.y > 0);
+  for (const size of [250, 315, 720, 790]) {
+    const outer = rootAt(size * TILE_COUNT, 700, 400);
+    const inner = rootAt(size, 700, 400);
+    assert.ok(Math.abs(outer.x + ANCHOR_CELL.x * size - inner.x) < 1e-8);
+    assert.ok(Math.abs(outer.y + ANCHOR_CELL.y * size - inner.y) < 1e-8);
+    const before = rootAt(size * sceneAt(LOOP_SECONDS - 0.0001).zoom, 700, 400);
+    assert.ok(Math.abs(before.x - inner.x) < 0.02);
+    assert.ok(Math.abs(before.y - inner.y) < 0.02);
+  }
 });

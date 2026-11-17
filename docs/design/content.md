@@ -14,7 +14,7 @@ Nori 公共仓库 README 当前说明许可证尚未选择。因此用 `super ag
 
 定位与使命 → 持续执行价值 → 五个职责 → Work → Finance → Community / software → Outreach → Rein → Continuity → Public code / participation。核心场景直接展开，不依赖 Tab 或折叠。
 
-Header 保留品牌、章节锚点和 GitHub 图标，不放 Discord CTA；锚点平滑滚动并尊重减少动态。Hero 主按钮 `Meet Nori` → https://discord.gg/m8qnWv9XX ，次按钮 `See Nori at work` → `#work`，不重复 Discord 入口。页尾提供代码与参与的清晰目标，不将同一 Discord 目的地包装成多个不同体验。GitHub → https://github.com/rein-protocol-foundation/nori-agent 。不创建试点申请表或虚假提交结果。
+Header 保留品牌、章节锚点和 GitHub 图标，不放 Discord CTA；锚点平滑滚动并尊重减少动态。Hero、Rein 章节及页尾主按钮统一使用 `Meet Nori on Discord` → https://discord.gg/m8qnWv9XX ，按钮第二行为 `in Rein Protocol Foundation Community`，明确这是 Rein 的社区，不是 Nori 自己的讨论社区。Hero 次按钮 `See Nori at work` → `#work`。GitHub → https://github.com/rein-protocol-foundation/nori-agent 。不创建试点申请表或虚假提交结果。
 
 ## Hero 与价值
 
@@ -22,10 +22,10 @@ Header 保留品牌、章节锚点和 GitHub 图标，不放 Discord CTA；锚�
 - 标题：`Your mission. Nori’s work.`
 - 说明：`One super agent, working across your organization. Nori connects people, tools, and the work that moves your mission forward.`
 - 受众：`Built for nonprofits, NGOs, and teams with a mission.`
-- 主行动：`Meet Nori`；次行动：`See Nori at work` → `#work`。
+- 主行动：`Meet Nori on Discord`，第二行 `in Rein Protocol Foundation Community`；次行动：`See Nori at work` → `#work`。
 - 价值桥段：`The ambition is yours. The follow-through is shared.`
 
-全幅滚动场景由四个小像素 Nori 拼成一个大 Nori，表达一个身份的多种体现。人为拼装与真实 Conway 演化分开说明，不宣称自然自复制或已实现递归自我改进。Hero 不插入独立工作线程主画面。
+全幅元胞场景持续自动缩远：小 Nori 组成大 Nori，再进入下一层相同构图，循环表达一个身份的多种体现。循环不依赖滚动；镜头与递归轮廓为人为编排，局部真实 Conway 演化独立进行，不宣称自然自复制或已实现递归自我改进。Hero 不插入独立工作线程主画面。
 
 ## 职责
 
@@ -59,7 +59,13 @@ Header 保留品牌、章节锚点和 GitHub 图标，不放 Discord CTA；锚�
 
 资金模型保留组织储备、项目预算、工作资金三层：储备独立保管，项目资金按用途安排，工作资金有基础设施执行的限额。Nori 不得自提限额、无限补款或绕过权限。此为 planned workflow／产品设计，不能当作已验证的资金控制。
 
-银行、链上合约、托管、保险、会计、募资与店铺服务保留为未来可探索方向，使用成熟服务；品牌出现不意味着伙伴关系或已接通。筹资可描述准备材料、跟进承诺与支持者关系，不能增加真实到账、保险覆盖或交易成果。
+金融基础设施通过三个具体工作案例解释，一处 `Planned workflows` 说明覆盖尚未接通的流程，不再逐卡罗列术语：
+
+1. **Blockchain / Safe**：为 workshop 贡献者准备 **300 USDC 津贴**。Nori 把用途、贡献者与 workshop budget 关联，生成 Safe 转账提案，等待 **2 of 3 signers**；画面不显示已经转出，不使用真实钱包地址。
+2. **Bank / ACH**：收到 **$480 场地账单**，该用途已批准预算为 **$600**。Nori 核对账单与收款对象，准备 ACH payment，交负责人审核；显示拟支出后预算余量 **$120**，明确这是 budget remaining，不是银行余额。不展示已提交或到账。
+3. **Stripe / PayPal**：**四个 $60 报名名额，共 $240**。延续 INV–014 的 Stripe invoice draft，并以按渠道归类的报名记录说明对账：Stripe 和 PayPal 的记录关联到同一活动账本，待审状态可见；草稿不能算入实际到账，也不杜撰手续费或结算金额。
+
+每个案例明确「收到什么 → Nori 做什么 → 交付什么」，使用可读的交易提案、付款审核或报名账本工件。其余托管、保险、会计、募资与店铺服务保留为未来可探索方向；品牌出现不意味着伙伴关系或已接通。
 
 ## Community / software · Feedback comes in. Better software comes out.
 
@@ -75,7 +81,7 @@ Discord 使用 server／channel／member 结构，GitHub 使用 issue／PR／che
 
 ## Outreach · One project. A voice for every channel.
 
-三个不同工件：**X 原创帖与 reply、Reels 竖屏 SVG 视觉、Gmail draft**。原创说明项目，reply 回应有上下文的问题；不生成名人假回复、假背书或互动数字。Reels SVG 是页面视觉预览，不是已产出／发布的视频。Gmail 明确保留草稿状态、收件上下文和跟进意图，不暗示已经发送。
+三个不同工件：**X 原创帖与 reply、Instagram 竖屏创意、Gmail draft**。原创说明项目，reply 回应有上下文的问题；不生成名人假回复、假背书或互动数字。Instagram 展示完成度高的活动视觉，不出现 SVG preview、demo、concept 或实现技术说明；这是页面内的 sample content，不声称已发布真实视频，也不虚构音轨。Gmail 保留草稿状态，正文精简为两段，加 Nori 签名、附件与 Send 操作行；所有内容完整可见，不使用内层滚动区。
 
 同一任务可形成招募、讨论、片段和支持者沟通，避免机械复制到每个平台。真实发帖、发信、视频发布均不在本轮网站实现授权内。
 
@@ -85,11 +91,11 @@ Discord 使用 server／channel／member 结构，GitHub 使用 issue／PR／che
 
 公开使命来自 https://www.rein-protocol.org ：通过社区、开源项目与研究支持 AI agent safety，重点为 transparency、observability、policy controls；人设定边界、审阅重大决定并对结果负责。不要把 Foundation 自身使命中的 open-source projects 改写为 Nori 已获开源许可。
 
-本节采用官方 R 标志、纸色／棕黑／橙红身份，来源及 CSS 色值见 [design.md](design.md)。Rein 不作为通用示例工作区或工牌品牌。不增加实际项目历史、合作、融资、规模或效果数字，不重复编造一个跨全部章节的已完成运营案例。社区入口不意味着访问内部 Slack、资金系统或管理员 dashboard。
+本节采用官方 R 标志、纸色／棕黑／橙红身份，并原样复用 Rein 官网的建筑拼贴图。删除右侧卡片和底部 `The work of AI safety / Community / Research / Open-source projects` 分类行，精简为品牌、标题、一段使命与社区入口。来源及 CSS 色值见 [design.md](design.md)。Rein 不作为通用示例工作区或工牌品牌。不增加实际项目历史、合作、融资、规模或效果数字。社区入口不意味着访问内部 Slack、资金系统或管理员 dashboard。
 
 ## Continuity · New conversation. Same context.
 
-以 **sources → answer** 展示：过去决策、当前交接、未来承诺等可访问工件，为一个具体问题提供有出处的回答、负责人和下一步。来源与回答关联清晰，不新增抽象功能墙，不声称任意渠道自动共享全部组织记忆。所有记录为构造材料，并遵守来源权限。
+以 **新问题 → 找到来源 → 连接背景 → 准备下一步** 展示。Maya 问「What should we send our supporters next?」；Google Docs 记录 workshop 主题「when an agent should ask a person」，Slack 交接给 Sam，日历约定 December 3 更新。Nori 的回答逐条关联 01／02／03 来源，并准备 Sam’s supporter briefing。动画依次强调来源、沿连接线汇入 Nori、点亮答案引用及下一步；正文始终可读，减少动态显示完整静态结果。离屏和页面隐藏暂停。不声称任意渠道自动共享全部组织记忆。所有记录为构造材料，并遵守来源权限。
 
 ## Public code / participation
 
@@ -97,7 +103,7 @@ Discord 使用 server／channel／member 结构，GitHub 使用 issue／PR／che
 
 说明：`Build the next chapter of Nori, together. Follow the code. Join the conversation. Help shape what comes next.`
 
-提供 `Join Nori on Discord` 与 `Explore GitHub` 入口；不列无依据的伙伴 logo 墙或宣称许可证已授予。全页仅在页尾出现一次：`Product walkthroughs use sample data.`。删去每个场景重复的 illustrative／example captions，但保留 draft、pending review、planned 等真实业务状态和未来能力边界。
+提供双行 `Meet Nori on Discord / in Rein Protocol Foundation Community` 与 `Explore GitHub` 入口；不列无依据的伙伴 logo 墙或宣称许可证已授予。Footer 分为 Explore Nori、Build with us、Get in touch，提供章节导航、GitHub、Rein 官网、社区与用户确认的 **nori-contact@rein-protocol.org** 邮箱。社交账号暂未提供，按用户要求隐藏，不创建占位账号或空链接。全页仅在页尾出现一次：`Product walkthroughs use sample data.`。保留必要的 image credits、draft、pending review、planned 状态，删除重复说明。
 
 ## 来源与验证边界
 
